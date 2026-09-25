@@ -1,0 +1,34 @@
+/*
+Theme Name: Renew Group of Companies
+Theme URI: https://example.com/
+Author: Renew Group
+Description: A custom WordPress theme converted from the Renew Group static HTML design.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Text Domain: renew-group
+License: GPL-2.0-or-later
+*/
+
+/* WordPress/theme compatibility helpers. The visual design lives in assets/css/style.css. */
+.screen-reader-text {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.admin-bar .renew-nav {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .renew-nav {
+        top: 46px;
+    }
+}
