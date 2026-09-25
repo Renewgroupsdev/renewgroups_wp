@@ -88,7 +88,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           <div class="col-6 col-lg-3 stat-cell"><i
               class="bi bi-<?php echo esc_attr($s[0]); ?>"></i><span><?php echo esc_html(renew_mod($s[1])); ?></span><strong><span
                 data-count="<?php echo esc_attr(renew_mod($s[2])); ?>" <?php if ($s[2] === 'stat2_value'): ?>
-                  data-year="true" <?php endif; ?>>0</span><?php echo $s[3] ? esc_html(renew_mod($s[3])) : ''; ?><?php if ($s[2] === 'stat3_value' || $s[2] === 'stat4_value'): ?><?php echo $s[2] === 'stat3_value' ? '+' : ''; ?><?php endif; ?></strong>
+                  data-year="true" <?php endif; ?>>0</span><b><?php echo $s[3] ? esc_html(renew_mod($s[3])) : ''; ?><?php if ($s[2] === 'stat3_value' || $s[2] === 'stat4_value'): ?><?php echo $s[2] === 'stat3_value' ? '+' : ''; ?><?php endif; ?></b></strong>
           </div>
         <?php endforeach; ?>
       </div>
@@ -194,29 +194,22 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         <h2><?php echo esc_html($team_title); ?></h2>
         <p><?php echo esc_html(renew_mod('team_intro')); ?></p>
       </div>
-      <div class="swiper leadership-slider mt-5" data-aos="fade-up">
-        <div class="swiper-wrapper">
-          <?php for ($i = 1; $i <= 5; $i++):
-            $vacant = $i > 2;
-            $team_img = renew_mod("team{$i}_image");
-            $portrait_class = $team_img ? '' : ($vacant ? 'empty' : 'ph'); ?>
-            <div class="swiper-slide">
-              <article class="person <?php echo $vacant ? 'vacant' : ''; ?>">
-                <div class="portrait <?php echo $portrait_class; ?>">
-                  <?php if ($team_img): ?>
-                    <img src="<?php echo esc_url(wp_get_attachment_image_url($team_img, 'large')); ?>" alt="<?php echo esc_attr(renew_mod("team{$i}_name")); ?>">
-                  <?php endif; ?>
-                </div>
-                <h3><?php echo esc_html(renew_mod("team{$i}_name")); ?></h3>
-                <p class="role"><?php echo esc_html(renew_mod("team{$i}_role")); ?></p>
-                <p class="bio"><?php echo esc_html(renew_mod("team{$i}_bio")); ?></p>
-              </article>
+      <div class="leadership-grid mt-5" data-aos="fade-up">
+        <?php for ($i = 1; $i <= 5; $i++):
+          $vacant = $i > 2;
+          $team_img = renew_mod("team{$i}_image");
+          $portrait_class = $team_img ? '' : ($vacant ? 'empty' : 'ph'); ?>
+          <article class="person <?php echo $portrait_class; ?>">
+            <div class="portrait <?php echo $portrait_class; ?>">
+              <?php if ($team_img): ?>
+                <img src="<?php echo esc_url(wp_get_attachment_image_url($team_img, 'large')); ?>" alt="<?php echo esc_attr(renew_mod("team{$i}_name")); ?>">
+              <?php endif; ?>
             </div>
-          <?php endfor; ?>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+            <h3><?php echo esc_html(renew_mod("team{$i}_name")); ?></h3>
+            <p class="role"><?php echo esc_html(renew_mod("team{$i}_role")); ?></p>
+            <p class="bio"><?php echo esc_html(renew_mod("team{$i}_bio")); ?></p>
+          </article>
+        <?php endfor; ?>
       </div>
     </div>
   </section>

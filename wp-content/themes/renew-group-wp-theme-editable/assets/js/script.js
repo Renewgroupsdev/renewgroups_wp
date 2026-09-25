@@ -95,22 +95,6 @@ $(function () {
   $(window).on('scroll', animateCounters);
   animateCounters();
 
-  // Touch-friendly leadership carousel
-  new Swiper('.leadership-slider', {
-    loop: true,
-    speed: 700,
-    grabCursor: true,
-    spaceBetween: 22,
-    slidesPerView: 1,
-    breakpoints: {
-      768: { slidesPerView: 2 },
-      1100: { slidesPerView: 3 }
-    },
-    autoplay: { delay: 4200, disableOnInteraction: false },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-  });
-
   // Lightweight pointer tilt for desktop; touch devices remain native
   if (window.matchMedia('(pointer:fine)').matches) {
     $('.tilt-card').on('mousemove', function (e) {
