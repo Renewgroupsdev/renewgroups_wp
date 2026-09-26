@@ -355,8 +355,45 @@ function renew_homepage_defaults() {
         'contact_email2' => 'info@zelorainfotech.com',
         'contact_email3' => 'admissions@rivaninstitute.com',
         'contact_email4' => 'info@marsbuilders.com',
+        'footer_copy' => 'A group of four independent businesses — clinic care, software, construction and beauty training — built to serve standards of trust and follow-through.',
+        'footer_col2_title' => 'Quick Links',
+        'footer_col2_menu' => 0,
+        'footer_col3_title' => 'Our Businesses',
+        'footer_col3_menu' => 0,
+        'footer_col4_title' => 'Contact',
+        'footer_phone' => '9150668660',
+        'footer_email' => 'renewgroup@example.com',
+        'footer_location' => 'Tamil Nadu, India',
+        'footer_copyright' => '© ' . gmdate('Y') . ' Renew Group of Companies. All rights reserved.',
+        'footer_tagline' => 'One family. Four missions.',
+        'social_facebook' => 'https://facebook.com/',
+        'social_instagram' => 'https://instagram.com/',
+        'social_linkedin' => 'https://linkedin.com/',
+        'social_twitter' => '',
+        'social_youtube' => '',
+        'social_whatsapp' => '',
     );
     return $defaults;
+}
+
+/**
+ * Renders footer menu items as plain links, matching the footer's
+ * existing markup (no <ul>/<li> wrapper).
+ */
+class Renew_Footer_Nav_Walker extends Walker_Nav_Menu {
+    public function start_lvl(&$output, $depth = 0, $args = null) {}
+    public function end_lvl(&$output, $depth = 0, $args = null) {}
+
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $attributes  = ' href="' . esc_attr($item->url) . '"';
+        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= (!empty($item->target) && $item->target === '_blank') ? ' rel="noopener"' : '';
+
+        $title = apply_filters('the_title', $item->title, $item->ID);
+        $output .= '<a' . $attributes . '>' . esc_html($title) . '</a>';
+    }
+
+    public function end_el(&$output, $item, $depth = 0, $args = null) {}
 }
 
 function renew_homepage_customizer($wp_customize) {
@@ -692,3 +729,82 @@ function renew_branding_customizer($wp_customize) {
 }
 
 add_action('customize_register', 'renew_branding_customizer');
+
+/**
+ * Footer customizer.
+ *
+ * Manage the footer's columns, social links, copyright and contact
+ * details from: Appearance -> Customize -> Footer
+ */
+function renew_footer_customizer($wp_customize) {
+    $wp_customize->add_section('renew_footer', array(
+        'title'       => __('Footer', 'renew-group'),
+        'description' => __('Manage the footer columns, social links, copyright text and contact details.', 'renew-group'),
+        'priority'    => 25,
+    ));
+
+    $defaults = renew_homepage_defaults();
+
+    // Menu choices for the column menu pickers.
+    $menu_choices = array(0 => __('— Use default column links —', 'renew-group'));
+    foreach (wp_get_nav_menus() as $menu) {
+        $menu_choices[$menu->term_id] = $menu->name;
+    }
+
+    $text_fields = array(
+        array('footer_copy', 'Footer description', $defaults['footer_copy'], 'textarea'),
+        array('footer_col2_title', 'Column 2 heading', $defaults['footer_col2_title'], 'text'),
+        array('footer_col3_title', 'Column 3 heading', $defaults['footer_col3_title'], 'text'),
+        array('footer_col4_title', 'Column 4 heading', $defaults['footer_col4_title'], 'text'),
+        array('footer_phone', 'Contact phone', $defaults['footer_phone'], 'text'),
+        array('footer_email', 'Contact email', $defaults['footer_email'], 'text'),
+        array('footer_location', 'Contact location', $defaults['footer_location'], 'text'),
+        array('footer_copyright', 'Copyright text', $defaults['footer_copyright'], 'text'),
+        array('footer_tagline', 'Tagline', $defaults['footer_tagline'], 'text'),
+        array('social_facebook', 'Facebook URL', $defaults['social_facebook'], 'url'),
+        array('social_instagram', 'Instagram URL', $defaults['social_instagram'], 'url'),
+        array('social_linkedin', 'LinkedIn URL', $defaults['social_linkedin'], 'url'),
+        array('social_twitter', 'Twitter / X URL', $defaults['social_twitter'], 'url'),
+        array('social_youtube', 'YouTube URL', $defaults['social_youtube'], 'url'),
+        array('social_whatsapp', 'WhatsApp URL', $defaults['social_whatsapp'], 'url'),
+    );
+
+    foreach ($text_fields as $field) {
+        list($key, $label, $default, $type) = $field;
+        $sanitize = ($type === 'textarea')
+            ? 'sanitize_textarea_field'
+            : (($type === 'url') ? 'esc_url_raw' : 'sanitize_text_field');
+
+        $wp_customize->add_setting('renew_' . $key, array(
+            'default'           => $default,
+            'sanitize_callback' => $sanitize,
+            'transport'         => 'refresh',
+        ));
+        $wp_customize->add_control('renew_' . $key, array(
+            'label'   => __($label, 'renew-group'),
+            'section' => 'renew_footer',
+            'type'    => $type,
+        ));
+    }
+
+    $menu_fields = array(
+        array('footer_col2_menu', 'Column 2 menu'),
+        array('footer_col3_menu', 'Column 3 menu'),
+    );
+
+    foreach ($menu_fields as $field) {
+        list($key, $label) = $field;
+        $wp_customize->add_setting('renew_' . $key, array(
+            'default'           => 0,
+            'sanitize_callback' => 'absint',
+            'transport'         => 'refresh',
+        ));
+        $wp_customize->add_control('renew_' . $key, array(
+            'label'   => __($label, 'renew-group'),
+            'section' => 'renew_footer',
+            'type'    => 'select',
+            'choices' => $menu_choices,
+        ));
+    }
+}
+add_action('customize_register', 'renew_footer_customizer');
