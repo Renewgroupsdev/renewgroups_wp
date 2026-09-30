@@ -52,22 +52,22 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <div class="center-icon"><img
                   src="<?php echo esc_url((renew_mod('orbit_group_logo') ? wp_get_attachment_image_url(renew_mod('orbit_group_logo'), 'full') : renew_asset('images/renew-group-logo.png'))); ?>"
                   alt="Renew Group logo"></div>
-              <strong>RENEW</strong><small>GROUP</small>
+              <strong><?php echo esc_html(renew_mod('orbit_center_title', 'RENEW')); ?></strong><small><?php echo esc_html(renew_mod('orbit_center_sub', 'GROUP')); ?></small>
             </div>
             <div class="business-node node-p"><span class="node-icon"><img
                   src="<?php echo esc_url((renew_mod('orbit_renewplus_logo') ? wp_get_attachment_image_url(renew_mod('orbit_renewplus_logo'), 'full') : renew_asset('images/renew-plus-hair-skin-mark.png'))); ?>"
-                  alt="Renew Plus logo"></span><strong>RENEW PLUS</strong><small>HAIR &amp; SKIN CARE</small></div>
+                  alt="<?php echo esc_attr(renew_mod('orbit_title_1', 'RENEW PLUS')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_1', 'RENEW PLUS')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_1', 'HAIR & SKIN CARE')); ?></small></div>
             <div class="business-node node-z"><span class="node-icon"><img
                   src="<?php echo esc_url((renew_mod('orbit_zelora_logo') ? wp_get_attachment_image_url(renew_mod('orbit_zelora_logo'), 'full') : renew_asset('images/zelora-logo.png'))); ?>"
-                  alt="Zelora Infotech logo"></span><strong>ZELORA</strong><small>INFOTECH</small></div>
+                  alt="<?php echo esc_attr(renew_mod('orbit_title_2', 'ZELORA')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_2', 'ZELORA')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_2', 'INFOTECH')); ?></small></div>
             <div class="business-node node-r"><span class="node-icon"><img class="orbit-rivan-logo"
                   src="<?php echo esc_url((renew_mod('orbit_rivan_logo') ? wp_get_attachment_image_url(renew_mod('orbit_rivan_logo'), 'full') : renew_asset('images/rivan-institute-mark.png'))); ?>"
-                  alt="Rivan Institute logo"></span><strong>RIVAN</strong><small>INSTITUTE OF AESTHETIC SCIENCE</small>
+                  alt="<?php echo esc_attr(renew_mod('orbit_title_3', 'RIVAN')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_3', 'RIVAN')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_3', 'INSTITUTE OF AESTHETIC SCIENCE')); ?></small>
             </div>
             <div class="business-node node-m"><span class="node-icon"><img class="orbit-mars-logo"
                   src="<?php echo esc_url((renew_mod('orbit_mars_logo') ? wp_get_attachment_image_url(renew_mod('orbit_mars_logo'), 'full') : renew_asset('images/mars-builders-mark.png'))); ?>"
-                  alt="The New Mars Properties logo"></span><strong>THE NEW MARS</strong><small>PROPERTIES</small></div>
-            <div class="orbit-caption">MARS · PARENT COMPANY</div>
+                  alt="<?php echo esc_attr(renew_mod('orbit_title_4', 'THE NEW MARS')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_4', 'THE NEW MARS')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_4', 'PROPERTIES')); ?></small></div>
+            <div class="orbit-caption"><?php echo esc_html(renew_mod('orbit_caption', 'MARS · PARENT COMPANY')); ?></div>
           </div>
         </div>
       </div>

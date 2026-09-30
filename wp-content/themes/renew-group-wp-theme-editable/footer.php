@@ -2,7 +2,7 @@
 <footer class="footer">
   <div class="container">
     <div class="row g-4">
-      <div class="col-lg-5">
+      <div class="col-md-5">
         <?php
         $renew_footer_logo_id = get_theme_mod('renew_footer_logo');
 
@@ -24,79 +24,71 @@
         </a>
         <p class="footer-copy mt-3"><?php echo esc_html(renew_mod('footer_copy')); ?></p>
         <div class="footer-social">
-          <?php
-            $renew_social_links = array(
-                'facebook'  => array('bi-facebook', 'Facebook'),
-                'instagram' => array('bi-instagram', 'Instagram'),
-                'linkedin'  => array('bi-linkedin', 'LinkedIn'),
-                'twitter'   => array('bi-twitter-x', 'Twitter / X'),
-                'youtube'   => array('bi-youtube', 'YouTube'),
-                'whatsapp'  => array('bi-whatsapp', 'WhatsApp'),
-            );
-            foreach ($renew_social_links as $renew_social_key => $renew_social_meta) {
-                $renew_social_url = renew_mod('social_' . $renew_social_key);
-                if ($renew_social_url === '') {
-                    continue;
-                }
-                list($renew_social_icon, $renew_social_label) = $renew_social_meta;
-                ?>
-                <a href="<?php echo esc_url($renew_social_url); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($renew_social_label); ?>"><i class="bi <?php echo esc_attr($renew_social_icon); ?>"></i></a>
-                <?php
-            }
-          ?>
+          <?php renew_render_social_icons(); ?>
         </div>
       </div>
-      <div class="col-6 col-lg-2">
+      <div class="col-6 col-md-2">
         <h6><?php echo esc_html(renew_mod('footer_col2_title')); ?></h6>
         <?php
-          $renew_footer_col2_menu = (int) get_theme_mod('renew_footer_col2_menu', 0);
-          if ($renew_footer_col2_menu && wp_get_nav_menu_object($renew_footer_col2_menu)) {
-              wp_nav_menu(array(
-                  'menu'        => $renew_footer_col2_menu,
-                  'container'   => false,
-                  'items_wrap'  => '%3$s',
-                  'depth'       => 1,
-                  'fallback_cb' => false,
-                  'walker'      => new Renew_Footer_Nav_Walker(),
-              ));
-          } else {
-              ?>
-              <a href="#about">About Us</a><a href="#businesses">Our Businesses</a><a
-                href="#partner">Partner With Us</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
-              <?php
-          }
+        $renew_footer_col2_menu = (int) get_theme_mod('renew_footer_col2_menu', 0);
+        if ($renew_footer_col2_menu && wp_get_nav_menu_object($renew_footer_col2_menu)) {
+          wp_nav_menu(array(
+            'menu' => $renew_footer_col2_menu,
+            'container' => false,
+            'items_wrap' => '%3$s',
+            'depth' => 1,
+            'fallback_cb' => false,
+            'walker' => new Renew_Footer_Nav_Walker(),
+          ));
+        } else {
+          ?>
+          <a href="#about">About Us</a><a href="#businesses">Our Businesses</a><a href="#partner">Partner With Us</a><a
+            href="#faq">FAQ</a><a href="#contact">Contact</a>
+          <?php
+        }
         ?>
       </div>
-      <div class="col-6 col-lg-2">
+      <div class="col-6 col-md-2">
         <h6><?php echo esc_html(renew_mod('footer_col3_title')); ?></h6>
         <?php
-          $renew_footer_col3_menu = (int) get_theme_mod('renew_footer_col3_menu', 0);
-          if ($renew_footer_col3_menu && wp_get_nav_menu_object($renew_footer_col3_menu)) {
-              wp_nav_menu(array(
-                  'menu'        => $renew_footer_col3_menu,
-                  'container'   => false,
-                  'items_wrap'  => '%3$s',
-                  'depth'       => 1,
-                  'fallback_cb' => false,
-                  'walker'      => new Renew_Footer_Nav_Walker(),
-              ));
-          } else {
-              ?>
-              <a href="#businesses">Renew Plus</a>
-              <a href="#businesses">Zelora Infotech</a>
-              <a href="#businesses">Rivan Institute of Aesthetic Science</a>
-              <a href="#businesses">The New Mars Properties</a>
-              <?php
-          }
+        $renew_footer_col3_menu = (int) get_theme_mod('renew_footer_col3_menu', 0);
+        if ($renew_footer_col3_menu && wp_get_nav_menu_object($renew_footer_col3_menu)) {
+          wp_nav_menu(array(
+            'menu' => $renew_footer_col3_menu,
+            'container' => false,
+            'items_wrap' => '%3$s',
+            'depth' => 1,
+            'fallback_cb' => false,
+            'walker' => new Renew_Footer_Nav_Walker(),
+          ));
+        } else {
+          ?>
+          <a href="#businesses">Renew Plus</a>
+          <a href="#businesses">Zelora Infotech</a>
+          <a href="#businesses">Rivan Institute of Aesthetic Science</a>
+          <a href="#businesses">The New Mars Properties</a>
+          <?php
+        }
         ?>
       </div>
-      <div class="col-lg-3">
-        <h6><?php echo esc_html(renew_mod('footer_col4_title')); ?></h6><a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', renew_mod('footer_phone'))); ?>"><i class="bi bi-telephone me-2"></i><?php echo esc_html(renew_mod('footer_phone')); ?></a><a
-          href="mailto:<?php echo esc_attr(renew_mod('footer_email')); ?>"><i class="bi bi-envelope me-2"></i><?php echo esc_html(renew_mod('footer_email')); ?></a><a
-          href="#contact"><i class="bi bi-geo-alt me-2"></i><?php echo esc_html(renew_mod('footer_location')); ?></a>
+      <div class="col-md-3">
+        <h6><?php echo esc_html(renew_mod('footer_col4_title')); ?></h6><a
+          href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', renew_mod('footer_phone'))); ?>"><i
+            class="bi bi-telephone me-2"></i><?php echo esc_html(renew_mod('footer_phone')); ?></a><a
+          href="mailto:<?php echo esc_attr(renew_mod('footer_email')); ?>"><i
+            class="bi bi-envelope me-2"></i><?php echo esc_html(renew_mod('footer_email')); ?></a><a href="#contact"><i
+            class="bi bi-geo-alt me-2"></i><?php echo esc_html(renew_mod('footer_location')); ?></a>
       </div>
     </div>
-    <div class="footer-bottom"><span><?php echo esc_html(renew_mod('footer_copyright')); ?></span><span><?php echo esc_html(renew_mod('footer_tagline')); ?></span></div>
+    <div class="footer-bottom">
+      <span><?php echo esc_html(renew_mod('footer_copyright')); ?></span>
+      <span><?php echo esc_html(renew_mod('footer_tagline')); ?></span>
+      <span class="footer-poweredby"><a
+          href="<?php echo esc_url(renew_url('footer_poweredby_url', 'https://zelorainfotech.com/')); ?>"
+          target="_blank"
+          rel="noopener"><?php echo esc_html(renew_mod('footer_poweredby_text', 'Powered by Zelora Infotech')); ?></a>
+      </span>
+    </div>
   </div>
 </footer>
 

@@ -9,6 +9,20 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<!-- TOPBAR -->
+  <div class="renew-topbar">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="topbar-info d-flex flex-wrap gap-3">
+        <a class="topbar-item" href="#contact"><i class="bi bi-geo-alt"></i> <span><?php echo esc_html(renew_mod('footer_location')); ?></span></a>
+        <a class="topbar-item" href="mailto:<?php echo esc_attr(renew_mod('footer_email')); ?>"><i class="bi bi-envelope"></i> <span><?php echo esc_html(renew_mod('footer_email')); ?></span></a>
+        <a class="topbar-item" href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', renew_mod('footer_phone'))); ?>"><i class="bi bi-telephone"></i> <span><?php echo esc_html(renew_mod('footer_phone')); ?></span></a>
+      </div>
+      <div class="topbar-social d-flex gap-2">
+        <?php renew_render_social_icons(); ?>
+      </div>
+    </div>
+  </div>
+
 <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg fixed-top renew-nav">
     <div class="container">

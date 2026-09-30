@@ -47,12 +47,58 @@ p {
   font-size: 13px !important;
 }
 
+.renew-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1031;
+  background: var(--navy);
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 0;
+}
+
+.renew-topbar .topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  opacity: .85;
+  font-size: 12px;
+  transition: opacity .2s;
+}
+
+.renew-topbar .topbar-item:hover {
+  opacity: 1;
+}
+
+.renew-topbar .topbar-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: 12px;
+  opacity: .9;
+  transition: .2s;
+}
+
+.renew-topbar .topbar-social a:hover {
+  background: var(--teal);
+  opacity: 1;
+}
+
 .renew-nav {
   background: rgba(255, 252, 242, .92);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(64, 61, 57, .12);
   transition: .3s;
   top: unset !important;
+  z-index: 1030;
 }
 
 .renew-nav.scrolled {
@@ -599,7 +645,10 @@ p {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: 6px
+  margin: 6px;
+  background: #fff;
+  overflow: hidden;
+  transition: transform .35s
 }
 
 .center-icon i {
@@ -612,6 +661,10 @@ p {
   height: 38px;
   object-fit: contain;
   display: block
+}
+
+.orbit-center:hover .center-icon {
+  transform: scale(2.2)
 }
 
 .orbit-center strong {
@@ -670,7 +723,12 @@ p {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  display: block
+  display: block;
+  transition: transform .35s
+}
+
+.business-node:hover .node-icon img {
+  transform: scale(2.25)
 }
 
 .orbit-rivan-logo {
@@ -720,25 +778,25 @@ p {
   initial-value: 0px
 }
 
-.node-z {
+.node-p {
   left: 3%;
   top: 24%;
   animation-delay: -1.2s;
 }
 
-.node-r {
+.node-z {
   right: 3%;
   top: 24%;
   animation-delay: -3.3s
 }
 
-.node-m {
+.node-r {
   right: 16%;
   bottom: 7%;
   animation-delay: -5.4s
 }
 
-.node-p {
+.node-m {
   left: 16%;
   bottom: 7%;
   animation-delay: -4.7s
@@ -1163,6 +1221,8 @@ p {
   height: 34px;
   object-fit: contain;
   margin-bottom: 6px;
+  background: #fff;
+  border-radius: 25%;
 }
 
 .map-root small {
@@ -1860,6 +1920,17 @@ p {
   font-size: 12px
 }
 
+.footer-poweredby a {
+  color: #626b83;
+  text-decoration: none;
+  transition: color .25s;
+  margin: 0 !important;
+}
+
+.footer-poweredby a:hover {
+  color: var(--teal)
+}
+
 .back-top {
   position: fixed;
   right: 22px;
@@ -1900,6 +1971,15 @@ p {
 
   .leadership-grid {
     grid-template-columns: repeat(3, 1fr)
+  }
+
+  .renew-topbar {
+    font-size: 11px;
+    padding: 6px 0;
+  }
+
+  .renew-topbar .topbar-item {
+    font-size: 11px;
   }
 
   .renew-nav .navbar-toggler {
@@ -1968,11 +2048,11 @@ p {
     height: 470px
   }
 
-  .node-z {
+  .node-p {
     left: 0
   }
 
-  .node-r {
+  .node-z {
     right: 0
   }
 
@@ -1992,7 +2072,15 @@ p {
   .navbar-brand {
     width: 20%;
   }
-  
+
+  .renew-topbar .topbar-item span {
+    display: none;
+  }
+
+  .renew-topbar .topbar-social {
+    display: none;
+  }
+
   .stats-strip::before,
   .stats-strip::after {
     display: none
@@ -2101,24 +2189,24 @@ p {
     height: 95px
   }
 
-  .node-z {
+  .node-p {
     left: 4%;
     top: 15%
   }
 
-  .node-r {
+  .node-z {
     right: 4%;
     top: 15%
   }
 
-  .node-p {
-    left: 12%;
-    right: auto;
+  .node-r {
+    right: 12%;
     bottom: 8%
   }
 
   .node-m {
-    right: 12%;
+    left: 12%;
+    right: auto;
     bottom: 8%
   }
 

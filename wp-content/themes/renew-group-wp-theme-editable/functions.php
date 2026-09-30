@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.1');
+define('RENEW_THEME_VERSION', '1.0.2');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
@@ -204,6 +204,39 @@ function renew_url($key, $default = '#') {
     return esc_url($default);
 }
 
+/**
+ * Social network keys, icon classes and labels shared by the topbar and footer.
+ */
+function renew_social_links() {
+    return array(
+        'facebook'  => array('bi-facebook', 'Facebook'),
+        'instagram' => array('bi-instagram', 'Instagram'),
+        'linkedin'  => array('bi-linkedin', 'LinkedIn'),
+        'twitter'   => array('bi-twitter-x', 'Twitter / X'),
+        'youtube'   => array('bi-youtube', 'YouTube'),
+        'whatsapp'  => array('bi-whatsapp', 'WhatsApp'),
+    );
+}
+
+/**
+ * Echo the configured social icon links, skipping any without a URL set.
+ */
+function renew_render_social_icons() {
+    foreach (renew_social_links() as $key => $meta) {
+        $url = renew_mod('social_' . $key);
+        if ($url === '') {
+            continue;
+        }
+        list($icon, $label) = $meta;
+        printf(
+            '<a href="%s" target="_blank" rel="noopener" aria-label="%s"><i class="bi %s"></i></a>',
+            esc_url($url),
+            esc_attr($label),
+            esc_attr($icon)
+        );
+    }
+}
+
 function renew_homepage_defaults() {
     static $defaults = null;
     if ($defaults !== null) { return $defaults; }
@@ -240,6 +273,17 @@ function renew_homepage_defaults() {
         'orbit_zelora_logo' => '',
         'orbit_rivan_logo' => '',
         'orbit_mars_logo' => '',
+        'orbit_center_title' => 'RENEW',
+        'orbit_center_sub' => 'GROUP',
+        'orbit_title_1' => 'RENEW PLUS',
+        'orbit_sub_1' => 'HAIR & SKIN CARE',
+        'orbit_title_2' => 'ZELORA',
+        'orbit_sub_2' => 'INFOTECH',
+        'orbit_title_3' => 'RIVAN',
+        'orbit_sub_3' => 'INSTITUTE OF AESTHETIC SCIENCE',
+        'orbit_title_4' => 'THE NEW MARS',
+        'orbit_sub_4' => 'PROPERTIES',
+        'orbit_caption' => 'MARS · PARENT COMPANY',
         'stat1_value' => '4',
         'stat1_label' => 'Businesses in our group',
         'stat2_value' => '2000',
@@ -366,6 +410,8 @@ function renew_homepage_defaults() {
         'footer_location' => 'Tamil Nadu, India',
         'footer_copyright' => '© ' . gmdate('Y') . ' Renew Group of Companies. All rights reserved.',
         'footer_tagline' => 'One family. Four missions.',
+        'footer_poweredby_text' => 'Powered by Zelora Infotech',
+        'footer_poweredby_url' => 'https://zelorainfotech.com/',
         'social_facebook' => 'https://facebook.com/',
         'social_instagram' => 'https://instagram.com/',
         'social_linkedin' => 'https://linkedin.com/',
@@ -448,10 +494,21 @@ function renew_homepage_customizer($wp_customize) {
             array('hero_note3', 'Note 3', 'Serving clients, students and patients across South India and beyond', 'text'),
             array('hero_year', 'Established year', '2000', 'text'),
             array('orbit_group_logo', 'Orbit center logo', '', 'image'),
-            array('orbit_renewplus_logo', 'Renew Plus orbit logo', '', 'image'),
-            array('orbit_zelora_logo', 'Zelora orbit logo', '', 'image'),
-            array('orbit_rivan_logo', 'Rivan orbit logo', '', 'image'),
-            array('orbit_mars_logo', 'Mars orbit logo', '', 'image'),
+            array('orbit_center_title', 'Orbit center title', 'RENEW', 'text'),
+            array('orbit_center_sub', 'Orbit center subtitle', 'GROUP', 'text'),
+            array('orbit_renewplus_logo', 'Orbit logo 1', '', 'image'),
+            array('orbit_title_1', 'Orbit title 1', 'RENEW PLUS', 'text'),
+            array('orbit_sub_1', 'Orbit subtitle 1', 'HAIR & SKIN CARE', 'text'),
+            array('orbit_zelora_logo', 'Orbit logo 2', '', 'image'),
+            array('orbit_title_2', 'Orbit title 2', 'ZELORA', 'text'),
+            array('orbit_sub_2', 'Orbit subtitle 2', 'INFOTECH', 'text'),
+            array('orbit_rivan_logo', 'Orbit logo 3', '', 'image'),
+            array('orbit_title_3', 'Orbit title 3', 'RIVAN', 'text'),
+            array('orbit_sub_3', 'Orbit subtitle 3', 'INSTITUTE OF AESTHETIC SCIENCE', 'text'),
+            array('orbit_mars_logo', 'Orbit logo 4', '', 'image'),
+            array('orbit_title_4', 'Orbit title 4', 'THE NEW MARS', 'text'),
+            array('orbit_sub_4', 'Orbit subtitle 4', 'PROPERTIES', 'text'),
+            array('orbit_caption', 'Orbit caption', 'MARS · PARENT COMPANY', 'text'),
         ),
         'stats' => array(
             array('stat1_value', 'Businesses value', '4', 'text'),
@@ -761,6 +818,8 @@ function renew_footer_customizer($wp_customize) {
         array('footer_location', 'Contact location', $defaults['footer_location'], 'text'),
         array('footer_copyright', 'Copyright text', $defaults['footer_copyright'], 'text'),
         array('footer_tagline', 'Tagline', $defaults['footer_tagline'], 'text'),
+        array('footer_poweredby_text', 'Powered by text', $defaults['footer_poweredby_text'], 'text'),
+        array('footer_poweredby_url', 'Powered by URL', $defaults['footer_poweredby_url'], 'url'),
         array('social_facebook', 'Facebook URL', $defaults['social_facebook'], 'url'),
         array('social_instagram', 'Instagram URL', $defaults['social_instagram'], 'url'),
         array('social_linkedin', 'LinkedIn URL', $defaults['social_linkedin'], 'url'),
