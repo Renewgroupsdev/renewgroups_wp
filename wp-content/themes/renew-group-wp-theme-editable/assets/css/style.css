@@ -1887,7 +1887,7 @@ p {
   color: #8e97ad;
   font-size: 12px;
   margin: 9px 0;
-  transition: .2s
+  transition: .2s;
 }
 
 .footer a:not(.navbar-brand):hover {
