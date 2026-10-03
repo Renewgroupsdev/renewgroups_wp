@@ -74,66 +74,7 @@ function renew_enqueue_admin_editor_style() {
 }
 add_action('admin_init', 'renew_enqueue_admin_editor_style');
 
-/**
- * Handle both contact and partnership enquiries.
- * Uses WordPress' configured wp_mail() transport.
- */
-function renew_handle_enquiry() {
-    check_ajax_referer('renew_enquiry_nonce', 'nonce');
-
-    $type = isset($_POST['form_type']) ? sanitize_key(wp_unslash($_POST['form_type'])) : 'contact';
-    $name = isset($_POST['name']) ? sanitize_text_field(wp_unslash($_POST['name'])) : '';
-    $phone = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
-    $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
-    $business = isset($_POST['business']) ? sanitize_text_field(wp_unslash($_POST['business'])) : '';
-    $message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
-
-    if ($name === '' || $phone === '') {
-        wp_send_json_error(array('message' => 'Please enter your name and phone number.'), 422);
-    }
-
-    $digits = preg_replace('/\D+/', '', $phone);
-    if (!preg_match('/^(?:91)?[6-9][0-9]{9}$/', $digits)) {
-        wp_send_json_error(array('message' => 'Please enter a valid Indian mobile number.'), 422);
-    }
-
-    if ($email !== '' && !is_email($email)) {
-        wp_send_json_error(array('message' => 'Please enter a valid email address.'), 422);
-    }
-
-    $admin_email = get_option('admin_email');
-    $subject = ($type === 'partner')
-        ? 'New Renew Group partnership enquiry'
-        : 'New Renew Group website enquiry';
-
-    $body  = "Name: {$name}\n";
-    $body .= "Phone: {$phone}\n";
-    $body .= "Email: " . ($email ?: 'Not provided') . "\n";
-    $body .= "Business: " . ($business ?: 'Not specified') . "\n";
-    $body .= "Message: " . ($message ?: 'Not provided') . "\n";
-    $body .= "\nSubmitted from: " . home_url('/') . "\n";
-
-    $headers = array('Content-Type: text/plain; charset=UTF-8');
-    if ($email) {
-        $headers[] = 'Reply-To: ' . $email;
-    }
-
-    $sent = wp_mail($admin_email, $subject, $body, $headers);
-
-    if (!$sent) {
-        wp_send_json_error(array(
-            'message' => 'Your enquiry could not be sent right now. Please contact us by phone or email.'
-        ), 500);
-    }
-
-    wp_send_json_success(array(
-        'message' => ($type === 'partner')
-            ? 'Thank you. Your partnership enquiry has been sent to the Renew Group team.'
-            : 'Thank you. Your enquiry has been sent to the Renew Group team.'
-    ));
-}
-add_action('wp_ajax_renew_submit_enquiry', 'renew_handle_enquiry');
-add_action('wp_ajax_nopriv_renew_submit_enquiry', 'renew_handle_enquiry');
+require_once get_template_directory() . '/inc/enquiries.php';
 
 /**
  * Add a useful fallback title if WordPress has no site tagline.

@@ -83,7 +83,8 @@ $(function () {
   $('#partnerEnquiryModal').on('show.bs.modal', function (event) {
     const partner = $(event.relatedTarget).data('partner');
     const $modal = $(this);
-    $modal.find('[name="business"]').val(partner);
+    $modal.find('[name="partner_brand"]').val(partner || '');
+    $modal.find('[name="business"]').val($(event.relatedTarget).data('business') || 'Partner Enquiry');
     $modal.find('.modal-title').text(`Partner with ${partner}`);
     $modal.find('.partner-enquiry-intro').text(`Share your interest in partnering with ${partner}.`);
     $modal.find('#partnerFormMessage').text('');
@@ -160,6 +161,12 @@ $(function () {
       if (response.success) {
         $msg.removeClass('is-error').text(response.data.message);
         form.reset();
+        if (formType === 'partner') {
+          setTimeout(function () {
+            bootstrap.Modal.getOrCreateInstance(document.getElementById('partnerEnquiryModal')).hide();
+            $msg.text('');
+          }, 1500);
+        }
       } else {
         $msg.addClass('is-error').text(response.data && response.data.message ? response.data.message : 'Something went wrong.');
       }

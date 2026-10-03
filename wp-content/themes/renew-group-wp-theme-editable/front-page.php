@@ -42,6 +42,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         </div>
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
           <div class="group-orbit-wrap">
+            <div class="orbit-galaxy" aria-hidden="true"><span class="galaxy-arms"></span><span class="galaxy-core"></span><span class="galaxy-stars"></span><span class="galaxy-stars stars-2"></span></div>
             <div class="orbit orbit-a"></div>
             <div class="orbit orbit-b"></div>
             <div class="orbit-dot dot-1"></div>
@@ -206,7 +207,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <?php endif; ?>
             </div>
             <h3><?php echo esc_html(renew_mod("team{$i}_name")); ?></h3>
-            <p class="role"><?php echo esc_html(renew_mod("team{$i}_role")); ?></p>
+            <p class="role"><?php echo implode('<br>', array_map('esc_html', array_map('trim', preg_split('/\s*[|&]\s*/', renew_mod("team{$i}_role"))))); ?></p>
             <p class="bio"><?php echo esc_html(renew_mod("team{$i}_bio")); ?></p>
           </article>
         <?php endfor; ?>
@@ -246,6 +247,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <?php if ($is_modal): ?>
                   data-bs-toggle="modal"
                   data-partner="<?php echo esc_attr(renew_mod("partner{$i}_brand")); ?>"
+                  data-business="<?php echo esc_attr(array('Renew Plus Hair And Skin Care', 'Zelora Infotech', 'Rivan Institute of Aesthetic Science')[$i - 1]); ?>"
               <?php endif; ?>><?php echo esc_html(renew_mod("partner{$i}_button")); ?>
                 <i class="bi bi-arrow-up-right"></i></a>
             </div>

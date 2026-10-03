@@ -107,7 +107,7 @@
       <form id="partnerEnquiryForm" class="partner-enquiry-form">
         <div class="modal-body">
           <p class="partner-enquiry-intro">Tell us a little about your partnership interest.</p>
-          <input type="hidden" name="business">
+          <input type="hidden" name="partner_brand">
           <div class="row g-3">
             <div class="col-md-6"><label>Full Name</label><input type="text" class="form-control" name="name"
                 placeholder="Your name" minlength="2" maxlength="80" autocomplete="name" required></div>
@@ -116,6 +116,14 @@
                 maxlength="14" autocomplete="tel" required></div>
             <div class="col-12"><label>Email <small>(optional)</small></label><input type="email" class="form-control"
                 name="email" placeholder="you@example.com" maxlength="120" autocomplete="email"></div>
+            <div class="col-12"><label>Enquiry type</label><select class="form-select" name="business" required>
+                <option value="Partner Enquiry" selected>Partner Enquiry</option>
+                <option>Renew Plus Hair And Skin Care</option>
+                <option>The New Mars Properties</option>
+                <option>Zelora Infotech</option>
+                <option>Rivan Institute of Aesthetic Science</option>
+                <option>Group Partnership</option>
+              </select></div>
             <div class="col-12"><label>Message <small>(optional)</small></label><textarea class="form-control"
                 name="message" rows="4" maxlength="1000"
                 placeholder="Tell us about your location or partnership plans"></textarea></div>

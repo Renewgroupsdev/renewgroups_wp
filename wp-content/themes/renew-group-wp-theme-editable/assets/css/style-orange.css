@@ -2519,3 +2519,98 @@ body {
     color: #eb5e28 !important;
   }
 } */
+/* Galaxy effect behind the hero orbit */
+.orbit-galaxy {
+  position: absolute;
+  inset: -6%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(circle, #000 38%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 38%, transparent 70%)
+}
+
+.orbit-galaxy .galaxy-arms,
+.orbit-galaxy .galaxy-core,
+.orbit-galaxy .galaxy-stars {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%
+}
+
+.orbit-galaxy .galaxy-arms {
+  background: conic-gradient(from 0deg,
+      transparent 0deg, var(--teal) 40deg, transparent 100deg,
+      transparent 180deg, var(--pink, var(--teal2)) 220deg, transparent 280deg, transparent 360deg);
+  opacity: .22;
+  filter: blur(26px);
+  animation: galaxy-spin 60s linear infinite
+}
+
+.orbit-galaxy .galaxy-core {
+  inset: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .9) 0, var(--teal) 28%, transparent 70%);
+  opacity: .28;
+  filter: blur(22px);
+  animation: galaxy-pulse 6s ease-in-out infinite alternate
+}
+
+.orbit-galaxy .galaxy-stars {
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 22%, var(--teal2) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 30% 80%, var(--teal) 50%, transparent 52%),
+    radial-gradient(1.8px 1.8px at 48% 10%, var(--teal) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 62% 62%, var(--teal2) 50%, transparent 52%),
+    radial-gradient(1.6px 1.6px at 78% 28%, var(--teal) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 88% 74%, var(--teal2) 50%, transparent 52%),
+    radial-gradient(1.4px 1.4px at 20% 52%, var(--teal) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 70% 90%, var(--teal2) 50%, transparent 52%),
+    radial-gradient(1.4px 1.4px at 92% 46%, var(--teal) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 40% 40%, var(--teal2) 50%, transparent 52%);
+  animation: galaxy-spin 140s linear infinite reverse, galaxy-twinkle 3.2s ease-in-out infinite alternate
+}
+
+.orbit-galaxy .galaxy-stars.stars-2 {
+  background-size: 70% 70%;
+  background-position: 30% 20%;
+  animation-duration: 200s, 4.6s;
+  animation-delay: 0s, -1.8s;
+  opacity: .8
+}
+
+@keyframes galaxy-spin {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes galaxy-pulse {
+  from {
+    opacity: .18;
+    transform: scale(.92)
+  }
+
+  to {
+    opacity: .36;
+    transform: scale(1.08)
+  }
+}
+
+@keyframes galaxy-twinkle {
+  from {
+    opacity: .35
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .orbit-galaxy .galaxy-arms,
+  .orbit-galaxy .galaxy-core,
+  .orbit-galaxy .galaxy-stars {
+    animation: none
+  }
+}
