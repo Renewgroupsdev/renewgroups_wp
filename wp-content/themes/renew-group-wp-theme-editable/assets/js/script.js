@@ -1,26 +1,27 @@
 $(function () {
   AOS.init({ once: true, duration: 750, easing: 'ease-out-cubic', offset: 60 });
 
+  // Default theme is RGC (style-rgc.css); style.css is the secondary (purple) theme.
   const themeStorageKey = 'renew-theme';
   const $themeStylesheet = $('#renew-design-css');
   const $themeToggle = $('#themeToggle');
 
   function setTheme(theme) {
-    const isOrange = theme === 'orange';
-    $themeStylesheet.attr('href', RenewTheme.assetUrl + 'css/' + (isOrange ? 'style-orange.css' : 'style.css'));
+    const isOrange = theme !== 'purple'; // true = default RGC theme
+    $themeStylesheet.attr('href', RenewTheme.assetUrl + 'css/' + (isOrange ? 'style-rgc.css' : 'style.css'));
     $themeToggle.attr({
       'aria-pressed': isOrange,
-      'aria-label': isOrange ? 'Switch to purple theme' : 'Switch to orange theme'
+      'aria-label': isOrange ? 'Switch to purple theme' : 'Switch to default theme'
     });
-    $themeToggle.find('span').text(isOrange ? 'Purple' : 'Orange');
+    $themeToggle.find('span').text(isOrange ? 'Purple' : 'Default');
     $themeToggle.toggleClass('is-orange', isOrange);
-    localStorage.setItem(themeStorageKey, isOrange ? 'orange' : 'purple');
+    localStorage.setItem(themeStorageKey, isOrange ? 'rgc' : 'purple');
   }
 
-  setTheme(localStorage.getItem(themeStorageKey) || 'purple');
+  setTheme(localStorage.getItem(themeStorageKey) || 'rgc');
 
   $themeToggle.on('click', function () {
-    setTheme($(this).hasClass('is-orange') ? 'purple' : 'orange');
+    setTheme($(this).hasClass('is-orange') ? 'purple' : 'rgc');
   });
 
   function getTopbarHeight() {

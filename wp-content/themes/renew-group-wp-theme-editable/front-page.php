@@ -42,6 +42,20 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         </div>
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
           <div class="group-orbit-wrap">
+            <div class="orbit-sky" aria-hidden="true">
+              <span class="sky-star" style="--x:8%;--y:18%;--s:12px;--d:2.6s;--t:-.4s"></span>
+              <span class="sky-star" style="--x:88%;--y:12%;--s:16px;--d:3.4s;--t:-1.6s"></span>
+              <span class="sky-star" style="--x:94%;--y:58%;--s:10px;--d:2.2s;--t:-.9s"></span>
+              <span class="sky-star" style="--x:76%;--y:90%;--s:14px;--d:3s;--t:-2.1s"></span>
+              <span class="sky-star" style="--x:20%;--y:86%;--s:11px;--d:2.8s;--t:-1.2s"></span>
+              <span class="sky-star" style="--x:3%;--y:56%;--s:15px;--d:3.6s;--t:-2.7s"></span>
+              <span class="sky-star" style="--x:50%;--y:2%;--s:9px;--d:2.4s;--t:-.2s"></span>
+              <span class="sky-star" style="--x:36%;--y:96%;--s:9px;--d:3.2s;--t:-1.9s"></span>
+              <span class="sky-star" style="--x:66%;--y:8%;--s:7px;--d:2s;--t:-1s"></span>
+              <span class="sky-star" style="--x:14%;--y:38%;--s:7px;--d:2.9s;--t:-2.4s"></span>
+              <span class="sky-star" style="--x:84%;--y:36%;--s:8px;--d:2.5s;--t:-.7s"></span>
+              <span class="sky-star" style="--x:58%;--y:97%;--s:7px;--d:3.1s;--t:-1.4s"></span>
+            </div>
             <div class="orbit-galaxy" aria-hidden="true"><span class="galaxy-arms"></span><span class="galaxy-core"></span><span class="galaxy-stars"></span><span class="galaxy-stars stars-2"></span></div>
             <div class="orbit orbit-a"></div>
             <div class="orbit orbit-b"></div>
@@ -68,7 +82,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
             <div class="business-node node-m"><span class="node-icon"><img class="orbit-mars-logo"
                   src="<?php echo esc_url((renew_mod('orbit_mars_logo') ? wp_get_attachment_image_url(renew_mod('orbit_mars_logo'), 'full') : renew_asset('images/mars-builders-mark.png'))); ?>"
                   alt="<?php echo esc_attr(renew_mod('orbit_title_4', 'THE NEW MARS')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_4', 'THE NEW MARS')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_4', 'PROPERTIES')); ?></small></div>
-            <div class="orbit-caption"><?php echo esc_html(renew_mod('orbit_caption', 'MARS · PARENT COMPANY')); ?></div>
+            <div class="orbit-caption"><?php echo esc_html(renew_mod('orbit_caption', 'RENEW GROUP · PARENT COMPANY')); ?></div>
           </div>
         </div>
       </div>

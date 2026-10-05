@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.2');
+define('RENEW_THEME_VERSION', '1.0.17');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
@@ -44,7 +44,8 @@ function renew_enqueue_assets() {
     wp_enqueue_style('renew-aos', renew_asset('css/aos.css'), array(), '2.3.4');
     wp_enqueue_style('renew-swiper', renew_asset('css/swiper-bundle.min.css'), array(), '11');
     wp_enqueue_style('renew-fonts', renew_asset('css/fonts.css'), array(), RENEW_THEME_VERSION);
-    wp_enqueue_style('renew-design', renew_asset('css/style.css'), array('renew-bootstrap', 'renew-fonts'), RENEW_THEME_VERSION);
+    // Default: style-rgc.css. Alternates: style-teal.css, style-orange.css, style.css (Customizer > Theme Style).
+    wp_enqueue_style('renew-design', renew_asset('css/style-rgc.css'), array('renew-bootstrap', 'renew-fonts'), RENEW_THEME_VERSION);
     // wp_enqueue_style('renew-theme', get_stylesheet_uri(), array('renew-design'), RENEW_THEME_VERSION);
 
     // Local JavaScript libraries.

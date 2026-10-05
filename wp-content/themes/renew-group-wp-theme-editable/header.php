@@ -60,10 +60,10 @@
             <a class="btn btn-brand btn-sm px-4" href="<?php echo esc_url(renew_url('nav_contact_url', '#contact')); ?>">Contact Us <i
                 class="bi bi-arrow-up-right ms-1"></i></a>
           </li>
-          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false"
-              aria-label="Switch to orange theme">
-              <i class="bi bi-palette2" aria-hidden="true"></i><span>Orange</span>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0" hidden style="display: none;">
+            <button class="theme-toggle is-orange" id="themeToggle" type="button" aria-pressed="true"
+              aria-label="Switch to purple theme">
+              <i class="bi bi-palette2" aria-hidden="true"></i><span>Purple</span>
             </button>
           </li>
         </ul>
