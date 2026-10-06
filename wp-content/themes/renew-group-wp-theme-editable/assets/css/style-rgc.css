@@ -191,7 +191,6 @@ p {
   align-items: center;
   gap: 8px;
   font-size: 10px;
-  letter-spacing: .2em;
   font-weight: 800;
   margin-bottom: 1rem;
 }
@@ -703,14 +702,7 @@ p {
   padding: 55px 0 20px;
 }
 
-.footer-brand {
-  width: 30%;
-  display: block;
-}
-
 .footer-group-logo {
-  width: 100%;
-  height: auto;
   object-fit: contain;
 }
 
@@ -1879,17 +1871,8 @@ body .partner-enquiry-modal .modal-title {
 }
 
 .business-card .biz-logo {
-  height: 74px;
-  margin: 14px 0 6px;
   display: grid;
   place-items: center;
-}
-
-.business-card .biz-logo img {
-  max-height: 64px;
-  max-width: 120px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 14px rgba(255, 255, 255, .15));
 }
 
 .business-card .card-top {
@@ -2180,7 +2163,6 @@ body .renew-nav .btn-brand {
 
 .hero-section .eyebrow {
   font-size: 10.5px;
-  letter-spacing: .24em;
 }
 
 .hero-section h1 {
@@ -2399,7 +2381,6 @@ body .hero-section h1 em {
 .footer-brand {
   background: #fff;
   border-radius: 12px;
-  padding: 6px 12px;
   box-shadow: 0 6px 22px rgba(0, 0, 0, .35);
 }
 
@@ -2449,7 +2430,6 @@ body .hero-section h1 em {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
   padding: 10px;
   border-radius: 24px;
 }
@@ -2956,7 +2936,6 @@ body .hero-section h1 em {
 }
 
 .hero-visual .hv-img {
-  animation: none;
   filter: contrast(1.06) saturate(1.08);
   image-rendering: -webkit-optimize-contrast;
 }
@@ -2990,7 +2969,6 @@ body .hero-section h1 em {
 
 .ao-tile img {
   max-width: 70%;
-  max-height: 58px;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .18));
 }
 
@@ -3015,7 +2993,8 @@ body .hero-section h1 em {
   gap: 6px;
 }
 
-/* Business cards: logos on a white plate so dark marks (Renew Plus) stay visible */
+/*Business cards: logos on a white plate so dark marks (Renew Plus) stay visible*/
+
 .business-card .biz-logo {
   width: 92px;
   height: 92px;
@@ -3027,8 +3006,6 @@ body .hero-section h1 em {
 }
 
 .business-card .biz-logo img {
-  max-width: 62px;
-  max-height: 58px;
   filter: none;
 }
 
@@ -3045,14 +3022,14 @@ body .hero-section h1 em {
   object-fit: contain;
 }
 
-/* the default Mars mark image is cropped through its lettering; hide the cut-off strip */
 img[src*="mars-builders-mark"] {
   clip-path: inset(0 0 14% 0);
 }
 
-/* =========================================================
+/*=========================================================
    HERO IMAGE: entrance, bobbing, expanding rings, sparkles
-========================================================= */
+=========================================================*/
+
 .hero-visual .hv-img {
   animation: hv-enter 1.4s cubic-bezier(.2, .8, .2, 1) both, hv-bob 6.5s ease-in-out 1.4s infinite alternate;
 }
@@ -3095,18 +3072,34 @@ img[src*="mars-builders-mark"] {
 }
 
 @keyframes hv-enter {
-  from { opacity: 0; transform: scale(.9) translateY(24px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: scale(.9) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hv-bob {
-  from { transform: translateY(-8px); }
-  to { transform: translateY(8px); }
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(8px);
+  }
 }
 
 @keyframes hv-ripple {
-  0% { opacity: .7; transform: translate(-50%, -50%) scale(.45); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.7); }
+  0% {
+    opacity: .7;
+    transform: translate(-50%, -50%) scale(.45);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.7);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3122,9 +3115,10 @@ img[src*="mars-builders-mark"] {
   }
 }
 
-/* =========================================================
+/*=========================================================
    LOGO ALIGNMENT (nav + footer) across screen sizes
-========================================================= */
+=========================================================*/
+
 .renew-nav .container {
   align-items: center;
 }
@@ -3212,9 +3206,10 @@ img[src*="mars-builders-mark"] {
   }
 }
 
-/* =========================================================
+/*=========================================================
    EYEBROW TAGS: per-letter wave
-========================================================= */
+=========================================================*/
+
 .eyebrow .wv {
   display: inline-block;
   white-space: pre;
@@ -3223,8 +3218,16 @@ img[src*="mars-builders-mark"] {
 }
 
 @keyframes eyebrow-wave {
-  0%, 60%, 100% { transform: translateY(0); color: inherit; }
-  30% { transform: translateY(-4px); color: #fff3d1; }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    color: inherit;
+  }
+  30% {
+    transform: translateY(-4px);
+    color: #fff3d1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3233,7 +3236,8 @@ img[src*="mars-builders-mark"] {
   }
 }
 
-/* letters must not inherit the decorative line styling of the first <span> */
+/*letters must not inherit the decorative line styling of the first <span>*/
+
 body .eyebrow .wv {
   width: auto;
   height: auto;
@@ -3241,9 +3245,10 @@ body .eyebrow .wv {
   color: inherit;
 }
 
-/* =========================================================
+/*=========================================================
    HEADING LETTER WAVE (plays once when the heading scrolls into view)
-========================================================= */
+=========================================================*/
+
 .has-wave .wd {
   display: inline-block;
   white-space: nowrap;
@@ -3253,27 +3258,66 @@ body .eyebrow .wv {
   display: inline-block;
 }
 
-.has-wave.is-waving .hw {
-  animation: heading-wave .9s cubic-bezier(.3, .7, .3, 1) both;
-  animation-delay: calc(var(--i) * 32ms);
-}
+/*gradient text cannot clip through per-letter boxes, so letters inside <em> use solid gold*/
 
-/* gradient text cannot clip through per-letter boxes, so letters inside <em> use solid gold */
 .has-wave em {
   background: none;
   -webkit-text-fill-color: currentColor;
   color: #e6c98b !important;
 }
 
-@keyframes heading-wave {
-  0% { transform: translateY(0); }
-  35% { transform: translateY(-14px); color: #fff3d1; }
-  70% { transform: translateY(4px); }
-  100% { transform: translateY(0); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .has-wave.is-waving .hw {
     animation: none;
   }
+}
+
+/*Why Us cards: equal height, content top-aligned*/
+
+.value-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value-card p {
+  margin-bottom: 0;
+}
+
+/*Eyebrow tags: no extra tracking between letters*/
+
+body .eyebrow,
+body .hero-section .eyebrow {
+  letter-spacing: 0;
+}
+
+/*Heading wave: clearly letter by letter (slower stagger, shorter hop per letter)*/
+
+.has-wave.is-waving .hw {
+  animation: heading-wave .7s ease-in-out both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+@keyframes heading-wave {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-10px) scale(1.12);
+    color: #fff3d1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Eyebrow letters are flex items: remove the flex gap so letters sit together, keep the gap after the line */
+body .eyebrow {
+  gap: 0;
+}
+
+body .eyebrow > span:not(.wv) {
+  flex: none;
+  margin-right: 8px;
 }

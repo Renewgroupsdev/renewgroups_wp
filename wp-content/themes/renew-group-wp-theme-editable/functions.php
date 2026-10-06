@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.39');
+define('RENEW_THEME_VERSION', '1.0.44');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
