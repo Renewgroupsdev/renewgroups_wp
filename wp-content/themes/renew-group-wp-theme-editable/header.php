@@ -10,19 +10,31 @@
 <?php wp_body_open(); ?>
 
 <!-- TOPBAR -->
+<?php if (renew_mod('topbar_show', '1') === '1'):
+  $tb_location = renew_mod('topbar_location') ?: renew_mod('footer_location');
+  $tb_email    = renew_mod('topbar_email') ?: renew_mod('footer_email');
+  $tb_phone    = renew_mod('topbar_phone') ?: renew_mod('footer_phone'); ?>
   <div class="renew-topbar">
     <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
       <div class="topbar-info d-flex flex-wrap gap-3">
-        <a class="topbar-item" href="#contact"><i class="bi bi-geo-alt"></i> <span><?php echo esc_html(renew_mod('footer_location')); ?></span></a>
-        <a class="topbar-item" href="mailto:<?php echo esc_attr(renew_mod('footer_email')); ?>"><i class="bi bi-envelope"></i> <span><?php echo esc_html(renew_mod('footer_email')); ?></span></a>
-        <a class="topbar-item" href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', renew_mod('footer_phone'))); ?>"><i class="bi bi-telephone"></i> <span><?php echo esc_html(renew_mod('footer_phone')); ?></span></a>
+        <?php if ($tb_location): ?>
+        <a class="topbar-item" href="#contact"><i class="bi bi-geo-alt"></i> <span><?php echo esc_html($tb_location); ?></span></a>
+        <?php endif; ?>
+        <?php if ($tb_email): ?>
+        <a class="topbar-item" href="mailto:<?php echo esc_attr($tb_email); ?>"><i class="bi bi-envelope"></i> <span><?php echo esc_html($tb_email); ?></span></a>
+        <?php endif; ?>
+        <?php if ($tb_phone): ?>
+        <a class="topbar-item" href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $tb_phone)); ?>"><i class="bi bi-telephone"></i> <span><?php echo esc_html($tb_phone); ?></span></a>
+        <?php endif; ?>
       </div>
+      <?php if (renew_mod('topbar_social', '1') === '1'): ?>
       <div class="topbar-social d-flex gap-2">
         <?php renew_render_social_icons(); ?>
       </div>
+      <?php endif; ?>
     </div>
   </div>
-
+<?php endif; ?>
 <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg fixed-top renew-nav">
     <div class="container">
@@ -57,8 +69,7 @@
           <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(renew_url('nav_partner_url', '#partner')); ?>">Partner With Us</a></li>
           <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(renew_url('nav_faq_url', '#faq')); ?>">FAQ</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-brand btn-sm px-4" href="<?php echo esc_url(renew_url('nav_contact_url', '#contact')); ?>">Contact Us <i
-                class="bi bi-arrow-up-right ms-1"></i></a>
+            <a class="btn btn-brand btn-sm px-4" href="<?php echo esc_url(renew_url('nav_contact_url', '#contact')); ?>">Get in Touch <i class="bi bi-arrow-right ms-1"></i></a>
           </li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0" hidden style="display: none;">
             <button class="theme-toggle is-orange" id="themeToggle" type="button" aria-pressed="true"

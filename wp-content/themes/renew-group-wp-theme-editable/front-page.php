@@ -15,9 +15,6 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
 <main id="primary" class="site-main">
 
   <header id="home" class="hero-section parallax-section">
-    <div class="hero-grid"></div>
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
     <div class="container position-relative">
       <div class="row align-items-center hero-row py-5">
         <div class="col-lg-6 pt-5" data-aos="fade-right" data-aos-duration="900">
@@ -32,7 +29,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               class="btn btn-brand btn-lg"><?php echo esc_html(renew_mod('hero_primary', 'Explore Our Businesses')); ?>
               <i class="bi bi-arrow-down-right ms-2"></i></a>
             <a href="<?php echo esc_url(renew_url('hero_secondary_url', '#contact')); ?>"
-              class="btn btn-outline-brand btn-lg"><?php echo esc_html(renew_mod('hero_secondary', 'Talk to Us')); ?></a>
+              class="btn btn-outline-brand btn-lg"><i class="bi bi-play-circle me-2"></i><?php echo esc_html(renew_mod('hero_secondary', 'Talk to Us')); ?></a>
           </div>
           <div class="hero-notes mt-4">
             <div><i class="bi bi-check2-circle"></i> <?php echo esc_html(renew_mod('hero_note1')); ?></div>
@@ -41,74 +38,39 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           </div>
         </div>
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
-          <div class="group-orbit-wrap">
-            <div class="orbit-sky" aria-hidden="true">
-              <span class="sky-star" style="--x:8%;--y:18%;--s:12px;--d:2.6s;--t:-.4s"></span>
-              <span class="sky-star" style="--x:88%;--y:12%;--s:16px;--d:3.4s;--t:-1.6s"></span>
-              <span class="sky-star" style="--x:94%;--y:58%;--s:10px;--d:2.2s;--t:-.9s"></span>
-              <span class="sky-star" style="--x:76%;--y:90%;--s:14px;--d:3s;--t:-2.1s"></span>
-              <span class="sky-star" style="--x:20%;--y:86%;--s:11px;--d:2.8s;--t:-1.2s"></span>
-              <span class="sky-star" style="--x:3%;--y:56%;--s:15px;--d:3.6s;--t:-2.7s"></span>
-              <span class="sky-star" style="--x:50%;--y:2%;--s:9px;--d:2.4s;--t:-.2s"></span>
-              <span class="sky-star" style="--x:36%;--y:96%;--s:9px;--d:3.2s;--t:-1.9s"></span>
-              <span class="sky-star" style="--x:66%;--y:8%;--s:7px;--d:2s;--t:-1s"></span>
-              <span class="sky-star" style="--x:14%;--y:38%;--s:7px;--d:2.9s;--t:-2.4s"></span>
-              <span class="sky-star" style="--x:84%;--y:36%;--s:8px;--d:2.5s;--t:-.7s"></span>
-              <span class="sky-star" style="--x:58%;--y:97%;--s:7px;--d:3.1s;--t:-1.4s"></span>
+          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/rgc_homepage-hd.webp'); ?>
+          <div class="hero-visual" style="--hv-img: url('<?php echo esc_url($hero_img); ?>')">
+            <span class="hv-glow" aria-hidden="true"></span>
+            <span class="hv-ring" aria-hidden="true"></span><span class="hv-ring hv-ring-2" aria-hidden="true"></span>
+            <b class="hv-spark" style="--x:14%;--y:22%;--s:16px;--d:2.8s;--t:-.4s" aria-hidden="true"></b><b class="hv-spark" style="--x:84%;--y:14%;--s:20px;--d:3.4s;--t:-1.6s" aria-hidden="true"></b><b class="hv-spark" style="--x:92%;--y:58%;--s:14px;--d:2.4s;--t:-.9s" aria-hidden="true"></b><b class="hv-spark" style="--x:72%;--y:92%;--s:18px;--d:3.1s;--t:-2.1s" aria-hidden="true"></b><b class="hv-spark" style="--x:8%;--y:68%;--s:14px;--d:2.9s;--t:-1.2s" aria-hidden="true"></b><b class="hv-spark" style="--x:46%;--y:4%;--s:12px;--d:3.2s;--t:-.2s" aria-hidden="true"></b>
+            <div class="hv-stage">
+              <img class="hv-img" src="<?php echo esc_url($hero_img); ?>" width="1980" height="1260" decoding="async" fetchpriority="high" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
+              <span class="hv-shine" aria-hidden="true"></span>
             </div>
-            <div class="orbit-galaxy" aria-hidden="true"><span class="galaxy-arms"></span><span class="galaxy-core"></span><span class="galaxy-stars"></span><span class="galaxy-stars stars-2"></span></div>
-            <div class="orbit orbit-a"></div>
-            <div class="orbit orbit-b"></div>
-            <div class="orbit-dot dot-1"></div>
-            <div class="orbit-dot dot-2"></div>
-            <div class="orbit-dot dot-3"></div>
-            <div class="orbit-center">
-              <span class="mini-label">EST. <?php echo esc_html(renew_mod('hero_year', '2000')); ?></span>
-              <div class="center-icon"><img
-                  src="<?php echo esc_url((renew_mod('orbit_group_logo') ? wp_get_attachment_image_url(renew_mod('orbit_group_logo'), 'full') : renew_asset('images/renew-group-logo.png'))); ?>"
-                  alt="Renew Group logo"></div>
-              <strong><?php echo esc_html(renew_mod('orbit_center_title', 'RENEW')); ?></strong><small><?php echo esc_html(renew_mod('orbit_center_sub', 'GROUP')); ?></small>
-            </div>
-            <div class="business-node node-p"><span class="node-icon"><img
-                  src="<?php echo esc_url((renew_mod('orbit_renewplus_logo') ? wp_get_attachment_image_url(renew_mod('orbit_renewplus_logo'), 'full') : renew_asset('images/renew-plus-hair-skin-mark.png'))); ?>"
-                  alt="<?php echo esc_attr(renew_mod('orbit_title_1', 'RENEW PLUS')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_1', 'RENEW PLUS')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_1', 'HAIR & SKIN CARE')); ?></small></div>
-            <div class="business-node node-z"><span class="node-icon"><img
-                  src="<?php echo esc_url((renew_mod('orbit_zelora_logo') ? wp_get_attachment_image_url(renew_mod('orbit_zelora_logo'), 'full') : renew_asset('images/zelora-logo.png'))); ?>"
-                  alt="<?php echo esc_attr(renew_mod('orbit_title_2', 'ZELORA')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_2', 'ZELORA')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_2', 'INFOTECH')); ?></small></div>
-            <div class="business-node node-r"><span class="node-icon"><img class="orbit-rivan-logo"
-                  src="<?php echo esc_url((renew_mod('orbit_rivan_logo') ? wp_get_attachment_image_url(renew_mod('orbit_rivan_logo'), 'full') : renew_asset('images/rivan-institute-mark.png'))); ?>"
-                  alt="<?php echo esc_attr(renew_mod('orbit_title_3', 'RIVAN')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_3', 'RIVAN')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_3', 'INSTITUTE OF AESTHETIC SCIENCE')); ?></small>
-            </div>
-            <div class="business-node node-m"><span class="node-icon"><img class="orbit-mars-logo"
-                  src="<?php echo esc_url((renew_mod('orbit_mars_logo') ? wp_get_attachment_image_url(renew_mod('orbit_mars_logo'), 'full') : renew_asset('images/mars-builders-mark.png'))); ?>"
-                  alt="<?php echo esc_attr(renew_mod('orbit_title_4', 'THE NEW MARS')); ?> logo"></span><strong><?php echo esc_html(renew_mod('orbit_title_4', 'THE NEW MARS')); ?></strong><small><?php echo esc_html(renew_mod('orbit_sub_4', 'PROPERTIES')); ?></small></div>
-            <div class="orbit-caption"><?php echo esc_html(renew_mod('orbit_caption', 'RENEW GROUP · PARENT COMPANY')); ?></div>
           </div>
+          <p class="hero-tagline">DIFFERENT EXPERTISES.<br>A STRONGER TOMORROW.</p>
         </div>
       </div>
-    </div>
-  </header>
-
-  <section class="stats-strip parallax-section">
-    <div class="container">
-      <div class="row g-0">
+      <div class="hero-features">
         <?php
         $stats = array(
-          array('diagram-3', 'stat1_label', 'stat1_value', ''),
-          array('calendar2-check', 'stat2_label', 'stat2_value', ''),
-          array('people', 'stat3_label', 'stat3_value', 'stat3_suffix'),
-          array('buildings', 'stat4_label', 'stat4_value', 'stat4_suffix'),
+          array('stat1_icon', 'stat1_label', 'stat1_value', ''),
+          array('stat2_icon', 'stat2_label', 'stat2_value', ''),
+          array('stat3_icon', 'stat3_label', 'stat3_value', 'stat3_suffix'),
+          array('stat4_icon', 'stat4_label', 'stat4_value', 'stat4_suffix'),
         );
         foreach ($stats as $s): ?>
-          <div class="col-6 col-lg-3 stat-cell"><i
-              class="bi bi-<?php echo esc_attr($s[0]); ?>"></i><span><?php echo esc_html(renew_mod($s[1])); ?></span><strong><span
-                data-count="<?php echo esc_attr(renew_mod($s[2])); ?>" <?php if ($s[2] === 'stat2_value'): ?>
-                  data-year="true" <?php endif; ?>>0</span><b><?php echo $s[3] ? esc_html(renew_mod($s[3])) : ''; ?><?php if ($s[2] === 'stat3_value' || $s[2] === 'stat4_value'): ?><?php echo $s[2] === 'stat3_value' ? '+' : ''; ?><?php endif; ?></b></strong>
+          <div>
+            <i class="bi bi-<?php echo esc_attr(renew_mod($s[0])); ?>"></i>
+            <span class="hf-text">
+              <strong><span data-count="<?php echo esc_attr(renew_mod($s[2])); ?>"<?php if ($s[2] === 'stat2_value'): ?> data-year="true"<?php endif; ?>>0</span><b><?php echo $s[3] ? esc_html(renew_mod($s[3])) : ''; ?></b></strong>
+              <small><?php echo esc_html(renew_mod($s[1])); ?></small>
+            </span>
           </div>
         <?php endforeach; ?>
       </div>
     </div>
-  </section>
+  </header>
 
   <section id="businesses" class="section-pad businesses-section parallax-section">
     <div class="container">
@@ -126,6 +88,11 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         for ($i = 1; $i <= 4; $i++): ?>
           <div class="col-lg-3" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($i * 50); ?>">
             <article class="business-card <?php echo esc_attr($business_classes[$i - 1]); ?> tilt-card">
+              <span class="biz-num"><?php echo esc_html(sprintf('%02d', $i)); ?> &mdash;</span>
+              <?php $biz_logo_keys = array('orbit_renewplus_logo', 'orbit_zelora_logo', 'orbit_rivan_logo', 'orbit_mars_logo');
+              $biz_logo_defaults = array('renew-plus-hair-skin-mark.png', 'zelora-logo.png', 'rivan-institute-mark.png', 'mars-builders-mark.png');
+              $biz_logo = renew_mod($biz_logo_keys[$i - 1]) ? wp_get_attachment_image_url(renew_mod($biz_logo_keys[$i - 1]), 'full') : renew_asset('images/' . $biz_logo_defaults[$i - 1]); ?>
+              <div class="biz-logo"><img src="<?php echo esc_url($biz_logo); ?>" alt="<?php echo esc_attr(renew_mod("biz{$i}_name")); ?> logo"></div>
               <div class="card-top"><span class="round-icon"><i
                     class="bi bi-<?php echo esc_attr($business_icons[$i - 1]); ?>"></i></span><span
                   class="category"><?php echo esc_html(renew_mod("biz{$i}_category")); ?></span></div>
@@ -159,22 +126,17 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               class="bi bi-arrow-right ms-2"></i></a>
         </div>
         <div class="col-lg-6" data-aos="fade-left">
-          <div class="group-map">
-            <div class="map-glow"></div>
-            <div class="map-line line-h"></div>
-            <div class="map-line line-v"></div>
-            <div class="map-node map-root"><img class="map-root-logo"
-                src="<?php echo esc_url((renew_mod('orbit_group_logo') ? wp_get_attachment_image_url(renew_mod('orbit_group_logo'), 'full') : renew_asset('images/renew-group-logo.png'))); ?>"
-                alt="Renew Group logo"><strong>RENEW</strong><small>GROUPS</small></div>
-            <div class="map-node map-z"><i class="bi bi-heart-pulse"></i><strong>RENEW PLUS</strong><small>HAIR &amp;
-                SKIN CARE</small></div>
-            <div class="map-node map-r"><i class="bi bi-cpu"></i><strong>ZELORA INFOTECH</strong><small>SOFTWARE ·
-                AI</small></div>
-            <div class="map-node map-p"><i class="bi bi-magic"></i><strong>RIVAN INSTITUTE OF AESTHETIC
-                SCIENCE</strong><small>BEAUTY TRAINING</small></div>
-            <div class="map-node map-mars"><i class="bi bi-buildings"></i><strong>THE NEW MARS
-                PROPERTIES</strong><small>BUILDERS &amp; LAND PROMOTERS</small></div>
-            <div class="map-footer">RENEW · ONE FAMILY · FOUR BRANDS</div>
+          <div class="approach-orbit" aria-hidden="false">
+            <span class="ao-galaxy" aria-hidden="true"><i class="ag-stars"></i><i class="ag-stars ag-stars-2"></i><b class="ag-star" style="--x:10%;--y:30%;--s:14px;--d:2.6s;--t:-.4s"></b><b class="ag-star" style="--x:86%;--y:18%;--s:18px;--d:3.4s;--t:-1.6s"></b><b class="ag-star" style="--x:94%;--y:62%;--s:12px;--d:2.2s;--t:-.9s"></b><b class="ag-star" style="--x:70%;--y:94%;--s:16px;--d:3s;--t:-2.1s"></b><b class="ag-star" style="--x:22%;--y:88%;--s:12px;--d:2.8s;--t:-1.2s"></b><b class="ag-star" style="--x:46%;--y:4%;--s:13px;--d:3.2s;--t:-.2s"></b><b class="ag-star" style="--x:3%;--y:58%;--s:10px;--d:2.4s;--t:-1.9s"></b></span>
+            <span class="ao-ring ao-ring-1"></span>
+            <span class="ao-ring ao-ring-2"></span>
+            <div class="ao-center"><img src="<?php echo esc_url((renew_mod('orbit_group_logo') ? wp_get_attachment_image_url(renew_mod('orbit_group_logo'), 'full') : renew_asset('images/renew-group-logo.png'))); ?>" alt="Renew Group logo"><strong>RENEW</strong><small>GROUP</small></div>
+            <div class="ao-spin">
+              <div class="ao-logo" style="--a:0deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_renewplus_logo') ? wp_get_attachment_image_url(renew_mod('orbit_renewplus_logo'), 'full') : renew_asset('images/renew-plus-hair-skin-mark.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_1', 'RENEW PLUS')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_1', 'RENEW PLUS')); ?></strong></div></div>
+              <div class="ao-logo" style="--a:90deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_zelora_logo') ? wp_get_attachment_image_url(renew_mod('orbit_zelora_logo'), 'full') : renew_asset('images/zelora-logo.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_2', 'ZELORA')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_2', 'ZELORA')); ?></strong></div></div>
+              <div class="ao-logo" style="--a:180deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_rivan_logo') ? wp_get_attachment_image_url(renew_mod('orbit_rivan_logo'), 'full') : renew_asset('images/rivan-institute-mark.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_3', 'RIVAN')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_3', 'RIVAN')); ?></strong></div></div>
+              <div class="ao-logo" style="--a:270deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_mars_logo') ? wp_get_attachment_image_url(renew_mod('orbit_mars_logo'), 'full') : renew_asset('images/mars-builders-mark.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_4', 'THE NEW MARS')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_4', 'THE NEW MARS')); ?></strong></div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -231,17 +193,22 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
 
   <section id="partner" class="section-pad partner-section parallax-section">
     <div class="container">
-      <div class="section-heading text-center" data-aos="fade-up">
+      <div class="row g-5 align-items-center partner-row">
+      <div class="col-lg-4" data-aos="fade-right">
+      <div class="section-heading partner-heading">
         <div class="eyebrow justify-content-center"><span></span> <?php echo esc_html(renew_mod('partner_eyebrow')); ?>
         </div>
         <h2><?php echo esc_html($partner_title); ?></h2>
         <p><?php echo esc_html(renew_mod('partner_intro')); ?></p>
+      <a href="#contact" class="btn btn-brand mt-3">Partnership Opportunities <i class="bi bi-arrow-right ms-2"></i></a>
       </div>
-      <div class="row g-4 mt-4">
+      </div>
+      <div class="col-lg-8">
+      <div class="row g-3 partner-cards">
         <?php $pc = array('partner-p', 'partner-z', 'partner-r');
         $pi = array('heart-pulse', 'cpu', 'magic');
         for ($i = 1; $i <= 3; $i++): ?>
-          <div class="col-lg-4" data-aos="fade-up">
+          <div class="col-md-4" data-aos="fade-up">
             <div class="partner-card <?php echo esc_attr($pc[$i - 1]); ?>">
               <div class="partner-brand"><i
                   class="bi bi-<?php echo esc_attr($pi[$i - 1]); ?>"></i><span><?php echo esc_html(renew_mod("partner{$i}_brand")); ?></span>
@@ -268,17 +235,21 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           </div>
         <?php endfor; ?>
       </div>
+      </div>
+      </div>
     </div>
   </section>
 
   <section id="faq" class="section-pad faq-section parallax-section">
     <div class="container">
-      <div class="section-heading text-center" data-aos="fade-up">
+      <div class="section-heading faq-heading" data-aos="fade-up">
         <div class="eyebrow justify-content-center"><span></span> <?php echo esc_html(renew_mod('faq_eyebrow')); ?>
         </div>
         <h2><?php echo esc_html($faq_title); ?></h2>
       </div>
-      <div class="accordion faq-accordion mx-auto mt-5" id="faqAccordion" data-aos="fade-up">
+      <div class="row g-4 mt-2 align-items-start">
+      <div class="col-lg-8">
+      <div class="accordion faq-accordion" id="faqAccordion" data-aos="fade-up">
         <?php for ($i = 1; $i <= 6; $i++): ?>
           <div class="accordion-item">
             <h2 class="accordion-header"><button class="accordion-button <?php echo $i > 1 ? 'collapsed' : ''; ?>"
@@ -289,6 +260,16 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <div class="accordion-body"><?php echo esc_html(renew_mod("faq{$i}_answer")); ?></div>
             </div>
           </div><?php endfor; ?>
+      </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-left">
+        <div class="faq-help">
+          <div class="eyebrow"><span></span> STILL HAVE QUESTIONS?</div>
+          <h3>We&rsquo;re here to help.</h3>
+          <p>Contact our team for more information.</p>
+          <a href="#contact" class="btn btn-brand">Contact Us <i class="bi bi-arrow-right ms-2"></i></a>
+        </div>
+      </div>
       </div>
     </div>
   </section>

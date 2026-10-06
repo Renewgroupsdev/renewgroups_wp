@@ -91,12 +91,100 @@ $(function () {
     $modal.find('#partnerFormMessage').text('');
   });
 
+  // Mobile menu: close when clicking/tapping outside it, or pressing Escape
+  (function () {
+    const nav = document.getElementById('mainNav');
+    if (!nav || typeof bootstrap === 'undefined') return;
+    function closeMenu() {
+      if (nav.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(nav).hide();
+    }
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('show')) return;
+      if (e.target.closest('#mainNav, .navbar-toggler')) return;
+      closeMenu();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+
+  // Eyebrow tags: split text into letters for the wave effect
+  $('.eyebrow').each(function () {
+    const $e = $(this);
+    if ($e.closest('.hero-section').length) return; // no wave on the header/hero section
+    if ($e.data('waved')) return;
+    $e.data('waved', true);
+    const label = $e.text().replace(/\s+/g, ' ').trim();
+    $e.attr('aria-label', label);
+    let i = 0;
+    this.childNodes.forEach(function (node) {
+      if (node.nodeType !== 3 || !node.textContent.trim()) return;
+      const frag = document.createDocumentFragment();
+      Array.from(node.textContent.replace(/\s+/g, ' ').trim()).forEach(function (ch) {
+        const s = document.createElement('span');
+        s.className = 'wv';
+        s.setAttribute('aria-hidden', 'true');
+        s.style.setProperty('--i', i++);
+        s.textContent = ch === ' ' ? ' ' : ch;
+        frag.appendChild(s);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  });
+
+  // Section headings: letter wave, played once when the heading scrolls into view
+  (function () {
+    const heads = document.querySelectorAll('.section-pad h2:not(.accordion-header), .contact-section h2');
+    if (!heads.length) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let idx;
+    function wrap(node) {
+      Array.from(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            const word = document.createElement('span');
+            word.className = 'wd';
+            Array.from(part).forEach(function (ch) {
+              const l = document.createElement('span');
+              l.className = 'hw';
+              l.setAttribute('aria-hidden', 'true');
+              l.style.setProperty('--i', idx++);
+              l.textContent = ch;
+              word.appendChild(l);
+            });
+            frag.appendChild(word);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1 && child.tagName !== 'BR') {
+          wrap(child);
+        }
+      });
+    }
+    heads.forEach(function (h) {
+      idx = 0;
+      h.setAttribute('aria-label', h.textContent.replace(/\s+/g, ' ').trim());
+      h.classList.add('has-wave');
+      wrap(h);
+    });
+    if (reduce) return;
+    if (!('IntersectionObserver' in window)) { heads.forEach(function (h) { h.classList.add('is-waving'); }); return; }
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-waving'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.5 });
+    heads.forEach(function (h) { io.observe(h); });
+  })();
+
   // Animated counters
   let countersDone = false;
   function animateCounters() {
     if (countersDone) return;
-    const statsTop = $('.stats-strip').offset().top - window.innerHeight + 100;
-    if ($(window).scrollTop() > statsTop) {
+    const $feat = $('.hero-features');
+    if ($feat.length && $(window).scrollTop() + window.innerHeight > $feat.offset().top + 40) {
       countersDone = true;
       $('[data-count]').each(function () {
         const $this = $(this), end = parseInt($this.data('count'), 10), suffix = $this.data('suffix') || '';

@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.17');
+define('RENEW_THEME_VERSION', '1.0.39');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
@@ -211,6 +211,7 @@ function renew_homepage_defaults() {
         'hero_note3' => 'Serving clients, students and patients across South India and beyond',
         'hero_year' => '2000',
         'orbit_group_logo' => '',
+        'hero_image' => '',
         'orbit_renewplus_logo' => '',
         'orbit_zelora_logo' => '',
         'orbit_rivan_logo' => '',
@@ -226,12 +227,16 @@ function renew_homepage_defaults() {
         'orbit_title_4' => 'THE NEW MARS',
         'orbit_sub_4' => 'PROPERTIES',
         'orbit_caption' => 'MARS · PARENT COMPANY',
+        'stat1_icon' => 'diagram-3',
+        'stat2_icon' => 'calendar2-check',
+        'stat3_icon' => 'people',
+        'stat4_icon' => 'buildings',
         'stat1_value' => '4',
         'stat1_label' => 'Businesses in our group',
         'stat2_value' => '2000',
         'stat2_label' => 'Established in',
         'stat3_value' => '25',
-        'stat3_suffix' => 'K',
+        'stat3_suffix' => 'K+',
         'stat3_label' => 'Customers reached',
         'stat4_value' => '13',
         'stat4_suffix' => '+',
@@ -347,6 +352,11 @@ function renew_homepage_defaults() {
         'footer_col3_title' => 'Our Businesses',
         'footer_col3_menu' => 0,
         'footer_col4_title' => 'Contact',
+        'topbar_show' => '1',
+        'topbar_social' => '1',
+        'topbar_location' => '',
+        'topbar_email' => '',
+        'topbar_phone' => '',
         'footer_phone' => '9150668660',
         'footer_email' => 'renewgroup@example.com',
         'footer_location' => 'Tamil Nadu, India',
@@ -394,7 +404,7 @@ function renew_homepage_customizer($wp_customize) {
     $groups = array(
         'navigation' => 'Navigation',
         'hero' => 'Hero',
-        'stats' => 'Statistics',
+        'stats' => 'Hero Features (Stats Row)',
         'businesses' => 'Businesses',
         'about' => 'About',
         'values' => 'Why Us',
@@ -435,6 +445,7 @@ function renew_homepage_customizer($wp_customize) {
             array('hero_note2', 'Note 2', 'Innovation, beauty education and clinical care — each led by domain experts', 'text'),
             array('hero_note3', 'Note 3', 'Serving clients, students and patients across South India and beyond', 'text'),
             array('hero_year', 'Established year', '2000', 'text'),
+            array('hero_image', 'Homepage hero image (right side; leave empty for the default)', '', 'image'),
             array('orbit_group_logo', 'Orbit center logo', '', 'image'),
             array('orbit_center_title', 'Orbit center title', 'RENEW', 'text'),
             array('orbit_center_sub', 'Orbit center subtitle', 'GROUP', 'text'),
@@ -453,16 +464,20 @@ function renew_homepage_customizer($wp_customize) {
             array('orbit_caption', 'Orbit caption', 'MARS · PARENT COMPANY', 'text'),
         ),
         'stats' => array(
-            array('stat1_value', 'Businesses value', '4', 'text'),
-            array('stat1_label', 'Businesses label', 'Businesses in our group', 'text'),
-            array('stat2_value', 'Established value', '2000', 'text'),
-            array('stat2_label', 'Established label', 'Established in', 'text'),
-            array('stat3_value', 'Customers value', '25', 'text'),
-            array('stat3_suffix', 'Customers suffix', 'K', 'text'),
-            array('stat3_label', 'Customers label', 'Customers reached', 'text'),
-            array('stat4_value', 'Presence value', '13', 'text'),
-            array('stat4_suffix', 'Presence suffix', '+', 'text'),
-            array('stat4_label', 'Presence label', 'Presence across South India', 'text'),
+            array('stat1_icon', 'Feature 1 icon (Bootstrap Icons name, e.g. diagram-3)', 'diagram-3', 'text'),
+            array('stat1_value', 'Feature 1 number', '4', 'text'),
+            array('stat1_label', 'Feature 1 label', 'Businesses in our group', 'text'),
+            array('stat2_icon', 'Feature 2 icon (Bootstrap Icons name, e.g. calendar2-check)', 'calendar2-check', 'text'),
+            array('stat2_value', 'Feature 2 number (year counts without commas)', '2000', 'text'),
+            array('stat2_label', 'Feature 2 label', 'Established in', 'text'),
+            array('stat3_icon', 'Feature 3 icon (Bootstrap Icons name, e.g. people)', 'people', 'text'),
+            array('stat3_value', 'Feature 3 number', '25', 'text'),
+            array('stat3_suffix', 'Feature 3 suffix (e.g. K+)', 'K+', 'text'),
+            array('stat3_label', 'Feature 3 label', 'Customers reached', 'text'),
+            array('stat4_icon', 'Feature 4 icon (Bootstrap Icons name, e.g. buildings)', 'buildings', 'text'),
+            array('stat4_value', 'Feature 4 number', '13', 'text'),
+            array('stat4_suffix', 'Feature 4 suffix (e.g. +)', '+', 'text'),
+            array('stat4_label', 'Feature 4 label', 'Presence across South India', 'text'),
         ),
         'businesses' => array(
             array('business_eyebrow', 'Eyebrow', 'OUR BUSINESSES', 'text'),
@@ -809,3 +824,40 @@ function renew_footer_customizer($wp_customize) {
     }
 }
 add_action('customize_register', 'renew_footer_customizer');
+
+/**
+ * Top bar (contact strip above the navigation)
+ * Appearance -> Customize -> Top Bar
+ */
+function renew_topbar_customizer($wp_customize) {
+    $wp_customize->add_section('renew_topbar', array(
+        'title'       => __('Top Bar', 'renew-group'),
+        'description' => __('Contact strip above the main navigation. Social icons come from Footer > social links.', 'renew-group'),
+        'priority'    => 24,
+    ));
+
+    $defaults = renew_homepage_defaults();
+    $toggle = function ($v) { return $v ? '1' : '0'; };
+
+    $controls = array(
+        array('topbar_show', 'Show top bar', 'checkbox'),
+        array('topbar_location', 'Location (empty = Footer location)', 'text'),
+        array('topbar_email', 'Email (empty = Footer email)', 'text'),
+        array('topbar_phone', 'Phone (empty = Footer phone)', 'text'),
+        array('topbar_social', 'Show social icons', 'checkbox'),
+    );
+    foreach ($controls as $c) {
+        list($key, $label, $type) = $c;
+        $wp_customize->add_setting('renew_' . $key, array(
+            'default'           => $defaults[$key],
+            'sanitize_callback' => $type === 'checkbox' ? $toggle : 'sanitize_text_field',
+            'transport'         => 'refresh',
+        ));
+        $wp_customize->add_control('renew_' . $key, array(
+            'label'   => __($label, 'renew-group'),
+            'section' => 'renew_topbar',
+            'type'    => $type,
+        ));
+    }
+}
+add_action('customize_register', 'renew_topbar_customizer');
