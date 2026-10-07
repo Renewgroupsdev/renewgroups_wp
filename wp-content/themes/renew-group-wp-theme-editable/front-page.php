@@ -84,8 +84,8 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           <div>
             <i class="bi bi-<?php echo esc_attr(renew_mod($s[0])); ?>"></i>
             <span class="hf-text">
-              <strong><span data-count="<?php echo esc_attr(renew_mod($s[2])); ?>"<?php if ($s[2] === 'stat2_value'): ?> data-year="true"<?php endif; ?>>0</span><b><?php echo $s[3] ? esc_html(renew_mod($s[3])) : ''; ?></b></strong>
               <small><?php echo esc_html(renew_mod($s[1])); ?></small>
+              <strong><span data-count="<?php echo esc_attr(renew_mod($s[2])); ?>"<?php if ($s[2] === 'stat2_value'): ?> data-year="true"<?php endif; ?>>0</span><b><?php echo $s[3] ? esc_html(renew_mod($s[3])) : ''; ?></b></strong>
             </span>
           </div>
         <?php endforeach; ?>

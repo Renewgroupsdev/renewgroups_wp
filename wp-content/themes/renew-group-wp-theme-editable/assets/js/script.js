@@ -398,3 +398,26 @@ $(function () {
   }, { threshold: 0.15 });
   io.observe(grid);
 })();
+
+// Page loader: hide once every file and image has loaded
+(function () {
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  const done = function () {
+    loader.classList.add('is-done');
+    setTimeout(function () { loader.remove(); }, 700);
+  };
+  if (document.readyState === 'complete') { setTimeout(done, 300); }
+  else { window.addEventListener('load', function () { setTimeout(done, 300); }); }
+})();
+
+// Hero connect links: zoom towards the pointer while hovering the hero
+(function () {
+  const hero = document.querySelector('.hero-section');
+  if (!hero) return;
+  hero.addEventListener('mousemove', function (e) {
+    const r = hero.getBoundingClientRect();
+    hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  });
+})();

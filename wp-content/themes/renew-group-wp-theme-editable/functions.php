@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.96');
+define('RENEW_THEME_VERSION', '1.0.104');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
@@ -354,6 +354,11 @@ function renew_homepage_defaults() {
         'footer_col3_title' => 'Our Businesses',
         'footer_col3_menu' => 0,
         'footer_col4_title' => 'Contact',
+        'loader_show' => '1',
+        'loader_text' => 'Loading',
+        'loader_bg' => '#021412',
+        'loader_accent' => '#dbb678',
+        'loader_timeout' => '8',
         'topbar_show' => '1',
         'topbar_social' => '1',
         'topbar_location' => '',
@@ -873,3 +878,50 @@ function renew_topbar_customizer($wp_customize) {
     }
 }
 add_action('customize_register', 'renew_topbar_customizer');
+
+/**
+ * Page loader
+ * Appearance -> Customize -> Page Loader
+ */
+function renew_loader_customizer($wp_customize) {
+    $wp_customize->add_section('renew_loader', array(
+        'title'       => __('Page Loader', 'renew-group'),
+        'description' => __('Loading screen shown until all files and images have loaded.', 'renew-group'),
+        'priority'    => 23,
+    ));
+
+    $defaults = renew_homepage_defaults();
+
+    $wp_customize->add_setting('renew_loader_show', array(
+        'default' => $defaults['loader_show'],
+        'sanitize_callback' => function ($v) { return $v ? '1' : '0'; },
+    ));
+    $wp_customize->add_control('renew_loader_show', array(
+        'label' => __('Show page loader', 'renew-group'), 'section' => 'renew_loader', 'type' => 'checkbox',
+    ));
+
+    $wp_customize->add_setting('renew_loader_logo', array('default' => '', 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'renew_loader_logo', array(
+        'label' => __('Loader logo (empty = site logo)', 'renew-group'), 'section' => 'renew_loader', 'mime_type' => 'image',
+    )));
+
+    $wp_customize->add_setting('renew_loader_text', array('default' => $defaults['loader_text'], 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control('renew_loader_text', array(
+        'label' => __('Loading text (empty = hidden)', 'renew-group'), 'section' => 'renew_loader', 'type' => 'text',
+    ));
+
+    foreach (array('loader_bg' => 'Background colour', 'loader_accent' => 'Ring / text colour') as $key => $label) {
+        $wp_customize->add_setting('renew_' . $key, array('default' => $defaults[$key], 'sanitize_callback' => 'sanitize_hex_color'));
+        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'renew_' . $key, array(
+            'label' => __($label, 'renew-group'), 'section' => 'renew_loader',
+        )));
+    }
+
+    $wp_customize->add_setting('renew_loader_timeout', array('default' => $defaults['loader_timeout'], 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control('renew_loader_timeout', array(
+        'label' => __('Maximum display time (seconds)', 'renew-group'), 'section' => 'renew_loader',
+        'type' => 'number', 'input_attrs' => array('min' => 1, 'max' => 30),
+    ));
+}
+add_action('customize_register', 'renew_loader_customizer');
+

@@ -8,6 +8,21 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<?php if (renew_mod('loader_show', '1') === '1'):
+  $renew_loader_id = get_theme_mod('renew_loader_logo') ?: get_theme_mod('renew_logo');
+  $renew_loader_logo = $renew_loader_id ? wp_get_attachment_image_url($renew_loader_id, 'full') : renew_asset('images/renew-group-logo.png');
+  $renew_loader_bg = sanitize_hex_color(renew_mod('loader_bg', '#021412')) ?: '#021412';
+  $renew_loader_ac = sanitize_hex_color(renew_mod('loader_accent', '#dbb678')) ?: '#dbb678';
+  $renew_loader_ms = max(1, min(30, (int) renew_mod('loader_timeout', '8'))) * 1000; ?>
+<div id="pageLoader" class="page-loader" role="status" aria-label="Loading" style="--pl-bg: <?php echo esc_attr($renew_loader_bg); ?>; --pl-accent: <?php echo esc_attr($renew_loader_ac); ?>">
+  <div class="pl-box">
+    <span class="pl-ring"></span><span class="pl-ring pl-ring-2"></span>
+    <img src="<?php echo esc_url($renew_loader_logo); ?>" alt="">
+  </div>
+  <?php if (get_theme_mod('renew_loader_text', 'Loading') !== ''): ?><p class="pl-text"><?php echo esc_html(get_theme_mod('renew_loader_text', 'Loading')); ?></p><?php endif; ?>
+</div>
+<script>setTimeout(function(){var l=document.getElementById("pageLoader");if(l)l.classList.add("is-done");},<?php echo (int) $renew_loader_ms; ?>);</script>
+<?php endif; ?>
 
 <!-- TOPBAR -->
 <?php if (renew_mod('topbar_show', '1') === '1'):
