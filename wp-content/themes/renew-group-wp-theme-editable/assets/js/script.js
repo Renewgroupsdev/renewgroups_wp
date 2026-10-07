@@ -283,3 +283,118 @@ $(function () {
     submitRenewEnquiry(this, 'partner', '#partnerFormMessage');
   });
 });
+
+// Hero: full-width animated network (connect links) behind the content
+(function () {
+  const hero = document.querySelector('.hero-section');
+  if (!hero) return;
+  const NS = 'http://www.w3.org/2000/svg', W = 1440, H = 760;
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const nodes = [];
+  const cols = 9, rows = 5;
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    nodes.push({ x: (c + .15 + rnd() * .7) * W / cols, y: (r + .15 + rnd() * .7) * H / rows });
+  }
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'hero-net');
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  svg.setAttribute('aria-hidden', 'true');
+  const lines = document.createElementNS(NS, 'g'), dots = document.createElementNS(NS, 'g');
+  lines.setAttribute('class', 'net-lines'); dots.setAttribute('class', 'net-nodes');
+  const seen = {};
+  nodes.forEach(function (a, i) {
+    nodes.map(function (b, j) { return { j: j, d: Math.hypot(a.x - b.x, a.y - b.y) }; })
+      .filter(function (o) { return o.j !== i && o.d < 260; })
+      .sort(function (p, q) { return p.d - q.d; }).slice(0, 2)
+      .forEach(function (o) {
+        const k = Math.min(i, o.j) + '-' + Math.max(i, o.j);
+        if (seen[k]) return; seen[k] = 1;
+        const p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', 'M' + a.x.toFixed(0) + ' ' + a.y.toFixed(0) + ' L' + nodes[o.j].x.toFixed(0) + ' ' + nodes[o.j].y.toFixed(0));
+        lines.appendChild(p);
+      });
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', a.x.toFixed(0)); c.setAttribute('cy', a.y.toFixed(0)); c.setAttribute('r', (2 + rnd() * 1.6).toFixed(1));
+    c.style.animationDelay = (-rnd() * 2.6).toFixed(2) + 's';
+    dots.appendChild(c);
+  });
+  svg.appendChild(lines); svg.appendChild(dots);
+  hero.insertBefore(svg, hero.firstChild);
+})();
+
+// Hero image: follows the pointer with a soft 3D tilt
+(function () {
+  const hero = document.querySelector('.hero-section');
+  const stage = document.querySelector('.hero-visual .hv-stage');
+  if (!hero || !stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let raf = 0;
+  hero.addEventListener('mousemove', function (e) {
+    const r = hero.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function () {
+      stage.style.setProperty('--tx', (x * 26).toFixed(1) + 'px');
+      stage.style.setProperty('--ty', (y * 18).toFixed(1) + 'px');
+      stage.style.setProperty('--ry', (x * 14).toFixed(1) + 'deg');
+      stage.style.setProperty('--rx', (-y * 10).toFixed(1) + 'deg');
+    });
+  });
+  hero.addEventListener('mouseleave', function () {
+    ['--tx', '--ty', '--ry', '--rx'].forEach(function (p) { stage.style.removeProperty(p); });
+  });
+})();
+
+// Leadership: connect-link network behind the cards
+(function () {
+  const sec = document.querySelector('.leadership-section');
+  if (!sec) return;
+  const NS = 'http://www.w3.org/2000/svg', W = 1440, H = 620;
+  let seed = 23;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const nodes = [];
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 10; c++) {
+    nodes.push({ x: (c + .15 + rnd() * .7) * W / 10, y: (r + .15 + rnd() * .7) * H / 4 });
+  }
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'hero-net lead-net');
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  svg.setAttribute('aria-hidden', 'true');
+  const lines = document.createElementNS(NS, 'g'), dots = document.createElementNS(NS, 'g');
+  lines.setAttribute('class', 'net-lines'); dots.setAttribute('class', 'net-nodes');
+  const seen = {};
+  nodes.forEach(function (a, i) {
+    nodes.map(function (b, j) { return { j: j, d: Math.hypot(a.x - b.x, a.y - b.y) }; })
+      .filter(function (o) { return o.j !== i && o.d < 240; })
+      .sort(function (p, q) { return p.d - q.d; }).slice(0, 2)
+      .forEach(function (o) {
+        const k = Math.min(i, o.j) + '-' + Math.max(i, o.j);
+        if (seen[k]) return; seen[k] = 1;
+        const p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', 'M' + a.x.toFixed(0) + ' ' + a.y.toFixed(0) + ' L' + nodes[o.j].x.toFixed(0) + ' ' + nodes[o.j].y.toFixed(0));
+        lines.appendChild(p);
+      });
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', a.x.toFixed(0)); c.setAttribute('cy', a.y.toFixed(0)); c.setAttribute('r', (2 + rnd() * 1.6).toFixed(1));
+    c.style.animationDelay = (-rnd() * 2.6).toFixed(2) + 's';
+    dots.appendChild(c);
+  });
+  svg.appendChild(lines); svg.appendChild(dots);
+  sec.insertBefore(svg, sec.firstChild);
+})();
+
+// Leadership cards: appear one by one when the section scrolls into view
+(function () {
+  const grid = document.querySelector('.leadership-grid');
+  if (!grid) return;
+  const cards = grid.querySelectorAll('.person');
+  cards.forEach(function (c, i) { c.style.setProperty('--n', i); });
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  grid.classList.add('stagger');
+  const io = new IntersectionObserver(function (en) {
+    if (en[0].isIntersecting) { grid.classList.add('in'); io.disconnect(); }
+  }, { threshold: 0.15 });
+  io.observe(grid);
+})();

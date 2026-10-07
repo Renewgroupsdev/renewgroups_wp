@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.44');
+define('RENEW_THEME_VERSION', '1.0.96');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
@@ -274,6 +274,8 @@ function renew_homepage_defaults() {
         'about_button' => 'What guides us',
         'values_eyebrow' => 'WHY CHOOSE US',
         'values_title' => 'What holds the group together',
+        'values_intro' => 'Across every business, we follow the same principles — the foundation that keeps us aligned and moving forward.',
+        'values_intro' => 'Across every business, we follow the same principles — the foundation that keeps us aligned and moving forward.',
         'value1_title' => 'Diversified Expertise',
         'value1_text' => 'Software, beauty training and clinical care under one group, each led by domain specialists.',
         'value2_title' => 'Family-Run Values',
@@ -483,24 +485,32 @@ function renew_homepage_customizer($wp_customize) {
             array('business_eyebrow', 'Eyebrow', 'OUR BUSINESSES', 'text'),
             array('business_title', 'Heading', 'Four brands. from One root.', 'textarea'),
             array('business_intro', 'Description', 'Each business runs with its own domain expertise, united by the Renew parent company standard of accountability, innovation and care.', 'textarea'),
+            array('biz1_image', 'Business 1 card image (optional)', '', 'image'),
+            array('biz1_image', 'Business 1 card image (optional)', '', 'image'),
             array('biz1_name', 'Business 1 name', 'Renew Plus Hair And Skin Care', 'text'),
             array('biz1_category', 'Business 1 category', 'HAIR TRANSPLANT · SKIN CARE', 'text'),
             array('biz1_description', 'Business 1 description', 'Natural-looking hair transplant, GFC and complete skin care treatments delivered with medical precision and patient care.', 'textarea'),
             array('biz1_chips', 'Business 1 tags', 'Hair Transplant,PRP,GFC,Skin Care,Laser', 'text'),
             array('biz1_link','Business 1 button','View treatments','text'),
             array('biz1_url','Business 1 URL','#contact','url'),
+            array('biz2_image', 'Business 2 card image (optional)', '', 'image'),
+            array('biz2_image', 'Business 2 card image (optional)', '', 'image'),
             array('biz2_name', 'Business 2 name', 'Zelora Infotech Private Limited', 'text'),
             array('biz2_category', 'Business 2 category', 'SOFTWARE · AI · AUTOMATION', 'text'),
             array('biz2_description', 'Business 2 description', 'ERP development, mobile apps, AI integration, business growth consulting, and practical software solutions for growing organizations.', 'textarea'),
             array('biz2_chips', 'Business 2 tags', 'ERP,Mobile Apps,AI Integration,Cloud,Automation', 'text'),
             array('biz2_link', 'Business 2 button', 'See what Zelora builds', 'text'),
             array('biz2_url','Business 2 URL','#contact','url'),
+            array('biz3_image', 'Business 3 card image (optional)', '', 'image'),
+            array('biz3_image', 'Business 3 card image (optional)', '', 'image'),
             array('biz3_name', 'Business 3 name', 'Rivan Institute of Aesthetic Science', 'text'),
             array('biz3_category', 'Business 3 category', 'BEAUTY · COSMETOLOGY · CAREERS', 'text'),
             array('biz3_description', 'Business 3 description', 'Professional beauty and cosmetology training — makeup, hairstyling, skin care and salon management — taught by industry practitioners.', 'textarea'),
             array('biz3_chips', 'Business 3 tags', 'Aesthetic Science,Clinical Training,Certification,Mentorship,Career Support', 'text'),
             array('biz3_link', 'Business 3 button', 'Explore Rivan Institute', 'text'),
             array('biz3_url','Business 3 URL','#contact','url'),
+            array('biz4_image', 'Business 4 card image (optional)', '', 'image'),
+            array('biz4_image', 'Business 4 card image (optional)', '', 'image'),
             array('biz4_name', 'Business 4 name', 'The New Mars Properties', 'text'),
             array('biz4_category', 'Business 4 category', 'BUILDERS · LAND PROMOTERS', 'text'),
             array('biz4_description', 'Business 4 description', 'Residential and commercial construction, plotted developments and land promotion shaped around reliable planning, quality execution and long-term value.', 'textarea'),
@@ -521,6 +531,8 @@ function renew_homepage_customizer($wp_customize) {
         'values' => array(
             array('values_eyebrow', 'Eyebrow', 'WHY CHOOSE US', 'text'),
             array('values_title', 'Heading', 'What holds the group together', 'text'),
+            array('values_intro', 'Description', 'Across every business, we follow the same principles — the foundation that keeps us aligned and moving forward.', 'textarea'),
+            array('values_intro', 'Description', 'Across every business, we follow the same principles — the foundation that keeps us aligned and moving forward.', 'textarea'),
             array('value1_title', 'Value 1 title', 'Diversified Expertise', 'text'),
             array('value1_text', 'Value 1 description', 'Software, beauty training and clinical care under one group, each led by domain specialists.', 'textarea'),
             array('value2_title', 'Value 2 title', 'Family-Run Values', 'text'),

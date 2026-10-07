@@ -38,17 +38,38 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           </div>
         </div>
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
-          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/rgc_homepage-hd.webp'); ?>
+          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/rgc_homepage-full.webp'); ?>
           <div class="hero-visual" style="--hv-img: url('<?php echo esc_url($hero_img); ?>')">
             <span class="hv-glow" aria-hidden="true"></span>
+            <svg class="hv-net" viewBox="0 0 700 400" preserveAspectRatio="none" aria-hidden="true">
+              <g class="net-lines">
+                <path d="M30 60 L120 30 L210 80 L300 40 L380 90"/>
+                <path d="M120 30 L140 130 L210 80"/>
+                <path d="M300 40 L330 140 L380 90"/>
+                <path d="M20 250 L110 300 L200 260 L260 340"/>
+                <path d="M110 300 L90 380"/>
+                <path d="M440 50 L520 20 L600 70 L680 30"/>
+                <path d="M520 20 L540 120 L600 70"/>
+                <path d="M600 70 L660 160 L610 240 L690 300"/>
+                <path d="M440 330 L520 370 L610 240"/>
+                <path d="M380 90 L440 50"/>
+              </g>
+              <g class="net-nodes">
+                <circle cx="30" cy="60" r="3"/><circle cx="120" cy="30" r="3.5"/><circle cx="210" cy="80" r="3"/><circle cx="300" cy="40" r="3.5"/><circle cx="380" cy="90" r="3"/>
+                <circle cx="140" cy="130" r="3"/><circle cx="330" cy="140" r="3"/><circle cx="20" cy="250" r="3"/><circle cx="110" cy="300" r="3.5"/><circle cx="200" cy="260" r="3"/>
+                <circle cx="260" cy="340" r="3"/><circle cx="440" cy="50" r="3"/><circle cx="520" cy="20" r="3.5"/><circle cx="600" cy="70" r="3.5"/><circle cx="680" cy="30" r="3"/>
+                <circle cx="660" cy="160" r="3"/><circle cx="610" cy="240" r="3.5"/><circle cx="690" cy="300" r="3"/><circle cx="520" cy="370" r="3"/><circle cx="440" cy="330" r="3"/>
+              </g>
+            </svg>
             <span class="hv-ring" aria-hidden="true"></span><span class="hv-ring hv-ring-2" aria-hidden="true"></span>
             <b class="hv-spark" style="--x:14%;--y:22%;--s:16px;--d:2.8s;--t:-.4s" aria-hidden="true"></b><b class="hv-spark" style="--x:84%;--y:14%;--s:20px;--d:3.4s;--t:-1.6s" aria-hidden="true"></b><b class="hv-spark" style="--x:92%;--y:58%;--s:14px;--d:2.4s;--t:-.9s" aria-hidden="true"></b><b class="hv-spark" style="--x:72%;--y:92%;--s:18px;--d:3.1s;--t:-2.1s" aria-hidden="true"></b><b class="hv-spark" style="--x:8%;--y:68%;--s:14px;--d:2.9s;--t:-1.2s" aria-hidden="true"></b><b class="hv-spark" style="--x:46%;--y:4%;--s:12px;--d:3.2s;--t:-.2s" aria-hidden="true"></b>
             <div class="hv-stage">
-              <img class="hv-img" src="<?php echo esc_url($hero_img); ?>" width="1980" height="1260" decoding="async" fetchpriority="high" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
+              <img class="hv-img" src="<?php echo esc_url($hero_img); ?>" width="1600" height="893" decoding="async" fetchpriority="high" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
               <span class="hv-shine" aria-hidden="true"></span>
+
             </div>
           </div>
-          <p class="hero-tagline">DIFFERENT EXPERTISES.<br>A STRONGER TOMORROW.</p>
+          <!-- <p class="hero-tagline">DIFFERENT EXPERTISES.<br>A STRONGER TOMORROW.</p> -->
         </div>
       </div>
       <div class="hero-features">
@@ -72,10 +93,10 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </header>
 
-  <section id="businesses" class="section-pad businesses-section parallax-section">
+  <section id="businesses" class="section-pad businesses-section section-light parallax-section">
     <div class="container">
-      <div class="section-heading text-center" data-aos="fade-up">
-        <div class="eyebrow justify-content-center"><span></span>
+      <div class="section-heading" data-aos="fade-up">
+        <div class="eyebrow"><span></span>
           <?php echo esc_html(renew_mod('business_eyebrow', 'OUR BUSINESSES')); ?></div>
         <h2><?php echo esc_html($business_title[0] ?? ''); ?> <em><?php echo esc_html($business_title[1] ?? ''); ?></em>
         </h2>
@@ -88,21 +109,27 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         for ($i = 1; $i <= 4; $i++): ?>
           <div class="col-lg-3" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($i * 50); ?>">
             <article class="business-card <?php echo esc_attr($business_classes[$i - 1]); ?> tilt-card">
-              <span class="biz-num"><?php echo esc_html(sprintf('%02d', $i)); ?> &mdash;</span>
-              <?php $biz_logo_keys = array('orbit_renewplus_logo', 'orbit_zelora_logo', 'orbit_rivan_logo', 'orbit_mars_logo');
-              $biz_logo_defaults = array('renew-plus-hair-skin-mark.png', 'zelora-logo.png', 'rivan-institute-mark.png', 'mars-builders-mark.png');
-              $biz_logo = renew_mod($biz_logo_keys[$i - 1]) ? wp_get_attachment_image_url(renew_mod($biz_logo_keys[$i - 1]), 'full') : renew_asset('images/' . $biz_logo_defaults[$i - 1]); ?>
-              <div class="biz-logo"><img src="<?php echo esc_url($biz_logo); ?>" alt="<?php echo esc_attr(renew_mod("biz{$i}_name")); ?> logo"></div>
-              <div class="card-top"><span class="round-icon"><i
-                    class="bi bi-<?php echo esc_attr($business_icons[$i - 1]); ?>"></i></span><span
-                  class="category"><?php echo esc_html(renew_mod("biz{$i}_category")); ?></span></div>
-              <h3><?php echo esc_html(renew_mod("biz{$i}_name")); ?></h3>
-              <p><?php echo esc_html(renew_mod("biz{$i}_description")); ?></p>
-              <div class="chips">
-                <?php foreach (explode(',', renew_mod("biz{$i}_chips")) as $chip): ?><span><?php echo esc_html(trim($chip)); ?></span><?php endforeach; ?>
+              <?php $biz_img = renew_mod("biz{$i}_image") ? wp_get_attachment_image_url(renew_mod("biz{$i}_image"), 'large') : ''; ?>
+              <div class="biz-media"<?php if ($biz_img): ?> style="background-image:url('<?php echo esc_url($biz_img); ?>')"<?php endif; ?>>
               </div>
-              <a href="<?php echo esc_url(renew_url("biz{$i}_url", '#contact')); ?>" class="text-link"><?php echo esc_html(renew_mod("biz{$i}_link")); ?> <i
-                  class="bi bi-arrow-right"></i></a>
+              <div class="biz-body">
+                <?php $biz_logo_keys = array('orbit_renewplus_logo', 'orbit_zelora_logo', 'orbit_rivan_logo', 'orbit_mars_logo');
+                $biz_logo_defaults = array('renew-plus-hair-skin-mark.png', 'zelora-logo.png', 'rivan-institute-mark.png', 'mars-builders-mark.png');
+                $biz_logo = renew_mod($biz_logo_keys[$i - 1]) ? wp_get_attachment_image_url(renew_mod($biz_logo_keys[$i - 1]), 'full') : renew_asset('images/' . $biz_logo_defaults[$i - 1]); ?>
+                <div class="biz-head">
+                  <div class="biz-logo"><img src="<?php echo esc_url($biz_logo); ?>" alt="<?php echo esc_attr(renew_mod("biz{$i}_name")); ?> logo"></div>
+                  <div class="biz-title">
+                    <h3><?php echo esc_html(renew_mod("biz{$i}_name")); ?></h3>
+                    <small class="category"><?php echo esc_html(renew_mod("biz{$i}_category")); ?></small>
+                  </div>
+                </div>
+                <p><?php echo esc_html(renew_mod("biz{$i}_description")); ?></p>
+                <div class="chips">
+                  <?php foreach (explode(',', renew_mod("biz{$i}_chips")) as $chip): ?><span><?php echo esc_html(trim($chip)); ?></span><?php endforeach; ?>
+                </div>
+                <a href="<?php echo esc_url(renew_url("biz{$i}_url", '#contact')); ?>" class="text-link"><?php echo esc_html(renew_mod("biz{$i}_link")); ?> <i
+                    class="bi bi-arrow-right"></i></a>
+              </div>
             </article>
           </div>
         <?php endfor; ?>
@@ -143,12 +170,13 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="values" class="section-pad values-section parallax-section">
+  <section id="values" class="section-pad values-section section-light parallax-section">
     <div class="container">
-      <div class="section-heading text-center" data-aos="fade-up">
-        <div class="eyebrow justify-content-center"><span></span> <?php echo esc_html(renew_mod('values_eyebrow')); ?>
+      <div class="section-heading" data-aos="fade-up">
+        <div class="eyebrow"><span></span> <?php echo esc_html(renew_mod('values_eyebrow')); ?>
         </div>
         <h2><?php echo esc_html($values_title); ?></h2>
+        <p><?php echo esc_html(renew_mod('values_intro')); ?></p>
       </div>
       <div class="row g-4 mt-4">
         <?php $vi = array('diagram-3', 'people', 'shield-check', 'graph-up-arrow');
@@ -171,7 +199,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         <h2><?php echo esc_html($team_title); ?></h2>
         <p><?php echo esc_html(renew_mod('team_intro')); ?></p>
       </div>
-      <div class="leadership-grid mt-5" data-aos="fade-up">
+      <div class="leadership-grid mt-5">
         <?php for ($i = 1; $i <= 5; $i++):
           $vacant = $i > 2;
           $team_img = renew_mod("team{$i}_image");
@@ -191,7 +219,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="partner" class="section-pad partner-section parallax-section">
+  <section id="partner" class="section-pad partner-section section-light parallax-section">
     <div class="container">
       <div class="row g-5 align-items-center partner-row">
       <div class="col-lg-4" data-aos="fade-right">
@@ -274,7 +302,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="contact" class="contact-section parallax-section">
+  <section id="contact" class="contact-section section-light parallax-section">
     <div class="container">
       <div class="row g-4 align-items-stretch">
         <div class="col-lg-5" data-aos="fade-right">

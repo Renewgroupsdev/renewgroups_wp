@@ -9,26 +9,6 @@
 
 /*Renew Group palette: Deep Forest Teal #053833, Dark Teal #032523, Emerald Teal #0C5547, Renew Green #1B715C, Bright Emerald #2B8C74, Soft Green #589777, Antique Gold #AD8346, Rich Gold #8B5B0E, Champagne #DBB678, Light Champagne #F6E2B3*/
 
-:root {
-  --navy: #053833;
-  --navy2: #0c5547;
-  --ink: #032523;
-  --muted: #3f5a54;
-  --teal: #0c5547;
-  --teal2: #053833;
-  --mint: #f6e2b3;
-  --lav: #fbf4e2;
-  --line: #e8d3a3;
-  --white: #fff;
-  --gold: #ad8346;
-  --green: #1b715c;
-  --emerald: #2b8c74;
-  --soft-green: #589777;
-  --rich-gold: #8b5b0e;
-  --champagne: #dbb678;
-  --slate: #3f5a54;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -189,7 +169,6 @@ p {
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 8px;
   font-size: 10px;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -245,7 +224,6 @@ p {
 .contact-section h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.08;
-  letter-spacing: -.04em;
   margin: 0 0 1rem;
 }
 
@@ -278,20 +256,6 @@ p {
   right: -80px;
   top: -80px;
   background: rgba(255, 255, 255, .6);
-}
-
-.card-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.round-icon {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  font-size: 18px;
 }
 
 .category {
@@ -407,7 +371,6 @@ p {
   height: 100%;
   text-align: center;
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, filter .35s ease, opacity .35s ease;
-  will-change: transform;
 }
 
 .leadership-grid:hover .person:not(:hover) {
@@ -990,6 +953,23 @@ p {
 =========================================================*/
 
 :root {
+  --slate: #3f5a54;
+  --champagne: #dbb678;
+  --rich-gold: #8b5b0e;
+  --soft-green: #589777;
+  --emerald: #2b8c74;
+  --green: #1b715c;
+  --gold: #ad8346;
+  --white: #fff;
+  --line: #e8d3a3;
+  --lav: #fbf4e2;
+  --mint: #f6e2b3;
+  --teal2: #053833;
+  --teal: #0c5547;
+  --muted: #3f5a54;
+  --ink: #032523;
+  --navy2: #0c5547;
+  --navy: #053833;
   --shadow: 0 12px 32px rgba(3, 37, 35, .08);
   --radius: 4px;
   --hairline: 1px solid var(--line);
@@ -1039,10 +1019,6 @@ p {
 .business-card:hover {
   filter: none;
   border-top-color: var(--teal);
-}
-
-.round-icon {
-  border-radius: var(--radius);
 }
 
 /*Sections: alternate white / ivory, no decorative geometry*/
@@ -1392,12 +1368,12 @@ body .navbar-brand {
 }
 
 body .nav-link {
-  color: var(--lux-muted) !important;
+  color: var(--lux-bg) !important;
 }
 
 body .nav-link:hover,
 body .nav-link.active {
-  color: var(--lux-gold) !important;
+  color: var(--lux-bg) !important;
 }
 
 .renew-nav .navbar-toggler,
@@ -1513,15 +1489,6 @@ body .theme-toggle {
 
 /*Business cards: tinted glass, gold top rule, glowing icon*/
 
-.round-icon,
-.card-mars .round-icon {
-  background: rgba(219, 182, 120, .10);
-  border: 1px solid var(--lux-border);
-  box-shadow: 0 0 20px rgba(219, 182, 120, .15);
-}
-
-.round-icon,
-.card-mars .round-icon,
 .value-card span {
   color: var(--lux-gold);
 }
@@ -1862,21 +1829,9 @@ body .partner-enquiry-modal .modal-title {
   border-top: 1px solid var(--lux-border) !important;
 }
 
-.business-card .biz-num {
-  align-self: flex-start;
-  font-size: 12px;
-  letter-spacing: .18em;
-  color: var(--lux-gold);
-  font-weight: 700;
-}
-
 .business-card .biz-logo {
   display: grid;
   place-items: center;
-}
-
-.business-card .card-top {
-  display: none;
 }
 
 .business-card h3 {
@@ -1887,22 +1842,6 @@ body .partner-enquiry-modal .modal-title {
 .business-card p {
   font-size: 12.5px !important;
   min-height: 72px;
-}
-
-.business-card .chips {
-  justify-content: center;
-  margin: 14px 0 16px;
-}
-
-.business-card .text-link {
-  margin-top: auto;
-  font-weight: 700;
-  font-size: 12px;
-  color: var(--lux-text);
-}
-
-.business-card .text-link:hover {
-  color: var(--lux-gold);
 }
 
 .card-purple {
@@ -1929,7 +1868,6 @@ body .partner-enquiry-modal .modal-title {
 .approach-orbit {
   position: relative;
   width: 100%;
-  max-width: 480px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
 }
@@ -1943,51 +1881,18 @@ body .partner-enquiry-modal .modal-title {
   transform: translate(-50%, -50%);
 }
 
-.approach-orbit .ao-ring-1 {
-  width: 78%;
-  height: 78%;
-  box-shadow: 0 0 40px rgba(219, 182, 120, .10), inset 0 0 40px rgba(219, 182, 120, .06);
-}
-
-.approach-orbit .ao-ring-2 {
-  width: 52%;
-  height: 52%;
-  border-style: dashed;
-  border-color: rgba(219, 182, 120, .30);
-}
-
 .ao-center {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 31%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 35%, #0c5547, #032523 78%);
-  border: 1px solid var(--lux-gold);
   text-align: center;
-}
-
-.ao-center img {
-  width: 34%;
-  margin-bottom: 4px;
-}
-
-.ao-center strong {
-  font-size: 13px;
-  letter-spacing: .12em;
-  color: var(--lux-text);
-}
-
-.ao-center small {
-  font-size: 7px;
-  letter-spacing: .24em;
-  color: var(--lux-gold);
 }
 
 /*Shared purpose cards: outlined gold icons*/
@@ -2169,7 +2074,6 @@ body .renew-nav .btn-brand {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2.4rem, 4.4vw, 3.9rem);
   font-weight: 500;
-  line-height: 1.1;
   letter-spacing: -.01em;
 }
 
@@ -2201,12 +2105,10 @@ body .renew-nav .btn-brand {
   margin: 10px 0 0;
   padding: 24px 0 34px;
   position: relative;
-  z-index: 2;
 }
 
 .hero-features > div {
   display: flex;
-  align-items: center;
   padding: 0 22px;
   border-left: 1px solid var(--lux-border);
 }
@@ -2238,12 +2140,10 @@ body .renew-nav .btn-brand {
 
 .hero-tagline {
   position: absolute;
-  right: 0;
   margin: 0;
   text-align: right;
   font-size: 10px !important;
   letter-spacing: .2em;
-  line-height: 1.7;
   color: var(--lux-gold-hi);
 }
 
@@ -2262,7 +2162,7 @@ body .renew-nav .btn-brand {
 /*---- Hero match pass ----*/
 
 .renew-nav {
-  background: linear-gradient(180deg, rgba(2, 20, 18, .92), rgba(2, 20, 18, .55));
+  background: #ffffff;
   border-bottom: 1px solid rgba(219, 182, 120, .18);
 }
 
@@ -2279,6 +2179,7 @@ body .renew-nav .btn-brand {
 /*Smoky glass tiles: two light, two dark (as in the sample)*/
 
 .hero-features {
+  z-index: 2;
   border-top: 1px solid rgba(219, 182, 120, .16);
 }
 
@@ -2291,6 +2192,7 @@ body .hero-section h1 em {
 }
 
 .hero-section h1 {
+  line-height: 1.1;
   color: #fffaf0;
 }
 
@@ -2324,9 +2226,9 @@ body .hero-section h1 em {
 /*Hero: three dot clusters, three ribbons, teal glow behind the orbit*/
 
 .hero-section {
-  background-image: var(--pt-dots), var(--pt-dots), var(--pt-dots), var(--pt-ribbon-tr), var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 42% 58% at 74% 46%, rgba(20, 110, 92, .55), transparent 70%), radial-gradient(ellipse 30% 40% at 0% 100%, var(--glow-gold), transparent 70%), linear-gradient(160deg, #010a09 0%, #03171a 55%, #010a09 100%);
-  background-size: 116px 148px, 116px 148px, 116px 148px, min(900px, 62vw) auto, auto 70%, min(1300px, 100%) auto, 100% 100%, 100% 100%, 100% 100%;
-  background-position: 3% 14%, 2% 82%, 97% 12%, 100% 0, 0 60%, 100% 100%, 0 0, 0 0, 0 0;
+  background-image: radial-gradient(ellipse 42% 58% at 74% 46%, rgba(20, 110, 92, .55), transparent 70%), radial-gradient(ellipse 30% 40% at 0% 100%, var(--glow-gold), transparent 70%), linear-gradient(160deg, #010a09 0%, #03171a 55%, #010a09 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  background-position: 0 0, 0 0, 0 0;
 }
 
 /*Sections: one ribbon + one dot cluster, alternating sides, soft glows*/
@@ -2337,34 +2239,16 @@ body .hero-section h1 em {
   background-position: 97% 8%, 0 100%, 0 0, 0 0;
 }
 
-.about-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-left), radial-gradient(ellipse 45% 55% at 85% 50%, var(--glow-gold), transparent 70%), linear-gradient(180deg, #031c19, #021412);
-  background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%;
-  background-position: 96% 90%, 0 50%, 0 0, 0 0;
-}
-
 .values-section {
   background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 50% 0%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #021412, #031c19);
   background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%;
   background-position: 3% 12%, 100% 100%, 0 0, 0 0;
 }
 
-.leadership-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-tr), radial-gradient(ellipse 50% 50% at 100% 100%, var(--glow-gold), transparent 70%), linear-gradient(180deg, #031c19, #021412);
-  background-size: 116px 148px, min(700px, 55vw) auto, 100% 100%, 100% 100%;
-  background-position: 2% 92%, 100% 0, 0 0, 0 0;
-}
-
 .partner-section {
   background-image: var(--pt-dots), var(--pt-ribbon-left), radial-gradient(ellipse 50% 50% at 0% 50%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #021412, #031c19);
   background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%;
   background-position: 97% 8%, 0 50%, 0 0, 0 0;
-}
-
-.faq-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 45% 50% at 100% 0%, var(--glow-gold), transparent 70%), linear-gradient(180deg, #031c19, #021412);
-  background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%;
-  background-position: 2% 8%, 0 100%, 0 0, 0 0;
 }
 
 .contact-section {
@@ -2377,7 +2261,6 @@ body .hero-section h1 em {
 
 /*Logo: original colours on a white rounded plate*/
 
-.renew-nav .navbar-brand,
 .footer-brand {
   background: #fff;
   border-radius: 12px;
@@ -2402,15 +2285,9 @@ body .hero-section h1 em {
 
 /*About: brand logos orbit the Renew core*/
 
-.approach-orbit {
-  --r: 190px;
-  --tile: 112px;
-}
-
 .ao-spin {
   position: absolute;
   inset: 0;
-  animation: ao-rotate 40s linear infinite;
 }
 
 .ao-logo {
@@ -2425,11 +2302,8 @@ body .hero-section h1 em {
 
 .ao-tile {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 10px;
   border-radius: 24px;
 }
@@ -2438,18 +2312,9 @@ body .hero-section h1 em {
   border-color: rgba(219, 182, 120, .6);
 }
 
-.ao-tile img {
-  object-fit: contain;
-}
-
 .ao-tile strong {
   font-size: 9px;
   letter-spacing: .1em;
-  text-align: center;
-}
-
-.approach-orbit .ao-ring-1 {
-  animation: ao-ring-spin 90s linear infinite;
 }
 
 @keyframes ao-rotate {
@@ -2528,7 +2393,6 @@ body .hero-section h1 em {
 .hero-visual {
   position: relative;
   width: 100%;
-  margin: 0 auto;
 }
 
 .hero-visual .hv-glow {
@@ -2545,15 +2409,6 @@ body .hero-section h1 em {
   pointer-events: none;
 }
 
-@keyframes hv-glow {
-  from {
-    filter: brightness(.96) drop-shadow(0 0 10px rgba(43, 200, 140, .25));
-  }
-  to {
-    filter: brightness(1.14) saturate(1.12) drop-shadow(0 0 30px rgba(43, 200, 140, .55));
-  }
-}
-
 @keyframes hv-pulse {
   from {
     opacity: .55;
@@ -2566,12 +2421,15 @@ body .hero-section h1 em {
 }
 
 .hero-tagline {
+  line-height: 1.7;
+  right: 0;
   bottom: -34px;
 }
 
 /*Hero features: stats row (icon + animated number + label)*/
 
 .hero-features > div {
+  align-items: center;
   gap: 16px;
 }
 
@@ -2607,14 +2465,17 @@ body .hero-section h1 em {
 /*About: logo glow, zoom and blink*/
 
 .ao-tile img {
+  object-fit: contain;
   animation: ao-zoom 3.4s ease-in-out infinite alternate;
 }
 
 .ao-tile {
+  height: 100%;
   position: relative;
 }
 
 .ao-tile strong {
+  text-align: center;
   animation: ao-text-blink 3s ease-in-out infinite;
 }
 
@@ -2669,7 +2530,7 @@ body .hero-section h1 em {
 =========================================================*/
 
 .hero-visual {
-  perspective: 1100px;
+  margin: 0 auto;
 }
 
 .hero-visual .hv-stage {
@@ -2679,10 +2540,8 @@ body .hero-section h1 em {
 }
 
 .hero-visual .hv-img {
-  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
 }
 
 /*light sweep, masked to the shape of the image so it only crosses the artwork*/
@@ -2717,8 +2576,6 @@ body .hero-section h1 em {
   position: absolute;
   inset: -18%;
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .ao-galaxy i {
@@ -2745,12 +2602,6 @@ body .hero-section h1 em {
 }
 
 /*keep rings, core and logos above the galaxy*/
-
-.approach-orbit .ao-ring,
-.ao-center,
-.ao-spin {
-  z-index: 1;
-}
 
 @keyframes ag-spin {
   to {
@@ -2779,6 +2630,7 @@ body .hero-section h1 em {
 /*Leadership: round portraits, hover reveal (original card style on the dark theme)*/
 
 .person {
+  will-change: transform;
   padding: 20px 16px;
   border-radius: 20px !important;
 }
@@ -2803,6 +2655,8 @@ body .hero-section h1 em {
 =========================================================*/
 
 .ao-galaxy {
+  z-index: 0;
+  pointer-events: none;
   -webkit-mask-image: none;
   mask-image: none;
 }
@@ -2855,12 +2709,9 @@ body .hero-section h1 em {
 }
 
 .approach-orbit .ao-ring::before {
-  width: 7px;
-  height: 7px;
   background: #f6e2b3;
-}
-
-.approach-orbit .ao-ring::before {
+  height: 7px;
+  width: 7px;
   left: 50%;
   top: -4px;
 }
@@ -2874,16 +2725,12 @@ body .hero-section h1 em {
 }
 
 .approach-orbit .ao-ring {
+  z-index: 1;
   box-shadow: none;
-}
-
-.approach-orbit .ao-ring-1 {
-  border-color: rgba(219, 182, 120, .5);
 }
 
 .approach-orbit .ao-ring-2 {
   border: 1px dashed rgba(219, 182, 120, .4);
-  animation: ao-ring-spin 60s linear infinite reverse;
 }
 
 .approach-orbit .ao-ring-2::before {
@@ -2893,15 +2740,6 @@ body .hero-section h1 em {
 }
 
 /*remove glow from core and tiles*/
-
-.ao-center {
-  animation: none;
-  box-shadow: 0 0 0 6px rgba(219, 182, 120, .1);
-}
-
-.ao-tile {
-  animation: ao-rotate 40s linear infinite reverse;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ao-galaxy .ag-star,
@@ -2925,6 +2763,7 @@ body .hero-section h1 em {
 =========================================================*/
 
 .hero-visual {
+  perspective: 1100px;
   max-width: 760px;
   aspect-ratio: 11 / 7;
   margin-right: -30px;
@@ -2936,8 +2775,8 @@ body .hero-section h1 em {
 }
 
 .hero-visual .hv-img {
+  object-fit: contain;
   filter: contrast(1.06) saturate(1.08);
-  image-rendering: -webkit-optimize-contrast;
 }
 
 @keyframes hv-sway {
@@ -2960,21 +2799,8 @@ body .hero-section h1 em {
    ABOUT: white logo tiles so every logo stands out
 =========================================================*/
 
-.ao-tile,
-.ao-logo:nth-child(even) .ao-tile {
-  background: linear-gradient(160deg, #ffffff, #eef2ef);
-  border: 1px solid rgba(219, 182, 120, .85);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
-}
-
-.ao-tile img {
-  max-width: 70%;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .18));
-}
-
 .ao-tile strong,
 .ao-logo:nth-child(even) .ao-tile strong {
-  color: #053833;
   font-weight: 800;
 }
 
@@ -2985,36 +2811,23 @@ body .hero-section h1 em {
 }
 
 .ao-tile img {
-  max-height: 50px;
   min-height: 0;
 }
 
 .ao-tile {
+  align-items: center;
+  justify-content: center;
   gap: 6px;
 }
 
 /*Business cards: logos on a white plate so dark marks (Renew Plus) stay visible*/
 
 .business-card .biz-logo {
-  width: 92px;
-  height: 92px;
-  margin: 14px auto 10px;
-  border-radius: 22px;
-  background: linear-gradient(160deg, #fff, #eef2ef);
-  border: 1px solid rgba(219, 182, 120, .8);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
-}
-
-.business-card .biz-logo img {
-  filter: none;
-}
-
-.business-card .biz-logo {
-  padding: 10px;
   overflow: hidden;
 }
 
 .business-card .biz-logo img {
+  filter: none;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -3031,6 +2844,8 @@ img[src*="mars-builders-mark"] {
 =========================================================*/
 
 .hero-visual .hv-img {
+  image-rendering: -webkit-optimize-contrast;
+  display: block;
   animation: hv-enter 1.4s cubic-bezier(.2, .8, .2, 1) both, hv-bob 6.5s ease-in-out 1.4s infinite alternate;
 }
 
@@ -3226,7 +3041,7 @@ img[src*="mars-builders-mark"] {
   }
   30% {
     transform: translateY(-4px);
-    color: #fff3d1;
+    color: var(--wave-hi, #fff3d1);
   }
 }
 
@@ -3305,14 +3120,15 @@ body .hero-section .eyebrow {
   }
   40% {
     transform: translateY(-10px) scale(1.12);
-    color: #fff3d1;
+    color: var(--wave-hi, #fff3d1);
   }
   100% {
     transform: translateY(0) scale(1);
   }
 }
 
-/* Eyebrow letters are flex items: remove the flex gap so letters sit together, keep the gap after the line */
+/*Eyebrow letters are flex items: remove the flex gap so letters sit together, keep the gap after the line*/
+
 body .eyebrow {
   gap: 0;
 }
@@ -3320,4 +3136,1326 @@ body .eyebrow {
 body .eyebrow > span:not(.wv) {
   flex: none;
   margin-right: 8px;
+}
+
+/*=========================================================
+   ALTERNATING SECTIONS
+   dark: hero, about, leadership, FAQ, footer
+   light (white blends): businesses, why us, partner, contact
+=========================================================*/
+
+/*gold accent words on white*/
+
+/*white cards in light sections*/
+
+/*dark feature cards keep light text on white sections*/
+
+/*contact form on white*/
+
+/*business cards: solid dark base under the tinted gradients so they stay rich on white*/
+
+/*=========================================================
+   ALTERNATING SECTIONS
+   dark: hero, about, leadership, FAQ, footer
+   light (white blends): businesses, why us, partner, contact
+=========================================================*/
+
+.section-light {
+  --lux-panel: #ffffff;
+  --lux-panel-hi: #ffffff;
+  --wave-hi: #a8792c;
+  color: var(--lux-text);
+}
+
+/*gold accent words on white*/
+
+.section-light h2 em,
+.section-light.has-wave em {
+  background: linear-gradient(135deg, #c9a15f, #8b5b0e);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.section-light .has-wave em {
+  background: none;
+  color: #a8792c !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+.section-light .section-heading h2::after {
+  background: linear-gradient(90deg, transparent, #a8792c, transparent);
+}
+
+/*white cards in light sections*/
+
+.section-light .value-card,
+.section-light .contact-form {
+  backdrop-filter: none;
+}
+
+.section-light .value-card:hover {
+  box-shadow: 0 22px 46px rgba(5, 56, 51, .16);
+}
+
+.section-light .value-card span {
+  color: #a8792c;
+}
+
+/*dark feature cards keep light text on white sections*/
+
+.section-light .partner-card {
+  --lux-gold-hi: #f6e2b3;
+  --lux-border: rgba(219, 182, 120, .28);
+}
+
+.section-light .business-card,
+.section-light .partner-card {
+  --wave-hi: #fff3d1;
+}
+
+/*contact form on white*/
+
+.section-light .form-control,
+.section-light .form-select {
+  background: #fff;
+  color: var(--lux-text);
+  border: 1px solid rgba(10, 46, 41, .18);
+}
+
+.section-light .form-control::placeholder {
+  color: rgba(10, 46, 41, .42);
+}
+
+.section-light .form-control:focus,
+.section-light .form-select:focus {
+  background: #fff;
+  border-color: #a8792c;
+  box-shadow: 0 0 0 3px rgba(168, 121, 44, .16);
+}
+
+.section-light .form-select option {
+  background: #fff;
+  color: #0a2e29;
+}
+
+.section-light .contact-form label {
+  color: #0a2e29;
+}
+
+.section-light .reach-list > div > i {
+  background: rgba(168, 121, 44, .12);
+  border-color: rgba(168, 121, 44, .35);
+}
+
+.section-light .btn-outline-brand {
+  background: transparent;
+  border-color: #a8792c;
+  color: #6e4709;
+}
+
+/*business cards: solid dark base under the tinted gradients so they stay rich on white*/
+
+/*=========================================================
+   REFERENCE LAYOUT
+   cream / dark sections with wave edges, serif headings,
+   image-topped business cards, horizontal value cards
+=========================================================*/
+
+:root {
+  --cream: #fbf6ee;
+  --cream-2: #f7f0e4;
+}
+
+/*---- Light (cream) sections ----*/
+
+.section-light {
+  --lux-text: #0a2e29;
+  --lux-muted: rgba(10, 46, 41, .72);
+  --lux-gold: #a8792c;
+  --lux-gold-hi: #8b5b0e;
+  --lux-border: rgba(173, 131, 70, .22);
+  background-color: var(--cream);
+}
+
+/*---- Wave edges between sections ----*/
+
+.section-light::before,
+.about-section::before,
+.leadership-section::before,
+.faq-section::before,
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: clamp(36px, 6vw, 92px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+.section-light::before {
+  background-image: url("../images/patterns/wave-dark-top.svg");
+}
+
+.about-section::before,
+.leadership-section::before,
+.faq-section::before,
+.footer::before {
+  background-image: url("../images/patterns/wave-cream-top.svg");
+}
+
+.footer {
+  position: relative;
+}
+
+.section-pad {
+  padding-top: clamp(96px, 9vw, 130px);
+}
+
+/*---- Serif headings with gold italic accents ----*/
+
+.section-heading h2,
+.about-section h2,
+.contact-section h2,
+.partner-heading h2,
+.faq-heading h2,
+.faq-help h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
+
+body .section-heading h2 em,
+body .about-section h2 em,
+body .contact-section h2 em {
+  font-style: italic;
+}
+
+/*---- Business cards: image header + white body ----*/
+
+.section-light .business-card {
+  --lux-text: #0a2e29;
+  --lux-muted: rgba(10, 46, 41, .72);
+  --lux-gold: #a8792c;
+  --lux-gold-hi: #8b5b0e;
+  --lux-border: rgba(173, 131, 70, .22);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.section-light .business-card:hover {
+  border-color: rgba(173, 131, 70, .45) !important;
+}
+
+.business-card .biz-media {
+  position: relative;
+  background-color: #1b715c;
+  background-size: cover;
+  background-position: center;
+}
+
+.business-card .biz-media::after {
+  position: absolute;
+  inset: 0;
+}
+
+.card-teal .biz-media {
+  background-image: linear-gradient(135deg, #0b4f45, #1b8a70 60%, #bfe3d0);
+}
+
+.card-purple .biz-media {
+  background-image: linear-gradient(135deg, #43193f, #9a3c78 60%, #f0c3d6);
+}
+
+.card-violet .biz-media {
+  background-image: linear-gradient(135deg, #5b3910, #c08a3c 60%, #f6e2b3);
+}
+
+.card-mars .biz-media {
+  background-image: linear-gradient(135deg, #1a2766, #4a63c9 60%, #d3dcff);
+}
+
+/*real photos (Customizer) replace the gradient*/
+
+.business-card .biz-media[style] {
+  background-size: cover;
+}
+
+.business-card .biz-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.business-card .biz-head {
+  display: flex;
+}
+
+.business-card .biz-logo {
+  flex: none;
+  margin: 0;
+  padding: 6px;
+}
+
+.business-card .biz-title h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.business-card .biz-title .category {
+  display: block;
+  margin-top: 3px;
+}
+
+.business-card .biz-body > p {
+  margin: 14px 0 0;
+  min-height: 0;
+}
+
+.business-card .chips {
+  margin: 14px 0 16px;
+}
+
+.business-card .chips span {
+  font-size: 11px;
+}
+
+.business-card .text-link {
+  font-weight: 700;
+  font-size: 12.5px;
+}
+
+/*---- Why Us: horizontal white cards ----*/
+
+.section-light .value-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 14px;
+  align-items: start;
+  text-align: left;
+  padding: 22px 20px;
+  border-radius: 16px !important;
+  border: 1px solid rgba(173, 131, 70, .2) !important;
+  box-shadow: 0 12px 30px rgba(80, 56, 14, .08);
+}
+
+.section-light .value-card span {
+  grid-row: 1 / span 2;
+  margin: 0;
+  font-size: 30px;
+  line-height: 1;
+  filter: none;
+}
+
+.section-light .value-card h4 {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  align-self: end;
+}
+
+.section-light .value-card p {
+  grid-column: 2;
+  margin: 0;
+  font-size: 12px !important;
+}
+
+/*---- Partner: white cards, text link ----*/
+
+.section-light .partner-card {
+  --lux-text: #0a2e29;
+  --lux-muted: rgba(10, 46, 41, .72);
+  --lux-gold: #a8792c;
+  align-items: flex-start;
+  text-align: left;
+  color: #0a2e29;
+  background: #fff !important;
+  background-color: #fff !important;
+  border: 1px solid rgba(173, 131, 70, .2) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 34px rgba(80, 56, 14, .1);
+}
+
+.section-light .partner-card:hover {
+  background-color: #fff !important;
+}
+
+.section-light .partner-cards .partner-card .partner-brand i {
+  width: auto;
+  height: auto;
+  border: 0;
+  background: none;
+  color: #a8792c;
+  font-size: 30px;
+}
+
+body .section-light .partner-card h3 {
+  color: #0a2e29;
+  font-size: 15px;
+}
+
+body .section-light .partner-card p {
+  color: rgba(10, 46, 41, .72);
+}
+
+.section-light .partner-cards .partner-card a {
+  display: inline-flex;
+  align-items: center;
+  margin: auto 0 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #053833;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.section-light .partner-cards .partner-card a:hover {
+  background: none;
+  color: #a8792c;
+}
+
+.section-light .partner-cards .partner-card a i {
+  font-size: 12px;
+}
+
+.section-light .partner-cards .partner-brand {
+  align-items: flex-start;
+}
+
+/*---- Contact: info cards in two columns ----*/
+
+.section-light .reach-list > div {
+  border: 1px solid rgba(173, 131, 70, .2);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 26px rgba(80, 56, 14, .07);
+}
+
+@media (max-width: 575px) {
+  .section-light .reach-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-light .contact-form {
+  border-radius: 20px !important;
+  box-shadow: 0 24px 60px rgba(80, 56, 14, .14);
+}
+
+/*Why Us heading: same split layout as Businesses / Leadership*/
+
+.values-section .section-heading {
+  max-width: none;
+  margin: 0 0 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  column-gap: 48px;
+  align-items: end;
+  text-align: left !important;
+}
+
+.values-section .section-heading .eyebrow {
+  grid-column: 1;
+  justify-content: flex-start !important;
+}
+
+.values-section .section-heading h2 {
+  grid-column: 1;
+  margin: 0;
+}
+
+.values-section .section-heading h2::after {
+  display: none;
+}
+
+.values-section .section-heading p {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  margin: 0;
+  max-width: 460px;
+  align-self: center;
+  border-left: 1px solid var(--lux-border);
+  padding-left: 24px;
+}
+
+@media (max-width: 767px) {
+  .values-section .section-heading {
+    display: block;
+  }
+
+  .values-section .section-heading p {
+    border-left: 0;
+    padding-left: 0;
+    margin-top: 14px;
+  }
+}
+
+/*Partner links: plain text link, left aligned*/
+
+.section-light .partner-cards .partner-card a {
+  gap: 6px;
+  height: auto;
+  width: auto;
+  align-self: flex-start;
+  justify-content: flex-start;
+  text-transform: none;
+  letter-spacing: 0;
+  min-width: 0;
+}
+
+.section-light .reach-list {
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.section-light .reach-list > div {
+  background: #fff;
+  min-width: 0;
+}
+
+.section-light .reach-list b {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 575px) {
+  .section-light .reach-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/*room for the wave edge above the footer*/
+
+.footer {
+  padding-top: clamp(84px, 9vw, 120px);
+}
+
+/*Hero image: centred in its column, tagline underneath (no overlap)*/
+
+.hero-section .hero-row > .col-lg-6:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section .hero-tagline {
+  position: static;
+  align-self: flex-end;
+  margin: 6px 0 0;
+  text-align: right;
+}
+
+@media (max-width: 991px) {
+  .hero-section .hero-tagline {
+    align-self: center;
+    text-align: center;
+  }
+}
+
+/*=========================================================
+   BACKGROUNDS (reference): gold contour lines, mountain silhouettes,
+   soft cream with faint line swirls. Hero image/gradient unchanged.
+=========================================================*/
+
+:root {
+  --pt-mountains: url("../images/patterns/mountains.svg");
+}
+
+/*dark sections*/
+
+.about-section {
+  background-image: var(--pt-mountains), var(--pt-ribbon-left), var(--pt-ribbon-tr), radial-gradient(ellipse 45% 55% at 78% 50%, rgba(27, 113, 92, .30), transparent 70%), linear-gradient(180deg, #03211d, #021412);
+  background-size: 100% 200px, auto 90%, min(640px, 50vw) auto, 100% 100%, 100% 100%;
+  background-position: 0 100%, 0 50%, 100% 0, 0 0, 0 0;
+}
+
+.leadership-section {
+  background-image: var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 50% at 50% 40%, rgba(27, 113, 92, .22), transparent 70%), linear-gradient(180deg, #03211d, #021412);
+  background-size: auto 80%, min(1200px, 100%) auto, 100% 100%, 100% 100%;
+  background-position: 0 50%, 100% 100%, 0 0, 0 0;
+}
+
+.faq-section {
+  background-image: var(--pt-mountains), var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 45% 50% at 85% 60%, rgba(27, 113, 92, .24), transparent 70%), linear-gradient(180deg, #03211d, #021412);
+  background-size: 100% 170px, auto 85%, min(1100px, 100%) auto, 100% 100%, 100% 100%;
+  background-position: 0 100%, 0 50%, 100% 100%, 0 0, 0 0;
+}
+
+/*cream sections: faint gold swirls on a warm white*/
+
+body .section-light.businesses-section,
+body .section-light.partner-section {
+  background-image: var(--pt-ribbon-tr), var(--pt-ribbon-left), radial-gradient(ellipse 50% 60% at 100% 100%, rgba(219, 182, 120, .16), transparent 70%), linear-gradient(180deg, #fffdf9, #f8f1e5);
+  background-size: min(640px, 50vw) auto, auto 80%, 100% 100%, 100% 100%;
+  background-position: 100% 0, 0 60%, 0 0, 0 0;
+}
+
+body .section-light.businesses-section,
+body .section-light.values-section,
+body .section-light.partner-section,
+body .section-light.contact-section {
+  background-repeat: no-repeat;
+}
+
+body .section-light.values-section,
+body .section-light.contact-section {
+  background-image: var(--pt-ribbon-bottom), var(--pt-ribbon-tr), radial-gradient(ellipse 50% 60% at 0% 100%, rgba(219, 182, 120, .16), transparent 70%), linear-gradient(180deg, #fffdf9, #f8f1e5);
+  background-size: min(1200px, 100%) auto, min(560px, 45vw) auto, 100% 100%, 100% 100%;
+  background-position: 100% 100%, 0 0, 0 0, 0 0;
+}
+
+.section-light {
+  --pt-opacity: .55;
+}
+
+/*Hero image: show the whole picture (no cropping), soft-faded edges that blend into the hero*/
+
+.hero-section .hv-shine {
+  display: none;
+}
+
+/*Hero image merges into the hero background (dark pixels blend away)*/
+
+.hero-section .hero-visual .hv-img {
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%);
+}
+
+.hero-section .hero-visual .hv-glow {
+  background: radial-gradient(circle, rgba(20, 110, 92, .5), transparent 68%);
+}
+
+/*Connect-link effect: animated network of lines and nodes around the picture*/
+
+.hv-net {
+  position: absolute;
+  inset: -4% -6%;
+  width: 112%;
+  height: 108%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.hv-net .net-lines path {
+  fill: none;
+  stroke: #dbb678;
+  stroke-width: 1;
+  stroke-opacity: .55;
+  stroke-dasharray: 6 8;
+  animation: net-flow 3.2s linear infinite;
+}
+
+.hv-net .net-lines path:nth-child(even) {
+  animation-duration: 4.6s;
+  animation-direction: reverse;
+}
+
+.hv-net .net-nodes circle {
+  fill: #f6e2b3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: net-pulse 2.6s ease-in-out infinite;
+}
+
+.hv-net .net-nodes circle:nth-child(3n) {
+  animation-delay: -.8s;
+}
+
+.hv-net .net-nodes circle:nth-child(3n+1) {
+  animation-delay: -1.6s;
+}
+
+@keyframes net-flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes net-pulse {
+  0%,
+  100% {
+    opacity: .35;
+    transform: scale(.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.7);
+    filter: drop-shadow(0 0 5px #f6e2b3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hv-net .net-lines path,
+  .hv-net .net-nodes circle {
+    animation: none;
+  }
+}
+
+/*Hero-wide connect-link network*/
+
+.hero-net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .8;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .35) 0, rgba(0, 0, 0, .55) 45%, #000 70%);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, .35) 0, rgba(0, 0, 0, .55) 45%, #000 70%);
+}
+
+.hero-net .net-lines path {
+  fill: none;
+  stroke: #dbb678;
+  stroke-width: 1;
+  stroke-opacity: .4;
+  stroke-dasharray: 5 9;
+  animation: net-flow 3.6s linear infinite;
+}
+
+.hero-net .net-lines path:nth-child(even) {
+  animation-duration: 5.2s;
+  animation-direction: reverse;
+}
+
+.hero-net .net-nodes circle {
+  fill: #f6e2b3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: net-pulse 2.6s ease-in-out infinite;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-net .net-lines path,
+  .hero-net .net-nodes circle {
+    animation: none;
+  }
+}
+
+/*Hero image: original effect (gentle float + glow pulse), nothing else*/
+
+@keyframes hv-float {
+  from {
+    transform: translateY(-12px) scale(1);
+  }
+  to {
+    transform: translateY(12px) scale(1.035);
+  }
+}
+
+/*Hero image: slow breathing + pointer-follow 3D tilt (replaces float)*/
+
+.hero-section .hero-visual {
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.hero-section .hero-visual .hv-img {
+  mix-blend-mode: lighten;
+}
+
+@keyframes hv-breathe {
+  from {
+    transform: scale(.98);
+    filter: brightness(.97) drop-shadow(0 0 8px rgba(43, 200, 140, .2));
+  }
+  to {
+    transform: scale(1.04);
+    filter: brightness(1.12) saturate(1.1) drop-shadow(0 0 28px rgba(43, 200, 140, .5));
+  }
+}
+
+/*Hero image: periodic flash (masked to the artwork so only the gem and cubes light up)*/
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section .hero-visual .hv-shine {
+    animation: none;
+  }
+}
+
+/*Hero image shine v2: diagonal glint sweep + twinkling crystal stars (replaces the flash)*/
+
+@keyframes hv-glint {
+  0%,
+  30% {
+    background-position: 160% 0;
+  }
+  75%,
+  100% {
+    background-position: -70% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section .hero-visual .hv-shine {
+    animation: none;
+  }
+}
+
+/*Hero image: earlier animation set restored (entrance, bobbing, 3D sway, light sweep, rings, sparkles)*/
+
+.hero-section .hero-visual .hv-stage {
+  animation: hv-sway 10s ease-in-out infinite alternate;
+  transform: none;
+  transition: none;
+}
+
+.hero-section .hero-visual .hv-shine {
+  opacity: 1;
+  mix-blend-mode: screen;
+  position: absolute;
+  inset: 0;
+  -webkit-mask: var(--hv-img) center / contain no-repeat;
+  mask: var(--hv-img) center / contain no-repeat;
+  pointer-events: none;
+  background: linear-gradient(112deg, transparent 38%, rgba(255, 255, 255, .75) 50%, transparent 62%) 150% 0 / 260% 100% no-repeat;
+  animation: hv-shine 5.5s ease-in-out infinite;
+}
+
+.hero-section .hero-visual .hv-ring {
+  display: block;
+}
+
+@keyframes hv-glow {
+  from {
+    filter: brightness(.96) drop-shadow(0 0 10px rgba(43, 200, 140, .25));
+  }
+  to {
+    filter: brightness(1.14) saturate(1.12) drop-shadow(0 0 30px rgba(43, 200, 140, .55));
+  }
+}
+
+/*=========================================================
+   BUSINESS CARDS: "ticket" style
+   cut corner, diagonal colour header, overlapping logo plate,
+   watermark number, accent bar that grows on hover
+=========================================================*/
+
+.section-light .business-card {
+  --acc: #1b8a70;
+  position: relative;
+  transition: transform .35s ease;
+}
+
+.card-teal {
+  --acc: #1fae8c;
+}
+
+.card-purple {
+  --acc: #c0509a;
+}
+
+.card-violet {
+  --acc: #d9a14a;
+}
+
+.card-mars {
+  --acc: #5f7ae0;
+}
+
+/*diagonal colour header*/
+
+/*number: large outlined watermark on the header*/
+
+/*logo plate overlaps the header edge*/
+
+/*accent bar that grows on hover*/
+
+/*=========================================================
+   BUSINESS CARDS v3: light cards tinted with each brand's logo colour
+=========================================================*/
+
+.section-light .card-teal {
+  --acc: #1b715c;
+  --wash: #e4f1ec;
+}
+
+.section-light .card-purple {
+  --acc: #8f2a4f;
+  --wash: #f6e6ec;
+}
+
+.section-light .card-violet {
+  --acc: #1b5aa8;
+  --wash: #e5edf8;
+}
+
+.section-light .card-mars {
+  --acc: #c4622a;
+  --wash: #f9eadf;
+}
+
+.section-light .business-card,
+.section-light .business-card:hover {
+  border-top: 4px solid var(--acc) !important;
+}
+
+/*header: soft wash in the logo colour with the logo centred*/
+
+.business-card .biz-logo {
+  background: #fff;
+  border: 2px solid var(--acc);
+}
+
+.business-card .biz-title .category {
+  font-size: 9.5px;
+  filter: none;
+}
+
+.business-card .text-link {
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+/*Hero image: no shine, glow pulse or sparkles*/
+
+.hero-section .hero-visual .hv-img {
+  will-change: transform, filter;
+  object-fit: contain;
+  animation: hv-enter 1.4s cubic-bezier(.2, .8, .2, 1) both, hv-bob 6.5s ease-in-out 1.4s infinite alternate;
+  filter: none;
+}
+
+.hero-section .hero-visual .hv-spark,
+.hero-section .hero-visual .hv-shine,
+.hero-section .hero-visual .hv-glow {
+  display: none;
+}
+
+/*=========================================================
+   BUSINESS CARDS: ticket design again, in the brand logo colours
+=========================================================*/
+
+.section-light .business-card,
+.section-light .business-card:hover {
+  border: 0 !important;
+  border-radius: 0 !important;
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%);
+}
+
+.section-light .business-card:hover {
+  transform: translateY(-8px);
+}
+
+.section-light .business-card::before {
+  display: block;
+  height: 4px;
+  width: 34%;
+}
+
+.section-light .business-card:hover::before {
+  width: 100%;
+}
+
+.business-card .biz-media,
+.section-light .business-card .biz-media {
+  height: 150px;
+  clip-path: polygon(0 0, 100% 0, 100% 62%, 0 100%);
+  background-image: linear-gradient(135deg, color-mix(in srgb, var(--acc) 70%, #021412), var(--acc));
+}
+
+.business-card .biz-media::after {
+  content: "";
+  display: block;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .10) 0 1px, transparent 1px 12px);
+}
+
+.business-card .biz-body {
+  position: relative;
+  z-index: 2;
+  align-items: stretch;
+  margin-top: -34px;
+  padding: 0 22px 22px;
+}
+
+.business-card .biz-head {
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.business-card .biz-logo {
+  border-radius: 16px;
+}
+
+.business-card .chips {
+  justify-content: flex-start;
+}
+
+.business-card .text-link {
+  background: none;
+  border-radius: 0;
+}
+
+/*Ticket cards: white body, brand-colour header, text and accents in the logo colour*/
+
+.businesses-section .col-lg-3 {
+  filter: drop-shadow(0 18px 24px rgba(80, 56, 14, .18));
+}
+
+.section-light .business-card,
+.section-light .business-card:hover {
+  box-shadow: none;
+  color: #0a2e29;
+}
+
+.section-light .business-card::before {
+  z-index: 3;
+  transition: width .45s ease;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  background: var(--acc);
+}
+
+.business-card .biz-title h3 {
+  font-size: 17px;
+  color: #0a2e29;
+}
+
+.business-card .biz-title .category {
+  letter-spacing: .06em;
+  color: var(--acc);
+}
+
+.business-card .biz-body > p {
+  text-align: left;
+  color: rgba(10, 46, 41, .74);
+}
+
+.business-card .chips span {
+  background: var(--wash);
+  border: 0;
+  color: var(--acc);
+  border-radius: 4px;
+}
+
+.business-card .text-link {
+  padding: 12px 0 0;
+  align-self: stretch;
+  justify-content: space-between;
+  display: flex;
+  gap: 8px;
+  color: var(--acc);
+  border-top: 1px solid color-mix(in srgb, var(--acc) 25%, #fff);
+}
+
+.business-card .text-link:hover {
+  color: var(--acc);
+  filter: brightness(.85);
+}
+
+.business-card .biz-logo {
+  height: 64px;
+  width: 64px;
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--acc) 35%, transparent);
+}
+
+/*Card body: white fading into a soft wash of the logo colour*/
+
+.section-light .business-card,
+.section-light .business-card:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 35%, color-mix(in srgb, var(--acc) 14%, #fff) 100%) !important;
+  background-color: #fff !important;
+}
+
+/*Leadership: connect-link network behind the cards*/
+
+.leadership-section .lead-net {
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: .9;
+}
+
+.leadership-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.leadership-grid .person {
+  background: linear-gradient(180deg, rgba(4, 33, 30, .82), rgba(2, 20, 18, .82)) !important;
+  backdrop-filter: blur(6px);
+}
+
+/*=========================================================
+   ABOUT: globe with the Renew logo; brand logos orbit it like planets
+=========================================================*/
+
+.approach-orbit {
+  --r: 205px;
+  --tile: 92px;
+  --tilt: 60deg;
+  perspective: 1200px;
+  max-width: 520px;
+}
+
+/*globe*/
+
+.ao-center {
+  z-index: 1;
+  border: 0;
+  animation: none;
+}
+
+/*meridians + parallels*/
+
+.ao-center::before {
+  position: absolute;
+  border-radius: 50%;
+  background: repeating-linear-gradient(90deg, transparent 0 17%, rgba(160, 255, 225, .13) 17% 17.8%), repeating-linear-gradient(0deg, transparent 0 16%, rgba(160, 255, 225, .11) 16% 16.8%);
+  -webkit-mask: radial-gradient(circle, #000 60%, transparent 71%);
+  animation: globe-turn 18s linear infinite;
+}
+
+.ao-center img {
+  position: relative;
+}
+
+.ao-center strong,
+.ao-center small {
+  position: relative;
+}
+
+@keyframes globe-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*tilted orbit planes*/
+
+.approach-orbit .ao-ring-1,
+.approach-orbit .ao-ring-2 {
+  animation: none;
+  transform: translate(-50%, -50%) rotateX(var(--tilt));
+  box-shadow: 0 0 18px rgba(219, 182, 120, .15);
+}
+
+.approach-orbit .ao-ring-1 {
+  border-style: solid;
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+}
+
+.approach-orbit .ao-ring-2 {
+  width: calc(var(--r) * 1.55);
+  height: calc(var(--r) * 1.55);
+  border-style: dashed;
+}
+
+.approach-orbit .ao-ring::before,
+.approach-orbit .ao-ring::after {
+  display: none;
+}
+
+/*logos revolve in the tilted plane and always face the viewer*/
+
+.ao-spin {
+  z-index: 2;
+  transform-style: preserve-3d;
+  animation: ao-orbit 36s linear infinite;
+}
+
+.ao-tile {
+  animation: ao-orbit-counter 36s linear infinite;
+}
+
+@keyframes ao-orbit {
+  from {
+    transform: rotateX(var(--tilt)) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(var(--tilt)) rotateZ(360deg);
+  }
+}
+
+@keyframes ao-orbit-counter {
+  from {
+    transform: rotateZ(0deg) rotateX(calc(var(--tilt) * -1));
+  }
+  to {
+    transform: rotateZ(-360deg) rotateX(calc(var(--tilt) * -1));
+  }
+}
+
+@media (max-width: 575px) {
+  .approach-orbit {
+    --r: 135px;
+    --tile: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ao-spin,
+  .ao-tile,
+  .ao-center::before {
+    animation: none;
+  }
+}
+
+.ao-logo {
+  transform-style: preserve-3d;
+}
+
+/*About: dark glossy globe image, white Renew logo (reference look)*/
+
+.ao-center {
+  width: 40%;
+  background: url("../images/dark-globe.svg") center / 112% no-repeat;
+  box-shadow: 0 0 46px rgba(127, 224, 196, .25);
+  overflow: visible;
+}
+
+.ao-center::before {
+  mask: radial-gradient(circle, #000 60%, transparent 71%);
+  inset: 0;
+  content: "";
+  display: none;
+}
+
+.ao-center img {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, .5));
+  width: 34%;
+  margin-bottom: 6px;
+}
+
+.ao-center strong {
+  font-size: 15px;
+  letter-spacing: .16em;
+  color: #fff;
+}
+
+.ao-center small {
+  font-size: 7px;
+  letter-spacing: .3em;
+  color: rgba(255, 255, 255, .75);
+}
+
+.approach-orbit .ao-ring-1,
+.approach-orbit .ao-ring-2 {
+  border-color: rgba(219, 182, 120, .55);
+}
+
+.ao-tile,
+.ao-logo:nth-child(even) .ao-tile {
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.ao-tile img {
+  max-width: 78%;
+  max-height: 64px;
+  filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px rgba(255, 255, 255, .85)) drop-shadow(0 0 22px rgba(246, 226, 179, .7));
+}
+
+.ao-tile strong,
+.ao-logo:nth-child(even) .ao-tile strong {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .9), 0 0 10px rgba(246, 226, 179, .6);
+}
+
+/*Leadership: one-by-one entrance*/
+
+.leadership-grid.stagger .person {
+  opacity: 0;
+  transform: translateY(34px) scale(.94);
+}
+
+.leadership-grid.stagger.in .person {
+  animation: lead-in .7s cubic-bezier(.2, .8, .2, 1) both;
+  animation-delay: calc(var(--n) * 260ms);
+}
+
+@keyframes lead-in {
+  from {
+    opacity: 0;
+    transform: translateY(34px) scale(.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*Hero image: larger*/
+
+.hero-section .hero-visual {
+  aspect-ratio: 1376 / 768;
+  max-width: 880px;
+  margin-right: -60px;
+}
+
+@media (max-width: 1199px) {
+  .hero-section .hero-visual {
+    max-width: 760px;
+    margin-right: -20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-section .hero-visual {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+/*Get in touch: plain list on the left (no card boxes), as in the default style*/
+
+.contact-section.section-light .reach-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.contact-section.section-light .reach-list > div,
+.contact-section.section-light .reach-list > div + div {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.contact-section.section-light .reach-list > div > i {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 12px;
+  background: rgba(168, 121, 44, .14);
+  border: 0;
+  color: #a8792c;
+}
+
+.contact-section.section-light .reach-list b {
+  overflow-wrap: anywhere;
 }

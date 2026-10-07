@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="o" cx="40%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#1f4a45"/>
+      <stop offset=".45" stop-color="#0b2623"/>
+      <stop offset="1" stop-color="#010a09"/>
+    </radialGradient>
+    <radialGradient id="rim" cx="50%" cy="50%" r="50%">
+      <stop offset=".8" stop-color="#7fe0c4" stop-opacity="0"/>
+      <stop offset=".965" stop-color="#7fe0c4" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#7fe0c4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gl" cx="32%" cy="22%" r="42%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sh" cx="50%" cy="50%" r="50%">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".7"/>
+    </radialGradient>
+    <clipPath id="c"><circle cx="200" cy="200" r="182"/></clipPath>
+  </defs>
+  <circle cx="200" cy="200" r="198" fill="url(#rim)"/>
+  <circle cx="200" cy="200" r="182" fill="url(#o)"/>
+  <g clip-path="url(#c)" fill="#183a35" stroke="#5fb8a0" stroke-opacity=".28" stroke-width="1">
+    <path d="M168 62l22 6 14 18-10 14 18 10 6 20-14 12 10 16-8 18 14 22-6 30-18 36-24 22-20-14-10-30-18-26-6-34 10-28 18-12-8-22 6-22 22-10z"/>
+    <path d="M232 70l44-14 52 8 36 26 6 34-30 22-34-6-18 22-36-6-20-26 10-30-20-16z"/>
+    <path d="M30 120l34-18 22 16-6 30 14 24-10 34-26 18-16-34-14-26z"/>
+    <path d="M52 262l30-6 18 26-8 44-24 20-16-36z"/>
+    <path d="M300 280l36-8 24 18-10 30-34 8-20-24z"/>
+  </g>
+  <g clip-path="url(#c)" fill="#7fe0c4" fill-opacity=".5">
+    <circle cx="190" cy="120" r="1.6"/><circle cx="214" cy="150" r="1.4"/><circle cx="262" cy="110" r="1.6"/><circle cx="300" cy="150" r="1.4"/>
+    <circle cx="180" cy="240" r="1.4"/><circle cx="196" cy="290" r="1.6"/><circle cx="90" cy="150" r="1.4"/><circle cx="320" cy="300" r="1.4"/>
+  </g>
+  <g clip-path="url(#c)" stroke="#7fe0c4" stroke-opacity=".12" fill="none">
+    <ellipse cx="200" cy="200" rx="70" ry="182"/><ellipse cx="200" cy="200" rx="130" ry="182"/>
+    <path d="M18 200H382M30 130H370M30 270H370M70 70H330M70 330H330"/>
+  </g>
+  <circle cx="200" cy="200" r="182" fill="url(#sh)"/>
+  <circle cx="200" cy="200" r="182" fill="url(#gl)"/>
+</svg>
