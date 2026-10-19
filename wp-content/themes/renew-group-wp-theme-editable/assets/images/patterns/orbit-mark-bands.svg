@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
+  <!-- Built from two base colours: green #0E3B2E and golden yellow #CA9418,
+       each given a metallic finish (shadow tone, base, brushed highlight, specular streak) -->
+  <defs>
+    <!-- metallic green: shadow > base > polished highlight > base > shadow -->
+    <linearGradient id="mGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#082419"/>
+      <stop offset=".22" stop-color="#0E3B2E"/>
+      <stop offset=".42" stop-color="#2f6b55"/>
+      <stop offset=".5" stop-color="#4f8a72"/>
+      <stop offset=".58" stop-color="#2f6b55"/>
+      <stop offset=".8" stop-color="#0E3B2E"/>
+      <stop offset="1" stop-color="#061c14"/>
+    </linearGradient>
+    <linearGradient id="mGreenDeep" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#061c14"/>
+      <stop offset=".45" stop-color="#0E3B2E"/>
+      <stop offset=".55" stop-color="#1d5340"/>
+      <stop offset="1" stop-color="#061c14"/>
+    </linearGradient>
+    <radialGradient id="mGreenCore" cx=".5" cy=".42" r=".6">
+      <stop offset="0" stop-color="#1d5340"/>
+      <stop offset=".6" stop-color="#0E3B2E"/>
+      <stop offset="1" stop-color="#0a2c22"/>
+    </radialGradient>
+
+    <!-- metallic gold: dark bronze > base > bright highlight > base > bronze -->
+    <linearGradient id="mGold" x1="0" y1="0" x2="1" y2=".35">
+      <stop offset="0" stop-color="#7a560c"/>
+      <stop offset=".18" stop-color="#CA9418"/>
+      <stop offset=".34" stop-color="#f3d47a"/>
+      <stop offset=".42" stop-color="#fff4cc"/>
+      <stop offset=".5" stop-color="#e2b23e"/>
+      <stop offset=".66" stop-color="#CA9418"/>
+      <stop offset=".82" stop-color="#f0cd6c"/>
+      <stop offset="1" stop-color="#7a560c"/>
+    </linearGradient>
+
+    <!-- brushed-metal texture: fine horizontal lines -->
+    <pattern id="brush" width="6" height="4" patternUnits="userSpaceOnUse">
+      <rect width="6" height="1" fill="#ffffff" fill-opacity=".05"/>
+    </pattern>
+
+    <!-- specular streak across the top -->
+    <linearGradient id="spec" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".22"/>
+      <stop offset=".35" stop-color="#ffffff" stop-opacity=".06"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="rotate(-8 500 320)">
+    <!-- outer band: deep metallic green with gold rim -->
+    <ellipse cx="500" cy="320" rx="485" ry="290" fill="url(#mGreenDeep)"/>
+    <ellipse cx="500" cy="320" rx="485" ry="290" fill="url(#brush)"/>
+    <ellipse cx="500" cy="320" rx="485" ry="290" fill="none" stroke="url(#mGold)" stroke-width="4"/>
+
+    <!-- middle band: polished metallic green -->
+    <ellipse cx="500" cy="320" rx="440" ry="255" fill="url(#mGreen)"/>
+    <ellipse cx="500" cy="320" rx="440" ry="255" fill="url(#brush)"/>
+    <ellipse cx="500" cy="320" rx="440" ry="255" fill="none" stroke="url(#mGold)" stroke-opacity=".8" stroke-width="1.6"/>
+
+    <!-- inner field: calmer green so the orbit reads clearly -->
+    <ellipse cx="500" cy="320" rx="380" ry="215" fill="url(#mGreenCore)"/>
+    <ellipse cx="500" cy="320" rx="380" ry="215" fill="none" stroke="#CA9418" stroke-opacity=".5" stroke-width="1"/>
+
+    <!-- specular light across the top -->
+    <ellipse cx="500" cy="240" rx="430" ry="160" fill="url(#spec)"/>
+  </g>
+
+  <!-- metallic gold swooshes -->
+  <path fill="url(#mGold)" d="M40 520C260 610 620 600 960 380C640 560 300 590 40 500Z"/>
+  <path fill="#fff4cc" fill-opacity=".55" d="M120 530C330 585 600 575 900 410C620 548 340 568 120 524Z"/>
+  <path fill="url(#mGold)" opacity=".85" d="M80 150C330 40 640 40 930 150C640 70 340 75 80 165Z"/>
+</svg>

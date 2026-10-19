@@ -1,13 +1,13 @@
 /** Renew Group theme: "RGC" dark-gold stylesheet
  *
- * Palette    : #021412 / #053833 deep teal, #1B715C green, gold #F6E2B3 > #DBB678 > #AD8346
+ * Palette    : #001E18 / #002A1E deep teal, #1B715C green, gold #F0C88C > #DCAA64 > #C89650
  * Fonts      : DM Sans (body), Playfair Display (hero heading, <em> accents)
  * Patterns   : assets/images/patterns/*.svg (gold line-ribbons, dot grids, orbit rings)
  * Structure  : tokens > base > nav/topbar > hero + orbit > stats > sections
  *              (businesses, about, values, leadership, partner, faq, contact) > footer
  *              > responsive. Later blocks intentionally refine earlier ones.*/
 
-/*Renew Group palette: Deep Forest Teal #053833, Dark Teal #032523, Emerald Teal #0C5547, Renew Green #1B715C, Bright Emerald #2B8C74, Soft Green #589777, Antique Gold #AD8346, Rich Gold #8B5B0E, Champagne #DBB678, Light Champagne #F6E2B3*/
+/*Renew Group palette: Deep Forest Teal #002A1E, Dark Teal #00241E, Emerald Teal #0C5547, Renew Green #1B715C, Bright Emerald #2B8C74, Soft Green #589777, Antique Gold #C89650, Rich Gold #8B5B0E, Champagne #DCAA64, Light Champagne #F0C88C*/
 
 * {
   box-sizing: border-box;
@@ -38,9 +38,9 @@ h2 em {
   font-style: italic;
 }
 
-p {
+/* p {
   font-size: 13px !important;
-}
+} */
 
 .renew-topbar {
   position: fixed;
@@ -94,15 +94,12 @@ p {
   object-fit: contain;
 }
 
-.parallax-section > .container {
+.site-main > section > .container {
   position: relative;
   z-index: 1;
-  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
-  transition: transform .25s ease-out;
-  will-change: transform;
 }
 
-.parallax-section {
+.site-main > section {
   position: relative;
   overflow: hidden;
 }
@@ -321,7 +318,7 @@ p {
 .standard-list li {
   display: flex;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.55;
 }
 
@@ -355,7 +352,7 @@ p {
 }
 
 .leadership-section {
-  background: #fbf4e2;
+  background: #FCF6F0;
 }
 
 .leadership-grid {
@@ -467,20 +464,13 @@ p {
   border-style: dashed;
 }
 
-.stars {
-  color: #dbb678;
-  letter-spacing: 2px;
-  font-size: 12px;
-  margin-top: 8px;
-}
-
 .partner-section {
   background: #ffffff;
 }
 
 .partner-card {
   height: 100%;
-  min-height: 330px;
+  min-height: 372px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -543,7 +533,7 @@ p {
 }
 
 .faq-section {
-  background: #fbf4e2;
+  background: #FCF6F0;
 }
 
 .accordion-item {
@@ -934,18 +924,6 @@ p {
   }
 }
 
-/*Galaxy effect behind the hero orbit*/
-
-/*Blinking stars + diagonal loops around the hero orbit*/
-
-/*Slower diagonal loops*/
-
-/*Slightly smaller stars*/
-
-/*Loops redesigned: tilted comet-trail rings that echo the dashed orbits*/
-
-/*Comet-trail design on the existing orbit circles*/
-
 /*=========================================================
    CORPORATE REFINEMENT
    Restrained, editorial look: square-ish
@@ -954,22 +932,22 @@ p {
 
 :root {
   --slate: #3f5a54;
-  --champagne: #dbb678;
+  --champagne: #DCAA64;
   --rich-gold: #8b5b0e;
   --soft-green: #589777;
   --emerald: #2b8c74;
   --green: #1b715c;
-  --gold: #ad8346;
+  --gold: #C89650;
   --white: #fff;
   --line: #e8d3a3;
-  --lav: #fbf4e2;
-  --mint: #f6e2b3;
-  --teal2: #053833;
+  --lav: #FCF6F0;
+  --mint: #F0C88C;
+  --teal2: #002A1E;
   --teal: #0c5547;
   --muted: #3f5a54;
-  --ink: #032523;
+  --ink: #00241E;
   --navy2: #0c5547;
-  --navy: #053833;
+  --navy: #002A1E;
   --shadow: 0 12px 32px rgba(3, 37, 35, .08);
   --radius: 4px;
   --hairline: 1px solid var(--line);
@@ -988,8 +966,6 @@ p {
   margin: 18px auto 0;
 }
 
-/*Navigation*/
-
 /*Buttons*/
 
 .btn-brand {
@@ -1003,8 +979,6 @@ p {
 .btn-outline-brand:hover {
   border-color: var(--gold);
 }
-
-/*Hero: clean white with a faint champagne wash*/
 
 /*Cards: flat, hairline border, gold top rule*/
 
@@ -1020,10 +994,6 @@ p {
   filter: none;
   border-top-color: var(--teal);
 }
-
-/*Sections: alternate white / ivory, no decorative geometry*/
-
-/*Forms*/
 
 /*Footer*/
 
@@ -1055,19 +1025,11 @@ footer {
   background: linear-gradient(180deg, #ffffff 0%, #fffdf8 60%, #fbf6e9 100%);
 }
 
-/*Orbit loops: green and gold*/
-
 /*Our Businesses: mild green shade with geometric shapes*/
 
 .businesses-section {
-  background: radial-gradient(ellipse 50% 45% at 100% 0%, rgba(173, 131, 70, .10), transparent 70%), radial-gradient(ellipse 45% 50% at 0% 100%, rgba(43, 140, 116, .14), transparent 70%), linear-gradient(180deg, #f1f8f4 0%, #e6f2ec 100%);
+  background: radial-gradient(ellipse 50% 45% at 100% 0%, rgba(200, 150, 80, .10), transparent 70%), radial-gradient(ellipse 45% 50% at 0% 100%, rgba(43, 140, 116, .14), transparent 70%), linear-gradient(180deg, #f1f8f4 0%, #e6f2ec 100%);
 }
-
-/*Large rotated square outline, top right (gold)*/
-
-/*Hexagon outline, bottom left (green)*/
-
-/*Extra scattered shapes: triangle, circle, diamond, dot grid*/
 
 /*Remaining sections: warm backgrounds with geometric shapes*/
 
@@ -1106,17 +1068,11 @@ footer {
   }
 }
 
-/*Milder geometric shapes*/
-
-/*Businesses section reuses the same soft shapes*/
-
 /*Footer: theme green*/
 
 .footer {
   color: #fff;
 }
-
-/*Partner with us cards: distinct theme colours*/
 
 /*Partner cards: gold variants (rich > antique > champagne)*/
 
@@ -1136,8 +1092,6 @@ footer {
   padding: 34px 30px 30px;
   isolation: isolate;
 }
-
-/*Inner hairline frame*/
 
 /*Pattern layer (replaces the old corner circle)*/
 
@@ -1227,15 +1181,15 @@ footer {
 /*II: Antique gold*/
 
 .partner-z a:hover {
-  background: #032523;
+  background: #00241E;
   color: #fff;
 }
 
 /*III: Champagne*/
 
 .partner-r {
-  background-color: #f6e2b3;
-  background-image: linear-gradient(150deg, #fbefcf 0%, #f6e2b3 55%, #e8c987 100%);
+  background-color: #F0C88C;
+  background-image: linear-gradient(150deg, #fbefcf 0%, #F0C88C 55%, #e8c987 100%);
 }
 
 .partner-r a:hover {
@@ -1250,18 +1204,18 @@ footer {
 =========================================================*/
 
 :root {
-  --lux-bg: #021412;
-  --lux-bg2: #04211e;
+  --lux-bg: #001E18;
+  --lux-bg2: #00241E;
   --lux-panel: rgba(255, 255, 255, .045);
   --lux-panel-hi: rgba(255, 255, 255, .08);
-  --lux-gold: #dbb678;
-  --lux-gold-hi: #f6e2b3;
-  --lux-gold-lo: #ad8346;
-  --lux-border: rgba(219, 182, 120, .24);
+  --lux-gold: #DCAA64;
+  --lux-gold-hi: #F0C88C;
+  --lux-gold-lo: #C89650;
+  --lux-border: rgba(220, 170, 100, .24);
   --lux-text: #f3ecda;
   --lux-muted: rgba(243, 236, 218, .70);
-  --lux-glow: 0 0 28px rgba(219, 182, 120, .20);
-  --lux-gold-grad: linear-gradient(135deg, #f6e2b3 0%, #dbb678 48%, #ad8346 100%);
+  --lux-glow: 0 0 28px rgba(220, 170, 100, .20);
+  --lux-gold-grad: linear-gradient(135deg, #F0C88C 0%, #DCAA64 48%, #C89650 100%);
 }
 
 body {
@@ -1281,8 +1235,6 @@ body {
 .contact-section {
   color: var(--lux-text);
 }
-
-/*Remove the light-theme geometric pseudo shapes*/
 
 /*Typography colours*/
 
@@ -1335,7 +1287,7 @@ body h1 em,
 body h2 em,
 body em {
   color: var(--lux-gold) !important;
-  background: linear-gradient(135deg, #f6e2b3, #dbb678 55%, #ad8346);
+  background: linear-gradient(135deg, #F0C88C, #DCAA64 55%, #C89650);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1350,7 +1302,7 @@ body .section-heading h2::after {
 /*Top bar and navigation*/
 
 .renew-topbar {
-  background: #010d0c;
+  background: #001812;
   border-bottom: 1px solid var(--lux-border);
   color: var(--lux-muted);
 }
@@ -1383,7 +1335,7 @@ body .nav-link.active {
 
 @media (max-width: 991px) {
   .renew-nav .navbar-collapse {
-    background: rgba(2, 20, 18, .96);
+    background: rgba(0, 30, 24, .96);
     border: 1px solid var(--lux-border);
   }
 
@@ -1401,14 +1353,14 @@ body .btn-dark-brand {
   color: #1b1304;
   font-weight: 700;
   border-radius: 999px;
-  box-shadow: 0 8px 26px rgba(219, 182, 120, .28);
+  box-shadow: 0 8px 26px rgba(220, 170, 100, .28);
 }
 
 body .btn-brand:hover,
 body .btn-dark-brand:hover {
   background: linear-gradient(135deg, #fff1cc 0%, #f0cd8a 50%, #c9a15f 100%);
   color: #1b1304;
-  box-shadow: 0 10px 34px rgba(219, 182, 120, .45);
+  box-shadow: 0 10px 34px rgba(220, 170, 100, .45);
   transform: translateY(-2px);
 }
 
@@ -1420,7 +1372,7 @@ body .btn-outline-brand {
 }
 
 body .btn-outline-brand:hover {
-  background: rgba(219, 182, 120, .14);
+  background: rgba(220, 170, 100, .14);
   color: #fff;
   box-shadow: var(--lux-glow);
   transform: translateY(-2px);
@@ -1440,10 +1392,6 @@ body .theme-toggle {
 .hero-notes i {
   color: var(--lux-gold);
 }
-
-/*Hero orbit*/
-
-/*Stats strip*/
 
 /*Glass panels (shared)*/
 
@@ -1465,7 +1413,7 @@ body .theme-toggle {
 .value-card {
   border: 1px solid var(--lux-border) !important;
   backdrop-filter: blur(10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(246, 226, 179, .12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(240, 200, 140, .12);
   color: var(--lux-text);
 }
 
@@ -1479,8 +1427,8 @@ body .theme-toggle {
 .person:hover,
 .partner-card:hover,
 .value-card:hover {
-  border-color: rgba(219, 182, 120, .6) !important;
-  box-shadow: 0 26px 60px rgba(0, 0, 0, .5), 0 0 34px rgba(219, 182, 120, .18), inset 0 1px 0 rgba(246, 226, 179, .2);
+  border-color: rgba(220, 170, 100, .6) !important;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .5), 0 0 34px rgba(220, 170, 100, .18), inset 0 1px 0 rgba(240, 200, 140, .2);
 }
 
 .value-card {
@@ -1495,7 +1443,7 @@ body .theme-toggle {
 
 .chips span,
 .partner-tags span {
-  background: rgba(219, 182, 120, .08);
+  background: rgba(220, 170, 100, .08);
   border: 1px solid var(--lux-border);
   color: var(--lux-gold-hi);
 }
@@ -1522,9 +1470,9 @@ body .theme-toggle {
 .partner-p,
 .partner-z,
 .partner-r {
-  --frame: rgba(219, 182, 120, .30);
+  --frame: rgba(220, 170, 100, .30);
   --rule: var(--lux-gold);
-  --badge-bg: rgba(219, 182, 120, .10);
+  --badge-bg: rgba(220, 170, 100, .10);
   --badge-fg: var(--lux-gold);
   color: var(--lux-text);
 }
@@ -1538,7 +1486,7 @@ body .theme-toggle {
 }
 
 .partner-r {
-  background: linear-gradient(160deg, rgba(219, 182, 120, .20), rgba(255, 255, 255, .03) 65%) !important;
+  background: linear-gradient(160deg, rgba(220, 170, 100, .20), rgba(255, 255, 255, .03) 65%) !important;
 }
 
 body .partner-card h3,
@@ -1583,7 +1531,7 @@ body .partner-card a:hover {
 
 .accordion-button:not(.collapsed) {
   color: var(--lux-gold) !important;
-  background: rgba(219, 182, 120, .06) !important;
+  background: rgba(220, 170, 100, .06) !important;
 }
 
 .accordion-button::after {
@@ -1598,7 +1546,7 @@ body .partner-card a:hover {
 /*Contact*/
 
 .reach-list>div>i {
-  background: rgba(219, 182, 120, .10);
+  background: rgba(220, 170, 100, .10);
   border: 1px solid var(--lux-border);
   color: var(--lux-gold);
 }
@@ -1617,7 +1565,7 @@ body .partner-card a:hover {
 
 .form-control,
 .form-select {
-  background: rgba(2, 20, 18, .55);
+  background: rgba(0, 30, 24, .55);
   color: var(--lux-text);
   border: 1px solid var(--lux-border);
   border-radius: 6px;
@@ -1629,10 +1577,10 @@ body .partner-card a:hover {
 
 .form-control:focus,
 .form-select:focus {
-  background: rgba(2, 20, 18, .75);
+  background: rgba(0, 30, 24, .75);
   color: var(--lux-text);
   border-color: var(--lux-gold);
-  box-shadow: 0 0 0 3px rgba(219, 182, 120, .16);
+  box-shadow: 0 0 0 3px rgba(220, 170, 100, .16);
 }
 
 .form-control:valid,
@@ -1641,7 +1589,7 @@ body .partner-card a:hover {
 }
 
 .form-select option {
-  background: #04211e;
+  background: #00241E;
   color: var(--lux-text);
 }
 
@@ -1652,7 +1600,7 @@ body .partner-card a:hover {
 /*Partner enquiry modal*/
 
 .partner-enquiry-modal {
-  background: #04211e !important;
+  background: #00241E !important;
 }
 
 .partner-enquiry-modal .modal-header,
@@ -1675,7 +1623,7 @@ body .partner-enquiry-modal .modal-title {
 /*Footer*/
 
 .footer {
-  background: linear-gradient(180deg, #021412 0%, #010d0c 100%);
+  background: linear-gradient(180deg, #001E18 0%, #001812 100%);
   border-top: 1px solid var(--lux-gold);
 }
 
@@ -1713,11 +1661,11 @@ body .partner-enquiry-modal .modal-title {
 .back-top {
   background: var(--lux-gold-grad);
   color: #1b1304;
-  box-shadow: 0 12px 30px rgba(219, 182, 120, .35);
+  box-shadow: 0 12px 30px rgba(220, 170, 100, .35);
 }
 
 .cursor-glow {
-  background: radial-gradient(circle, rgba(219, 182, 120, .10), transparent 65%);
+  background: radial-gradient(circle, rgba(220, 170, 100, .10), transparent 65%);
 }
 
 /*Swiper / misc accents*/
@@ -1845,17 +1793,17 @@ body .partner-enquiry-modal .modal-title {
 }
 
 .card-purple {
-  background: linear-gradient(165deg, rgba(150, 40, 110, .50), rgba(2, 20, 18, .55) 70%) !important;
+  background: linear-gradient(165deg, rgba(150, 40, 110, .50), rgba(0, 30, 24, .55) 70%) !important;
   border-color: rgba(196, 90, 150, .5) !important;
 }
 
 .card-violet {
-  background: linear-gradient(165deg, rgba(160, 90, 30, .50), rgba(2, 20, 18, .55) 70%) !important;
+  background: linear-gradient(165deg, rgba(160, 90, 30, .50), rgba(0, 30, 24, .55) 70%) !important;
   border-color: rgba(219, 150, 80, .5) !important;
 }
 
 .card-mars {
-  background: linear-gradient(165deg, rgba(80, 50, 150, .50), rgba(2, 20, 18, .55) 70%) !important;
+  background: linear-gradient(165deg, rgba(80, 50, 150, .50), rgba(0, 30, 24, .55) 70%) !important;
   border-color: rgba(140, 110, 220, .5) !important;
 }
 
@@ -1875,7 +1823,7 @@ body .partner-enquiry-modal .modal-title {
 .approach-orbit .ao-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(219, 182, 120, .45);
+  border: 1px solid rgba(220, 170, 100, .45);
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -1910,7 +1858,7 @@ body .partner-enquiry-modal .modal-title {
   width: auto;
   height: auto;
   margin-bottom: 14px;
-  filter: drop-shadow(0 0 10px rgba(219, 182, 120, .35));
+  filter: drop-shadow(0 0 10px rgba(220, 170, 100, .35));
 }
 
 .value-card:hover span {
@@ -2001,7 +1949,7 @@ body .partner-enquiry-modal .modal-title {
   border: 1px solid var(--lux-border);
   border-radius: 10px;
   background: linear-gradient(160deg, rgba(27, 113, 92, .30), rgba(255, 255, 255, .03));
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(246, 226, 179, .12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(240, 200, 140, .12);
 }
 
 .faq-help h3 {
@@ -2121,7 +2069,7 @@ body .renew-nav .btn-brand {
 .hero-features i {
   font-size: 30px;
   color: var(--lux-gold);
-  filter: drop-shadow(0 0 8px rgba(219, 182, 120, .35));
+  filter: drop-shadow(0 0 8px rgba(220, 170, 100, .35));
 }
 
 @media (max-width: 767px) {
@@ -2163,10 +2111,8 @@ body .renew-nav .btn-brand {
 
 .renew-nav {
   background: #ffffff;
-  border-bottom: 1px solid rgba(219, 182, 120, .18);
+  border-bottom: 1px solid rgba(220, 170, 100, .18);
 }
-
-/*Logo: single champagne-gold tone so it reads on the dark nav*/
 
 /*Remove the blurred pastel orbs*/
 
@@ -2174,13 +2120,11 @@ body .renew-nav .btn-brand {
   padding-top: 100px !important;
 }
 
-/*Stronger gold rings around the centre*/
-
 /*Smoky glass tiles: two light, two dark (as in the sample)*/
 
 .hero-features {
   z-index: 2;
-  border-top: 1px solid rgba(219, 182, 120, .16);
+  border-top: 1px solid rgba(220, 170, 100, .16);
 }
 
 /*Hero: deeper black-teal base with a teal glow behind the orbit, brighter gold*/
@@ -2208,7 +2152,7 @@ body .hero-section h1 em {
   --pt-ribbon-bottom: url("../images/patterns/ribbon-bottom.svg");
   --pt-dots: url("../images/patterns/dots.svg");
   --glow-teal: rgba(20, 110, 92, .28);
-  --glow-gold: rgba(219, 182, 120, .07);
+  --glow-gold: rgba(220, 170, 100, .07);
 }
 
 .hero-section,
@@ -2219,14 +2163,14 @@ body .hero-section h1 em {
 .partner-section,
 .faq-section,
 .contact-section {
-  background-color: #020f0e;
+  background-color: #001812;
   background-repeat: no-repeat;
 }
 
 /*Hero: three dot clusters, three ribbons, teal glow behind the orbit*/
 
 .hero-section {
-  background-image: radial-gradient(ellipse 42% 58% at 74% 46%, rgba(20, 110, 92, .55), transparent 70%), radial-gradient(ellipse 30% 40% at 0% 100%, var(--glow-gold), transparent 70%), linear-gradient(160deg, #010a09 0%, #03171a 55%, #010a09 100%);
+  background-image: radial-gradient(ellipse 42% 58% at 74% 46%, rgba(20, 110, 92, .55), transparent 70%), radial-gradient(ellipse 30% 40% at 0% 100%, var(--glow-gold), transparent 70%), linear-gradient(160deg, #001812 0%, #00241E 55%, #001812 100%);
   background-size: 100% 100%, 100% 100%, 100% 100%;
   background-position: 0 0, 0 0, 0 0;
 }
@@ -2234,30 +2178,28 @@ body .hero-section h1 em {
 /*Sections: one ribbon + one dot cluster, alternating sides, soft glows*/
 
 .businesses-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 50% at 0% 100%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #021412, #031c19);
+  background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 50% at 0% 100%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #001E18, #00241E);
   background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%;
   background-position: 97% 8%, 0 100%, 0 0, 0 0;
 }
 
 .values-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 50% 0%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #021412, #031c19);
+  background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 50% 0%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #001E18, #00241E);
   background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%;
   background-position: 3% 12%, 100% 100%, 0 0, 0 0;
 }
 
 .partner-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-left), radial-gradient(ellipse 50% 50% at 0% 50%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #021412, #031c19);
+  background-image: var(--pt-dots), var(--pt-ribbon-left), radial-gradient(ellipse 50% 50% at 0% 50%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #001E18, #00241E);
   background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%;
   background-position: 97% 8%, 0 50%, 0 0, 0 0;
 }
 
 .contact-section {
-  background-image: var(--pt-dots), var(--pt-ribbon-tr), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 0% 100%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #021412, #04211e);
+  background-image: var(--pt-dots), var(--pt-ribbon-tr), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 0% 100%, var(--glow-teal), transparent 70%), linear-gradient(180deg, #001E18, #00241E);
   background-size: 116px 148px, min(700px, 55vw) auto, min(1200px, 100%) auto, 100% 100%, 100% 100%;
   background-position: 3% 10%, 100% 0, 100% 100%, 0 0, 0 0;
 }
-
-/*Orbit: concentric gold rings with glowing nodes*/
 
 /*Logo: original colours on a white rounded plate*/
 
@@ -2276,8 +2218,6 @@ body .hero-section h1 em {
   width: auto;
   height: 46px;
 }
-
-/*Reference-style tiles: larger radius, gold edge glow on the dark ones*/
 
 /*=========================================================
    HERO IMAGE + ABOUT LOGO ORBIT (animated)
@@ -2309,24 +2249,12 @@ body .hero-section h1 em {
 }
 
 .ao-logo:nth-child(even) .ao-tile {
-  border-color: rgba(219, 182, 120, .6);
+  border-color: rgba(220, 170, 100, .6);
 }
 
 .ao-tile strong {
   font-size: 9px;
   letter-spacing: .1em;
-}
-
-@keyframes ao-rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes ao-ring-spin {
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
 }
 
 @media (max-width: 575px) {
@@ -2393,31 +2321,6 @@ body .hero-section h1 em {
 .hero-visual {
   position: relative;
   width: 100%;
-}
-
-.hero-visual .hv-glow {
-  position: absolute;
-  left: 52%;
-  top: 50%;
-  width: 62%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(43, 200, 140, .38), rgba(219, 182, 120, .12) 45%, transparent 68%);
-  filter: blur(24px);
-  animation: hv-pulse 5s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes hv-pulse {
-  from {
-    opacity: .55;
-    transform: translate(-50%, -50%) scale(.92);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.08);
-  }
 }
 
 .hero-tagline {
@@ -2518,7 +2421,7 @@ body .hero-section h1 em {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-visual .hv-glow,
+
   .ao-tile img,
   .ao-tile strong {
     animation: none;
@@ -2533,39 +2436,9 @@ body .hero-section h1 em {
   margin: 0 auto;
 }
 
-.hero-visual .hv-stage {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-}
-
 .hero-visual .hv-img {
   width: 100%;
   height: 100%;
-}
-
-/*light sweep, masked to the shape of the image so it only crosses the artwork*/
-
-.hero-visual .hv-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(112deg, transparent 38%, rgba(255, 255, 255, .75) 50%, transparent 62%) 150% 0 / 260% 100% no-repeat;
-  -webkit-mask: var(--hv-img) center / contain no-repeat;
-  mask: var(--hv-img) center / contain no-repeat;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  animation: hv-shine 5.5s ease-in-out infinite;
-}
-
-@keyframes hv-shine {
-  0%,
-  25% {
-    background-position: 150% 0;
-  }
-  70%,
-  100% {
-    background-position: -60% 0;
-  }
 }
 
 /*=========================================================
@@ -2584,20 +2457,16 @@ body .hero-section h1 em {
   border-radius: 50%;
 }
 
-/*spiral arms (two layers rotating in opposite directions)*/
-
-/*bright galactic core*/
-
 /*star fields*/
 
 .ag-stars {
-  background-image: radial-gradient(1.6px 1.6px at 12% 22%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 30% 78%, #f6e2b3 50%, transparent 52%), radial-gradient(1.8px 1.8px at 47% 9%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 62% 58%, #f6e2b3 50%, transparent 52%), radial-gradient(1.6px 1.6px at 78% 28%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 88% 70%, #f6e2b3 50%, transparent 52%), radial-gradient(1.4px 1.4px at 20% 52%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 70% 90%, #fff 50%, transparent 52%), radial-gradient(1.4px 1.4px at 38% 38%, #dbb678 50%, transparent 52%), radial-gradient(1px 1px at 92% 44%, #fff 50%, transparent 52%);
+  background-image: radial-gradient(1.6px 1.6px at 12% 22%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 30% 78%, #F0C88C 50%, transparent 52%), radial-gradient(1.8px 1.8px at 47% 9%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 62% 58%, #F0C88C 50%, transparent 52%), radial-gradient(1.6px 1.6px at 78% 28%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 88% 70%, #F0C88C 50%, transparent 52%), radial-gradient(1.4px 1.4px at 20% 52%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 70% 90%, #fff 50%, transparent 52%), radial-gradient(1.4px 1.4px at 38% 38%, #DCAA64 50%, transparent 52%), radial-gradient(1px 1px at 92% 44%, #fff 50%, transparent 52%);
 }
 
 .ag-stars-2 {
   inset: 4%;
   transform: rotate(40deg);
-  background-image: radial-gradient(1.4px 1.4px at 16% 66%, #f6e2b3 50%, transparent 52%), radial-gradient(1px 1px at 34% 14%, #fff 50%, transparent 52%), radial-gradient(1.6px 1.6px at 54% 82%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 72% 12%, #dbb678 50%, transparent 52%), radial-gradient(1.4px 1.4px at 84% 54%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 8% 36%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 58% 40%, #f6e2b3 50%, transparent 52%), radial-gradient(1px 1px at 26% 92%, #fff 50%, transparent 52%);
+  background-image: radial-gradient(1.4px 1.4px at 16% 66%, #F0C88C 50%, transparent 52%), radial-gradient(1px 1px at 34% 14%, #fff 50%, transparent 52%), radial-gradient(1.6px 1.6px at 54% 82%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 72% 12%, #DCAA64 50%, transparent 52%), radial-gradient(1.4px 1.4px at 84% 54%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 8% 36%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 58% 40%, #F0C88C 50%, transparent 52%), radial-gradient(1px 1px at 26% 92%, #fff 50%, transparent 52%);
   animation: ag-spin 100s linear infinite reverse, ag-twinkle 3.4s ease-in-out -1.2s infinite alternate;
 }
 
@@ -2619,9 +2488,8 @@ body .hero-section h1 em {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-visual .hv-stage,
+
   .hero-visual .hv-img,
-  .hero-visual .hv-shine,
   .ag-stars {
     animation: none;
   }
@@ -2636,14 +2504,14 @@ body .hero-section h1 em {
 }
 
 .portrait {
-  border-color: rgba(219, 182, 120, .28);
-  background: linear-gradient(145deg, #1b715c, #021412);
-  box-shadow: 0 0 22px rgba(219, 182, 120, .14);
+  border-color: rgba(220, 170, 100, .28);
+  background: linear-gradient(145deg, #1b715c, #001E18);
+  box-shadow: 0 0 22px rgba(220, 170, 100, .14);
 }
 
 .person:hover .portrait {
-  border-color: rgba(219, 182, 120, .6);
-  box-shadow: 0 0 30px rgba(219, 182, 120, .3);
+  border-color: rgba(220, 170, 100, .6);
+  box-shadow: 0 0 30px rgba(220, 170, 100, .3);
 }
 
 .person h3 {
@@ -2670,7 +2538,7 @@ body .hero-section h1 em {
   width: var(--s);
   height: var(--s);
   margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
-  background: #f6e2b3;
+  background: #F0C88C;
   clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
   animation: ag-sparkle var(--d) ease-in-out var(--t) infinite;
 }
@@ -2709,7 +2577,7 @@ body .hero-section h1 em {
 }
 
 .approach-orbit .ao-ring::before {
-  background: #f6e2b3;
+  background: #F0C88C;
   height: 7px;
   width: 7px;
   left: 50%;
@@ -2730,7 +2598,7 @@ body .hero-section h1 em {
 }
 
 .approach-orbit .ao-ring-2 {
-  border: 1px dashed rgba(219, 182, 120, .4);
+  border: 1px dashed rgba(220, 170, 100, .4);
 }
 
 .approach-orbit .ao-ring-2::before {
@@ -2754,7 +2622,7 @@ body .hero-section h1 em {
 =========================================================*/
 
 .card-teal {
-  background: linear-gradient(165deg, rgba(14, 110, 130, .6), rgba(2, 20, 18, .55) 70%) !important;
+  background: linear-gradient(165deg, rgba(14, 110, 130, .6), rgba(0, 30, 24, .55) 70%) !important;
   border-color: rgba(86, 178, 198, .55) !important;
 }
 
@@ -2769,23 +2637,9 @@ body .hero-section h1 em {
   margin-right: -30px;
 }
 
-.hero-visual .hv-stage {
-  animation: hv-sway 10s ease-in-out infinite alternate;
-  will-change: auto;
-}
-
 .hero-visual .hv-img {
   object-fit: contain;
   filter: contrast(1.06) saturate(1.08);
-}
-
-@keyframes hv-sway {
-  from {
-    transform: rotateY(-4deg) scale(1);
-  }
-  to {
-    transform: rotateY(4deg) scale(1.02);
-  }
 }
 
 @media (max-width: 991px) {
@@ -2835,10 +2689,6 @@ body .hero-section h1 em {
   object-fit: contain;
 }
 
-img[src*="mars-builders-mark"] {
-  clip-path: inset(0 0 14% 0);
-}
-
 /*=========================================================
    HERO IMAGE: entrance, bobbing, expanding rings, sparkles
 =========================================================*/
@@ -2847,43 +2697,6 @@ img[src*="mars-builders-mark"] {
   image-rendering: -webkit-optimize-contrast;
   display: block;
   animation: hv-enter 1.4s cubic-bezier(.2, .8, .2, 1) both, hv-bob 6.5s ease-in-out 1.4s infinite alternate;
-}
-
-.hero-visual .hv-ring {
-  position: absolute;
-  left: 52%;
-  top: 50%;
-  width: 46%;
-  aspect-ratio: 1;
-  margin: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(246, 226, 179, .55);
-  transform: translate(-50%, -50%) scale(.5);
-  opacity: 0;
-  pointer-events: none;
-  animation: hv-ripple 5s ease-out infinite;
-}
-
-.hero-visual .hv-ring-2 {
-  border-color: rgba(43, 200, 140, .5);
-  animation-delay: -2.5s;
-}
-
-.hero-visual .hv-spark {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--s);
-  height: var(--s);
-  margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
-  background: #f6e2b3;
-  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
-  pointer-events: none;
-  animation: ag-sparkle var(--d) ease-in-out var(--t) infinite;
-}
-
-.hero-visual .hv-spark:nth-of-type(even) {
-  background: #fff;
 }
 
 @keyframes hv-enter {
@@ -2906,27 +2719,10 @@ img[src*="mars-builders-mark"] {
   }
 }
 
-@keyframes hv-ripple {
-  0% {
-    opacity: .7;
-    transform: translate(-50%, -50%) scale(.45);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.7);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-visual .hv-img,
-  .hero-visual .hv-ring,
-  .hero-visual .hv-spark {
+  .hero-visual .hv-img {
     animation: none;
     opacity: 1;
-  }
-
-  .hero-visual .hv-ring {
-    display: none;
   }
 }
 
@@ -3041,7 +2837,7 @@ img[src*="mars-builders-mark"] {
   }
   30% {
     transform: translateY(-4px);
-    color: var(--wave-hi, #fff3d1);
+    color: var(--wave-hi, #F0D2AA);
   }
 }
 
@@ -3120,7 +2916,7 @@ body .hero-section .eyebrow {
   }
   40% {
     transform: translateY(-10px) scale(1.12);
-    color: var(--wave-hi, #fff3d1);
+    color: var(--wave-hi, #F0D2AA);
   }
   100% {
     transform: translateY(0) scale(1);
@@ -3143,16 +2939,6 @@ body .eyebrow > span:not(.wv) {
    dark: hero, about, leadership, FAQ, footer
    light (white blends): businesses, why us, partner, contact
 =========================================================*/
-
-/*gold accent words on white*/
-
-/*white cards in light sections*/
-
-/*dark feature cards keep light text on white sections*/
-
-/*contact form on white*/
-
-/*business cards: solid dark base under the tinted gradients so they stay rich on white*/
 
 /*=========================================================
    ALTERNATING SECTIONS
@@ -3204,13 +2990,13 @@ body .eyebrow > span:not(.wv) {
 /*dark feature cards keep light text on white sections*/
 
 .section-light .partner-card {
-  --lux-gold-hi: #f6e2b3;
-  --lux-border: rgba(219, 182, 120, .28);
+  --lux-gold-hi: #F0C88C;
+  --lux-border: rgba(220, 170, 100, .28);
 }
 
 .section-light .business-card,
 .section-light .partner-card {
-  --wave-hi: #fff3d1;
+  --wave-hi: #F0D2AA;
 }
 
 /*contact form on white*/
@@ -3253,8 +3039,6 @@ body .eyebrow > span:not(.wv) {
   color: #6e4709;
 }
 
-/*business cards: solid dark base under the tinted gradients so they stay rich on white*/
-
 /*=========================================================
    REFERENCE LAYOUT
    cream / dark sections with wave edges, serif headings,
@@ -3262,18 +3046,18 @@ body .eyebrow > span:not(.wv) {
 =========================================================*/
 
 :root {
-  --cream: #fbf6ee;
-  --cream-2: #f7f0e4;
+  --cream: #FCF6F0;
+  --cream-2: #F9F3E7;
 }
 
 /*---- Light (cream) sections ----*/
 
 .section-light {
   --lux-text: #0a2e29;
-  --lux-muted: rgba(10, 46, 41, .72);
+  --lux-muted: rgba(10, 46, 41);
   --lux-gold: #a8792c;
   --lux-gold-hi: #8b5b0e;
-  --lux-border: rgba(173, 131, 70, .22);
+  --lux-border: #b58024;
   background-color: var(--cream);
 }
 
@@ -3339,10 +3123,10 @@ body .contact-section h2 em {
 
 .section-light .business-card {
   --lux-text: #0a2e29;
-  --lux-muted: rgba(10, 46, 41, .72);
+  --lux-muted: rgba(10, 46, 41);
   --lux-gold: #a8792c;
   --lux-gold-hi: #8b5b0e;
-  --lux-border: rgba(173, 131, 70, .22);
+  --lux-border: #b58024;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -3352,7 +3136,7 @@ body .contact-section h2 em {
 }
 
 .section-light .business-card:hover {
-  border-color: rgba(173, 131, 70, .45) !important;
+  border-color: rgba(200, 150, 80, .45) !important;
 }
 
 .business-card .biz-media {
@@ -3376,7 +3160,7 @@ body .contact-section h2 em {
 }
 
 .card-violet .biz-media {
-  background-image: linear-gradient(135deg, #5b3910, #c08a3c 60%, #f6e2b3);
+  background-image: linear-gradient(135deg, #5b3910, #c08a3c 60%, #F0C88C);
 }
 
 .card-mars .biz-media {
@@ -3444,7 +3228,7 @@ body .contact-section h2 em {
   text-align: left;
   padding: 22px 20px;
   border-radius: 16px !important;
-  border: 1px solid rgba(173, 131, 70, .2) !important;
+  border: 1px solid rgba(200, 150, 80, .2) !important;
   box-shadow: 0 12px 30px rgba(80, 56, 14, .08);
 }
 
@@ -3479,7 +3263,7 @@ body .contact-section h2 em {
   color: #0a2e29;
   background: #fff !important;
   background-color: #fff !important;
-  border: 1px solid rgba(173, 131, 70, .2) !important;
+  border: 1px solid rgba(200, 150, 80, .2) !important;
   border-radius: 16px !important;
   box-shadow: 0 14px 34px rgba(80, 56, 14, .1);
 }
@@ -3515,7 +3299,7 @@ body .section-light .partner-card p {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  color: #053833;
+  color: #002A1E;
   font-size: 12px;
   font-weight: 700;
   text-align: left;
@@ -3537,7 +3321,7 @@ body .section-light .partner-card p {
 /*---- Contact: info cards in two columns ----*/
 
 .section-light .reach-list > div {
-  border: 1px solid rgba(173, 131, 70, .2);
+  border: 1px solid rgba(200, 150, 80, .2);
   border-radius: 14px;
   padding: 14px;
   box-shadow: 0 10px 26px rgba(80, 56, 14, .07);
@@ -3675,19 +3459,19 @@ body .section-light .partner-card p {
 /*dark sections*/
 
 .about-section {
-  background-image: var(--pt-mountains), var(--pt-ribbon-left), var(--pt-ribbon-tr), radial-gradient(ellipse 45% 55% at 78% 50%, rgba(27, 113, 92, .30), transparent 70%), linear-gradient(180deg, #03211d, #021412);
-  background-size: 100% 200px, auto 90%, min(640px, 50vw) auto, 100% 100%, 100% 100%;
-  background-position: 0 100%, 0 50%, 100% 0, 0 0, 0 0;
+  background-image: var(--pt-mountains), radial-gradient(ellipse 45% 55% at 78% 50%, rgba(27, 113, 92, .30), transparent 70%), linear-gradient(180deg, #00241E, #001E18);
+  background-size: 100% 200px, 100% 100%, 100% 100%;
+  background-position: 0 100%, 0 0, 0 0;
 }
 
 .leadership-section {
-  background-image: var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 50% at 50% 40%, rgba(27, 113, 92, .22), transparent 70%), linear-gradient(180deg, #03211d, #021412);
+  background-image: var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 50% at 50% 40%, rgba(27, 113, 92, .22), transparent 70%), linear-gradient(180deg, #00241E, #001E18);
   background-size: auto 80%, min(1200px, 100%) auto, 100% 100%, 100% 100%;
   background-position: 0 50%, 100% 100%, 0 0, 0 0;
 }
 
 .faq-section {
-  background-image: var(--pt-mountains), var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 45% 50% at 85% 60%, rgba(27, 113, 92, .24), transparent 70%), linear-gradient(180deg, #03211d, #021412);
+  background-image: var(--pt-mountains), var(--pt-ribbon-left), var(--pt-ribbon-bottom), radial-gradient(ellipse 45% 50% at 85% 60%, rgba(27, 113, 92, .24), transparent 70%), linear-gradient(180deg, #00241E, #001E18);
   background-size: 100% 170px, auto 85%, min(1100px, 100%) auto, 100% 100%, 100% 100%;
   background-position: 0 100%, 0 50%, 100% 100%, 0 0, 0 0;
 }
@@ -3696,7 +3480,7 @@ body .section-light .partner-card p {
 
 body .section-light.businesses-section,
 body .section-light.partner-section {
-  background-image: var(--pt-ribbon-tr), var(--pt-ribbon-left), radial-gradient(ellipse 50% 60% at 100% 100%, rgba(219, 182, 120, .16), transparent 70%), linear-gradient(180deg, #fffdf9, #f8f1e5);
+  background-image: var(--pt-ribbon-tr), var(--pt-ribbon-left), radial-gradient(ellipse 50% 60% at 100% 100%, rgba(220, 170, 100, .16), transparent 70%), linear-gradient(180deg, #FCF9F3, #F9F3E7);
   background-size: min(640px, 50vw) auto, auto 80%, 100% 100%, 100% 100%;
   background-position: 100% 0, 0 60%, 0 0, 0 0;
 }
@@ -3710,19 +3494,13 @@ body .section-light.contact-section {
 
 body .section-light.values-section,
 body .section-light.contact-section {
-  background-image: var(--pt-ribbon-bottom), var(--pt-ribbon-tr), radial-gradient(ellipse 50% 60% at 0% 100%, rgba(219, 182, 120, .16), transparent 70%), linear-gradient(180deg, #fffdf9, #f8f1e5);
+  background-image: var(--pt-ribbon-bottom), var(--pt-ribbon-tr), radial-gradient(ellipse 50% 60% at 0% 100%, rgba(220, 170, 100, .16), transparent 70%), linear-gradient(180deg, #FCF9F3, #F9F3E7);
   background-size: min(1200px, 100%) auto, min(560px, 45vw) auto, 100% 100%, 100% 100%;
   background-position: 100% 100%, 0 0, 0 0, 0 0;
 }
 
 .section-light {
   --pt-opacity: .55;
-}
-
-/*Hero image: show the whole picture (no cropping), soft-faded edges that blend into the hero*/
-
-.hero-section .hv-shine {
-  display: none;
 }
 
 /*Hero image merges into the hero background (dark pixels blend away)*/
@@ -3734,49 +3512,7 @@ body .section-light.contact-section {
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%);
 }
 
-.hero-section .hero-visual .hv-glow {
-  background: radial-gradient(circle, rgba(20, 110, 92, .5), transparent 68%);
-}
-
 /*Connect-link effect: animated network of lines and nodes around the picture*/
-
-.hv-net {
-  position: absolute;
-  inset: -4% -6%;
-  width: 112%;
-  height: 108%;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.hv-net .net-lines path {
-  fill: none;
-  stroke: #dbb678;
-  stroke-width: 1;
-  stroke-opacity: .55;
-  stroke-dasharray: 6 8;
-  animation: net-flow 3.2s linear infinite;
-}
-
-.hv-net .net-lines path:nth-child(even) {
-  animation-duration: 4.6s;
-  animation-direction: reverse;
-}
-
-.hv-net .net-nodes circle {
-  fill: #f6e2b3;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: net-pulse 2.6s ease-in-out infinite;
-}
-
-.hv-net .net-nodes circle:nth-child(3n) {
-  animation-delay: -.8s;
-}
-
-.hv-net .net-nodes circle:nth-child(3n+1) {
-  animation-delay: -1.6s;
-}
 
 @keyframes net-flow {
   to {
@@ -3793,14 +3529,7 @@ body .section-light.contact-section {
   50% {
     opacity: 1;
     transform: scale(1.7);
-    filter: drop-shadow(0 0 5px #f6e2b3);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hv-net .net-lines path,
-  .hv-net .net-nodes circle {
-    animation: none;
+    filter: drop-shadow(0 0 5px #F0C88C);
   }
 }
 
@@ -3820,7 +3549,7 @@ body .section-light.contact-section {
 
 .hero-net .net-lines path {
   fill: none;
-  stroke: #dbb678;
+  stroke: #DCAA64;
   stroke-width: 1;
   stroke-opacity: .4;
   stroke-dasharray: 5 9;
@@ -3833,7 +3562,7 @@ body .section-light.contact-section {
 }
 
 .hero-net .net-nodes circle {
-  fill: #f6e2b3;
+  fill: #F0C88C;
   transform-box: fill-box;
   transform-origin: center;
   animation: net-pulse 2.6s ease-in-out infinite;
@@ -3851,17 +3580,6 @@ body .section-light.contact-section {
   }
 }
 
-/*Hero image: original effect (gentle float + glow pulse), nothing else*/
-
-@keyframes hv-float {
-  from {
-    transform: translateY(-12px) scale(1);
-  }
-  to {
-    transform: translateY(12px) scale(1.035);
-  }
-}
-
 /*Hero image: slow breathing + pointer-follow 3D tilt (replaces float)*/
 
 .hero-section .hero-visual {
@@ -3871,77 +3589,6 @@ body .section-light.contact-section {
 
 .hero-section .hero-visual .hv-img {
   mix-blend-mode: lighten;
-}
-
-@keyframes hv-breathe {
-  from {
-    transform: scale(.98);
-    filter: brightness(.97) drop-shadow(0 0 8px rgba(43, 200, 140, .2));
-  }
-  to {
-    transform: scale(1.04);
-    filter: brightness(1.12) saturate(1.1) drop-shadow(0 0 28px rgba(43, 200, 140, .5));
-  }
-}
-
-/*Hero image: periodic flash (masked to the artwork so only the gem and cubes light up)*/
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-section .hero-visual .hv-shine {
-    animation: none;
-  }
-}
-
-/*Hero image shine v2: diagonal glint sweep + twinkling crystal stars (replaces the flash)*/
-
-@keyframes hv-glint {
-  0%,
-  30% {
-    background-position: 160% 0;
-  }
-  75%,
-  100% {
-    background-position: -70% 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-section .hero-visual .hv-shine {
-    animation: none;
-  }
-}
-
-/*Hero image: earlier animation set restored (entrance, bobbing, 3D sway, light sweep, rings, sparkles)*/
-
-.hero-section .hero-visual .hv-stage {
-  animation: hv-sway 10s ease-in-out infinite alternate;
-  transform: none;
-  transition: none;
-}
-
-.hero-section .hero-visual .hv-shine {
-  opacity: 1;
-  mix-blend-mode: screen;
-  position: absolute;
-  inset: 0;
-  -webkit-mask: var(--hv-img) center / contain no-repeat;
-  mask: var(--hv-img) center / contain no-repeat;
-  pointer-events: none;
-  background: linear-gradient(112deg, transparent 38%, rgba(255, 255, 255, .75) 50%, transparent 62%) 150% 0 / 260% 100% no-repeat;
-  animation: hv-shine 5.5s ease-in-out infinite;
-}
-
-.hero-section .hero-visual .hv-ring {
-  display: block;
-}
-
-@keyframes hv-glow {
-  from {
-    filter: brightness(.96) drop-shadow(0 0 10px rgba(43, 200, 140, .25));
-  }
-  to {
-    filter: brightness(1.14) saturate(1.12) drop-shadow(0 0 30px rgba(43, 200, 140, .55));
-  }
 }
 
 /*=========================================================
@@ -3971,14 +3618,6 @@ body .section-light.contact-section {
 .card-mars {
   --acc: #5f7ae0;
 }
-
-/*diagonal colour header*/
-
-/*number: large outlined watermark on the header*/
-
-/*logo plate overlaps the header edge*/
-
-/*accent bar that grows on hover*/
 
 /*=========================================================
    BUSINESS CARDS v3: light cards tinted with each brand's logo colour
@@ -4035,12 +3674,6 @@ body .section-light.contact-section {
   filter: none;
 }
 
-.hero-section .hero-visual .hv-spark,
-.hero-section .hero-visual .hv-shine,
-.hero-section .hero-visual .hv-glow {
-  display: none;
-}
-
 /*=========================================================
    BUSINESS CARDS: ticket design again, in the brand logo colours
 =========================================================*/
@@ -4070,7 +3703,7 @@ body .section-light.contact-section {
 .section-light .business-card .biz-media {
   height: 150px;
   clip-path: polygon(0 0, 100% 0, 100% 62%, 0 100%);
-  background-image: linear-gradient(135deg, color-mix(in srgb, var(--acc) 70%, #021412), var(--acc));
+  background-image: linear-gradient(135deg, color-mix(in srgb, var(--acc) 70%, #001E18), var(--acc));
 }
 
 .business-card .biz-media::after {
@@ -4194,7 +3827,7 @@ body .section-light.contact-section {
 }
 
 .leadership-grid .person {
-  background: linear-gradient(180deg, rgba(4, 33, 30, .82), rgba(2, 20, 18, .82)) !important;
+  background: linear-gradient(180deg, rgba(4, 33, 30, .82), rgba(0, 30, 24, .82)) !important;
   backdrop-filter: blur(6px);
 }
 
@@ -4249,7 +3882,7 @@ body .section-light.contact-section {
 .approach-orbit .ao-ring-2 {
   animation: none;
   transform: translate(-50%, -50%) rotateX(var(--tilt));
-  box-shadow: 0 0 18px rgba(219, 182, 120, .15);
+  box-shadow: 0 0 18px rgba(220, 170, 100, .15);
 }
 
 .approach-orbit .ao-ring-1 {
@@ -4354,7 +3987,7 @@ body .section-light.contact-section {
 
 .approach-orbit .ao-ring-1,
 .approach-orbit .ao-ring-2 {
-  border-color: rgba(219, 182, 120, .55);
+  border-color: rgba(220, 170, 100, .55);
 }
 
 .ao-tile,
@@ -4367,13 +4000,13 @@ body .section-light.contact-section {
 .ao-tile img {
   max-width: 78%;
   max-height: 64px;
-  filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px rgba(255, 255, 255, .85)) drop-shadow(0 0 22px rgba(246, 226, 179, .7));
+  filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px rgba(255, 255, 255, .85)) drop-shadow(0 0 22px rgba(240, 200, 140, .7));
 }
 
 .ao-tile strong,
 .ao-logo:nth-child(even) .ao-tile strong {
   color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, .9), 0 0 10px rgba(246, 226, 179, .6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .9), 0 0 10px rgba(240, 200, 140, .6);
 }
 
 /*Leadership: one-by-one entrance*/
@@ -4403,20 +4036,27 @@ body .section-light.contact-section {
 
 .hero-section .hero-visual {
   aspect-ratio: 1376 / 768;
-  max-width: 880px;
-  margin-right: -60px;
+  width: calc(100% + 200px);
+  max-width: 1160px;
+  align-self: flex-start;
+  margin-left: -40px;
+  margin-right: -160px;
 }
 
 @media (max-width: 1199px) {
   .hero-section .hero-visual {
-    max-width: 760px;
-    margin-right: -20px;
+    width: calc(100% + 100px);
+    max-width: 940px;
+    margin-left: -20px;
+    margin-right: -80px;
   }
 }
 
 @media (max-width: 991px) {
   .hero-section .hero-visual {
-    max-width: 640px;
+    width: 100%;
+    max-width: 720px;
+    align-self: center;
     margin: 0 auto;
   }
 }
@@ -4470,7 +4110,7 @@ body .section-light.contact-section {
   align-items: center;
   justify-content: center;
   gap: 18px;
-  background: radial-gradient(ellipse 50% 50% at 50% 45%, #0c3b34, #021412 70%);
+  background: radial-gradient(ellipse 50% 50% at 50% 45%, #0c3b34, #001E18 70%);
   transition: opacity .6s ease, visibility .6s ease;
 }
 
@@ -4493,7 +4133,7 @@ body .section-light.contact-section {
   padding: 8px 10px;
   border-radius: 14px;
   background: #fff;
-  box-shadow: 0 0 30px rgba(246, 226, 179, .35);
+  box-shadow: 0 0 30px rgba(240, 200, 140, .35);
 }
 
 .pl-ring {
@@ -4501,16 +4141,16 @@ body .section-light.contact-section {
   inset: 0;
   border-radius: 50%;
   border: 2px solid transparent;
-  border-top-color: #f6e2b3;
-  border-right-color: rgba(219, 182, 120, .45);
+  border-top-color: #F0C88C;
+  border-right-color: rgba(220, 170, 100, .45);
   animation: pl-spin 1.1s linear infinite;
 }
 
 .pl-ring-2 {
   inset: 12px;
   border-top-color: transparent;
-  border-bottom-color: #dbb678;
-  border-left-color: rgba(219, 182, 120, .35);
+  border-bottom-color: #DCAA64;
+  border-left-color: rgba(220, 170, 100, .35);
   animation-duration: 1.7s;
   animation-direction: reverse;
 }
@@ -4520,7 +4160,7 @@ body .section-light.contact-section {
   font-size: 11px !important;
   letter-spacing: .4em;
   text-transform: uppercase;
-  color: #dbb678;
+  color: #DCAA64;
   animation: pl-blink 1.4s ease-in-out infinite;
 }
 
@@ -4547,16 +4187,6 @@ body .section-light.contact-section {
 .ao-logo:nth-child(2) .ao-tile { animation-delay: 0s, -9s; }
 .ao-logo:nth-child(3) .ao-tile { animation-delay: 0s, -18s; }
 .ao-logo:nth-child(4) .ao-tile { animation-delay: 0s, -27s; }
-
-@keyframes ao-depth {
-  0%   { opacity: 0; }
-  12%  { opacity: .1; }
-  30%  { opacity: .7; }
-  50%  { opacity: 1; }
-  70%  { opacity: .7; }
-  88%  { opacity: .1; }
-  100% { opacity: 0; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ao-tile { animation: none; opacity: 1; }
@@ -4650,14 +4280,12 @@ body .section-light.contact-section {
 }
 
 /* Hero connect links: slow zoom in/out of the whole network, plus a stronger node zoom */
-.hero-section > .hero-net,
-.hero-section .hv-net {
+.hero-section > .hero-net {
   transform-origin: 60% 50%;
   animation: net-zoom 12s ease-in-out infinite alternate;
 }
 
-.hero-section .hero-net .net-nodes circle,
-.hero-section .hv-net .net-nodes circle {
+.hero-section .hero-net .net-nodes circle {
   animation: net-pulse 2.6s ease-in-out infinite;
 }
 
@@ -4667,54 +4295,2246 @@ body .section-light.contact-section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-section > .hero-net,
-  .hero-section .hv-net { animation: none; }
-}
-
-/* Hero connect links: zoom only while the pointer is over the hero (replaces the automatic zoom) */
-.hero-section > .hero-net,
-.hero-section .hv-net {
-  animation: none;
-  transform: scale(1);
-  transform-origin: var(--mx, 60%) var(--my, 50%);
-  transition: transform 1.1s cubic-bezier(.2, .8, .2, 1);
-}
-
-.hero-section:hover > .hero-net,
-.hero-section:hover .hv-net {
-  transform: scale(1.3);
-}
-
-.hero-section:hover .hero-net .net-nodes circle,
-.hero-section:hover .hv-net .net-nodes circle {
-  fill: #fff3d1;
-}
-
-.hero-section:hover .hero-net .net-lines path,
-.hero-section:hover .hv-net .net-lines path {
-  stroke-opacity: .75;
+  .hero-section > .hero-net { animation: none; }
 }
 
 /* Page loader colours come from the Customizer */
 .page-loader {
-  background: radial-gradient(ellipse 50% 50% at 50% 45%, color-mix(in srgb, var(--pl-accent, #dbb678) 22%, var(--pl-bg, #021412)), var(--pl-bg, #021412) 70%);
+  background: radial-gradient(ellipse 50% 50% at 50% 45%, color-mix(in srgb, var(--pl-accent, #DCAA64) 22%, var(--pl-bg, #001E18)), var(--pl-bg, #001E18) 70%);
 }
 
 .pl-ring {
-  border-top-color: var(--pl-accent, #dbb678);
-  border-right-color: color-mix(in srgb, var(--pl-accent, #dbb678) 45%, transparent);
+  border-top-color: var(--pl-accent, #DCAA64);
+  border-right-color: color-mix(in srgb, var(--pl-accent, #DCAA64) 45%, transparent);
 }
 
 .pl-ring-2 {
   border-top-color: transparent;
-  border-bottom-color: var(--pl-accent, #dbb678);
-  border-left-color: color-mix(in srgb, var(--pl-accent, #dbb678) 35%, transparent);
+  border-bottom-color: var(--pl-accent, #DCAA64);
+  border-left-color: color-mix(in srgb, var(--pl-accent, #DCAA64) 35%, transparent);
 }
 
 .pl-text {
-  color: var(--pl-accent, #dbb678);
+  color: var(--pl-accent, #DCAA64);
 }
 
 .pl-box img {
-  box-shadow: 0 0 30px color-mix(in srgb, var(--pl-accent, #dbb678) 35%, transparent);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--pl-accent, #DCAA64) 35%, transparent);
+}
+
+/* Hero: plain background and a plain image (all decorative and motion effects removed) */
+.hero-section {
+  background-image: linear-gradient(160deg, #001812 0%, #00241E 55%, #001812 100%);
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: none;
+}
+
+.hero-section .hero-visual {
+  aspect-ratio: auto;
+  perspective: none;
+}
+
+.hero-section .hero-visual .hv-img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  -webkit-mask-image: none;
+  mask-image: none;
+  filter: none;
+  box-shadow: none;
+  animation: none;
+  transform: none;
+  will-change: auto;
+}
+
+/*---- Hero heading: white (the <em> line keeps its gold gradient) ----*/
+body .hero-section h1 {
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: #fff;
+}
+
+/* Hero: twinkling starfield (stars built by script.js) */
+.hero-section .hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-stars .star {
+  position: absolute;
+  border-radius: 50%;
+  background: #F0D2AA;
+  box-shadow: 0 0 3px rgba(240, 210, 170, .7);
+  opacity: var(--o, .8);
+  animation: star-twinkle var(--d, 3s) ease-in-out var(--t, 0s) infinite;
+}
+
+.hero-stars .star-gold {
+  background: #DCAA64;
+  box-shadow: 0 0 3px rgba(220, 170, 100, .75);
+}
+
+.hero-stars .sparkle {
+  position: absolute;
+  width: var(--s, 14px);
+  height: var(--s, 14px);
+  margin: calc(var(--s, 14px) / -2) 0 0 calc(var(--s, 14px) / -2);
+  background: radial-gradient(circle, #fff 0 12%, transparent 13%), #DCAA64;
+  clip-path: polygon(50% 0, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0 50%, 42% 42%);
+  filter: drop-shadow(0 0 2px rgba(220, 170, 100, .7));
+  animation: star-sparkle var(--d, 4s) ease-in-out var(--t, 0s) infinite;
+}
+
+.hero-stars .shooting-star {
+  position: absolute;
+  width: 140px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(240, 210, 170, .95), rgba(240, 210, 170, 0));
+  transform: rotate(-28deg);
+  transform-origin: left center;
+  opacity: 0;
+  animation: star-shoot 8s linear var(--t, 0s) infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: var(--o, .8); transform: scale(1); }
+  50% { opacity: .1; transform: scale(.6); }
+}
+
+@keyframes star-sparkle {
+  0%, 100% { opacity: 0; transform: scale(.3) rotate(0deg); }
+  45%, 55% { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+
+@keyframes star-shoot {
+  0% { opacity: 0; translate: 0 0; }
+  1% { opacity: 1; }
+  6% { opacity: 0; translate: -340px 180px; }
+  100% { opacity: 0; translate: -340px 180px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stars .star,
+  .hero-stars .sparkle { animation: none; }
+  .hero-stars .sparkle { opacity: .7; }
+  .hero-stars .shooting-star { display: none; }
+}
+
+/* Hero banner image: gentle float and a light sweep masked to the artwork */
+.hero-section .hero-visual {
+  position: relative;
+  animation: hv-float 7s ease-in-out infinite alternate;
+}
+
+.hero-section .hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 246, 222, .55) 50%, transparent 60%) 160% 0 / 250% 100% no-repeat;
+  -webkit-mask: var(--hv-img) center / 100% 100% no-repeat;
+  mask: var(--hv-img) center / 100% 100% no-repeat;
+  mix-blend-mode: screen;
+  animation: hv-sweep 6s ease-in-out infinite;
+}
+
+@keyframes hv-float {
+  from { transform: translateY(-6px); }
+  to { transform: translateY(8px); }
+}
+
+@keyframes hv-sweep {
+  0%, 25% { background-position: 160% 0; }
+  70%, 100% { background-position: -60% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section .hero-visual,
+  .hero-section .hero-visual::after { animation: none; }
+  .hero-section .hero-visual::after { display: none; }
+}
+
+/*=========================================================
+   ABOUT ORBIT: solar-system look
+   golden sun with corona + swirl ring, glossy brand planets with gold rings,
+   concentric gold orbits with travelling moons, gold/green milky-way band
+=========================================================*/
+.approach-orbit {
+  --r: 250px;
+  --tile: 100px;
+  max-width: 620px;
+}
+
+/*---- milky-way band + stardust ----*/
+.approach-orbit .ao-galaxy {
+  inset: -22% -38%;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.ao-galaxy .ag-band,
+.ao-galaxy .ag-dust {
+  inset: 0;
+  border-radius: 0;
+  transform: rotate(-20deg);
+}
+
+.ao-galaxy .ag-band {
+  background:
+    radial-gradient(ellipse 48% 13% at 50% 50%, rgba(240, 200, 140, .30), transparent 70%),
+    radial-gradient(ellipse 34% 10% at 30% 54%, rgba(43, 140, 116, .40), transparent 72%),
+    radial-gradient(ellipse 30% 9% at 72% 46%, rgba(43, 140, 116, .30), transparent 72%);
+  filter: blur(8px);
+}
+
+.ao-galaxy .ag-dust {
+  background:
+    radial-gradient(circle, rgba(240, 200, 140, .9) 0 .9px, transparent 1.4px) 0 0 / 7px 7px,
+    radial-gradient(circle, rgba(255, 255, 255, .75) 0 .7px, transparent 1.2px) 3px 4px / 11px 11px;
+  -webkit-mask-image: radial-gradient(ellipse 50% 15% at 50% 50%, #000 10%, transparent 72%);
+  mask-image: radial-gradient(ellipse 50% 15% at 50% 50%, #000 10%, transparent 72%);
+  animation: ag-dust-twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes ag-dust-twinkle {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+
+/*---- concentric gold orbits with moons ----*/
+.approach-orbit .ao-ring {
+  border: 1.5px solid rgba(240, 200, 140, .75);
+  border-style: solid;
+  box-shadow: 0 0 12px rgba(220, 170, 100, .35), inset 0 0 12px rgba(220, 170, 100, .18);
+  --spin: 0deg;
+  transform: translate(-50%, -50%) rotateX(60deg) rotateZ(var(--spin));
+}
+
+.approach-orbit .ao-ring-1 { width: calc(var(--r) * 2); height: calc(var(--r) * 2); }
+.approach-orbit .ao-ring-2 { width: calc(var(--r) * 1.6); height: calc(var(--r) * 1.6); animation: ao-moon 22s linear infinite; }
+.approach-orbit .ao-ring-3 { width: calc(var(--r) * 1.25); height: calc(var(--r) * 1.25); animation: ao-moon 14s linear infinite reverse; }
+.approach-orbit .ao-ring-4 { width: calc(var(--r) * 2.45); height: calc(var(--r) * 2.45); border-color: rgba(240, 200, 140, .5); animation: ao-moon 40s linear infinite; }
+
+.approach-orbit .ao-ring-2::before,
+.approach-orbit .ao-ring-3::before,
+.approach-orbit .ao-ring-4::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff4d6, #DCAA64 55%, #6b4a17);
+  box-shadow: 0 0 10px rgba(240, 200, 140, .8);
+}
+
+.approach-orbit .ao-ring-3::before { width: 8px; height: 8px; margin: -4px 0 0 -4px; }
+.approach-orbit .ao-ring-4::before { top: 100%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; }
+
+@property --spin {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ao-moon {
+  to { --spin: 360deg; }
+}
+
+/*---- golden sun ----*/
+.approach-orbit .ao-center {
+  width: 29%;
+  background: radial-gradient(circle, #fff7dc 0%, #f8dc8a 26%, #e7b04a 50%, #b8781f 74%, #7a4a12 100%);
+  box-shadow:
+    0 0 40px 10px rgba(255, 205, 100, .55),
+    0 0 120px 40px rgba(233, 170, 60, .28),
+    inset 0 0 34px rgba(255, 240, 200, .65);
+}
+
+.approach-orbit .ao-center::before,
+.approach-orbit .ao-center::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/*corona rays*/
+.approach-orbit .ao-center::before {
+  inset: -24%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 214, 120, .6) 0 3deg, transparent 3deg 11deg);
+  -webkit-mask: radial-gradient(circle closest-side, transparent 64%, #000 70%, transparent 100%);
+  mask: radial-gradient(circle closest-side, transparent 64%, #000 70%, transparent 100%);
+  filter: blur(1.5px);
+  animation: ao-sun-spin 40s linear infinite;
+}
+
+/*green + gold swirl ring hugging the sun*/
+.approach-orbit .ao-center::after {
+  inset: -7%;
+  z-index: 0;
+  background: conic-gradient(from 0deg, #1b715c, #F0C88C, #2b8c74, #DCAA64, #1b715c, #F0C88C, #1b715c);
+  -webkit-mask: radial-gradient(circle closest-side, transparent 82%, #000 85%, #000 93%, transparent 97%);
+  mask: radial-gradient(circle closest-side, transparent 82%, #000 85%, #000 93%, transparent 97%);
+  filter: drop-shadow(0 0 6px rgba(240, 200, 140, .7));
+  animation: ao-sun-spin 14s linear infinite reverse;
+}
+
+@keyframes ao-sun-spin {
+  to { transform: rotate(360deg); }
+}
+
+.approach-orbit .ao-center img {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 6px rgba(90, 50, 0, .45));
+}
+
+.approach-orbit .ao-center strong,
+.approach-orbit .ao-center small {
+  position: relative;
+  z-index: 1;
+  color: #fff8e6;
+  text-shadow: 0 1px 3px rgba(90, 50, 0, .75);
+}
+
+/*---- glossy brand planets with gold rings ----*/
+.approach-orbit .ao-logo .ao-tile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  padding: 16px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 50%;
+  border: 0;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .55) 0, rgba(255, 255, 255, 0) 30%),
+    radial-gradient(circle at 50% 50%, var(--p1) 0%, var(--p2) 60%, var(--p3) 100%);
+  box-shadow: inset -10px -12px 22px rgba(0, 0, 0, .45), inset 6px 6px 14px rgba(255, 255, 255, .15), 0 0 24px var(--pg);
+}
+
+.approach-orbit .ao-logo:nth-child(1) .ao-tile { --p1: #7ee6a8; --p2: #1f8f55; --p3: #0b3d26; --pg: rgba(60, 200, 120, .45); }
+.approach-orbit .ao-logo:nth-child(2) .ao-tile { --p1: #d98be6; --p2: #7a2c8c; --p3: #2c0d36; --pg: rgba(180, 90, 200, .45); }
+.approach-orbit .ao-logo:nth-child(3) .ao-tile { --p1: #9ccbff; --p2: #2b5fae; --p3: #0c1f45; --pg: rgba(80, 140, 230, .45); }
+.approach-orbit .ao-logo:nth-child(4) .ao-tile { --p1: #ffb684; --p2: #c4502a; --p3: #4a1508; --pg: rgba(230, 110, 60, .45); }
+
+.approach-orbit .ao-logo .ao-tile::before,
+.approach-orbit .ao-logo .ao-tile::after {
+  content: '';
+  position: absolute;
+  left: -30%;
+  top: 30%;
+  width: 160%;
+  height: 40%;
+  border: 1.5px solid rgba(240, 200, 140, .85);
+  border-radius: 50%;
+  transform: rotate(-14deg);
+  box-shadow: 0 0 8px rgba(240, 200, 140, .45);
+  pointer-events: none;
+}
+
+.approach-orbit .ao-logo .ao-tile::before { z-index: -1; }
+.approach-orbit .ao-logo .ao-tile::after { z-index: 2; clip-path: inset(50% 0 0 0); }
+
+.approach-orbit .ao-logo .ao-tile img {
+  position: relative;
+  z-index: 1;
+  max-width: 54%;
+  max-height: 40px;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .5));
+}
+
+.approach-orbit .ao-logo .ao-tile strong {
+  position: relative;
+  z-index: 1;
+  font-size: 8.5px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
+}
+
+@media (max-width: 991px) {
+  .approach-orbit { --r: 210px; max-width: 520px; }
+}
+
+@media (max-width: 575px) {
+  .approach-orbit { --r: 140px; --tile: 70px; }
+  .approach-orbit .ao-center { width: 32%; }
+  .approach-orbit .ao-center strong { font-size: 11px; }
+  .approach-orbit .ao-logo .ao-tile { padding: 10px 6px; }
+  .approach-orbit .ao-logo .ao-tile img { max-height: 26px; }
+  .approach-orbit .ao-logo .ao-tile strong { font-size: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .approach-orbit .ao-ring,
+  .approach-orbit .ao-center::before,
+  .approach-orbit .ao-center::after,
+  .ao-galaxy .ag-dust { animation: none; }
+}
+
+/* About orbit: make the orbit lines stand out from the section background */
+.approach-orbit::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--r) * 2.9);
+  height: calc(var(--r) * 1.6);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse closest-side, rgba(0, 24, 18, .55), rgba(0, 24, 18, .25) 70%, transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.approach-orbit .ao-ring {
+  z-index: 1;
+  border: 2px solid rgba(240, 200, 140, .95);
+  box-shadow:
+    0 0 6px rgba(240, 200, 140, .75),
+    0 0 18px rgba(220, 170, 100, .5),
+    inset 0 0 6px rgba(240, 200, 140, .45);
+}
+
+.approach-orbit .ao-ring-1 {
+  border-width: 2.5px;
+  border-color: #F0C88C;
+  box-shadow:
+    0 0 8px rgba(240, 200, 140, .9),
+    0 0 26px rgba(220, 170, 100, .6),
+    inset 0 0 8px rgba(240, 200, 140, .5);
+}
+
+.approach-orbit .ao-ring-4 {
+  border-color: rgba(240, 200, 140, .7);
+}
+
+/* keep the stardust from washing out the lines */
+.ao-galaxy .ag-dust {
+  opacity: .6;
+}
+
+/* About orbit: each planet is filled with a colour that contrasts with its logo (no white disc) */
+.approach-orbit .ao-logo:nth-child(1) .ao-tile { --p1: #fff6dc; --p2: #e4c27e; --p3: #8a6420; --pg: rgba(240, 200, 140, .5); --pt: #0c3b2c; }
+.approach-orbit .ao-logo:nth-child(2) .ao-tile { --p1: #effff8; --p2: #a6dcc8; --p3: #2f7a66; --pg: rgba(166, 220, 200, .45); --pt: #4a0f2e; }
+.approach-orbit .ao-logo:nth-child(3) .ao-tile { --p1: #ffffff; --p2: #d3e4f5; --p3: #6386ad; --pg: rgba(211, 228, 245, .45); --pt: #0f2c5c; }
+.approach-orbit .ao-logo:nth-child(4) .ao-tile { --p1: #4f6fbf; --p2: #1b2f66; --p3: #0a1330; --pg: rgba(80, 120, 220, .45); --pt: #fff; }
+
+.approach-orbit .ao-logo .ao-tile img {
+  width: auto;
+  max-width: 58%;
+  max-height: 46px;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3));
+}
+
+.approach-orbit .ao-logo .ao-tile strong {
+  color: var(--pt, #fff);
+  text-shadow: none;
+}
+
+.approach-orbit .ao-logo:nth-child(4) .ao-tile strong {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
+}
+
+@media (max-width: 575px) {
+  .approach-orbit .ao-logo .ao-tile img { max-height: 30px; }
+}
+
+/* About orbit: no ring around the brand planets */
+.approach-orbit .ao-logo .ao-tile::before,
+.approach-orbit .ao-logo .ao-tile::after {
+  content: none;
+  display: none;
+}
+
+/* Business cards: no coloured header band (a Customizer header image still shows if one is set) */
+.section-light .business-card .biz-media:not([style]) {
+  height: 26px;
+  background: none;
+  clip-path: none;
+}
+
+.section-light .business-card .biz-media:not([style])::after {
+  display: none;
+}
+
+.section-light .business-card .biz-media:not([style]) + .biz-body {
+  margin-top: 0;
+}
+
+/* Hero banner image: on hover it zooms in a little, brightens, and drifts with the pointer */
+.hero-section .hero-visual .hv-img {
+  transform: translate3d(var(--hx, 0px), var(--hy, 0px), 0) scale(var(--hs, 1));
+  filter: brightness(var(--hb, 1)) saturate(var(--hsat, 1));
+  transition: transform .6s cubic-bezier(.2, .8, .2, 1), filter .6s ease;
+  will-change: transform;
+}
+
+.hero-section:hover .hero-visual .hv-img {
+  --hs: 1.05;
+  --hb: 1.08;
+  --hsat: 1.12;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .hero-section .hero-visual .hv-img,
+  .hero-section:hover .hero-visual .hv-img {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Cards on cream sections: lift them off the background (thin gold edge + deeper soft shadow) */
+.businesses-section .col-lg-3 {
+  filter:
+    drop-shadow(0 0 1px rgba(200, 150, 80, .55))
+    drop-shadow(0 4px 8px rgba(60, 40, 10, .10))
+    drop-shadow(0 22px 34px rgba(60, 40, 10, .20));
+  transition: filter .35s ease;
+}
+
+.businesses-section .col-lg-3:hover {
+  filter:
+    drop-shadow(0 0 1px rgba(200, 150, 80, .8))
+    drop-shadow(0 6px 12px rgba(60, 40, 10, .14))
+    drop-shadow(0 30px 44px rgba(60, 40, 10, .28));
+}
+
+.section-light .value-card,
+.section-light .partner-card {
+  border: 1px solid rgba(200, 150, 80, .35) !important;
+  box-shadow: 0 4px 10px rgba(60, 40, 10, .06), 0 18px 36px rgba(60, 40, 10, .12) !important;
+}
+
+.section-light .value-card:hover,
+.section-light .partner-card:hover {
+  border-color: rgba(200, 150, 80, .6) !important;
+  box-shadow: 0 6px 14px rgba(60, 40, 10, .08), 0 26px 48px rgba(60, 40, 10, .18) !important;
+}
+
+/*=========================================================
+   HOME STYLE 1: INVERTED SECTIONS (body.home-style-1)
+   light: hero, about, leadership, faq, footer
+   dark:  businesses, values (why us), partner, contact
+=========================================================*/
+
+/*---- light backgrounds ----*/
+body.home-style-1 .hero-section.section-light {
+  background-color: #f0ece6;
+  background-image: none;
+  /* background-color: #f8f4ea;
+  background-image: radial-gradient(ellipse 50% 60% at 80% 40%, rgba(217, 165, 58, .14), transparent 70%), linear-gradient(180deg, #fbf8f1, #f8f4ea); */
+}
+
+body.home-style-1 .section-light.about-section,
+body.home-style-1 .section-light.faq-section {
+  background-color: #f8f4ea;
+  background-image: var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 100% 100%, rgba(217, 165, 58, .14), transparent 70%), linear-gradient(180deg, #fbf8f1, #f8f4ea);
+  background-size: min(1200px, 100%) auto, 100% 100%, 100% 100%;
+  background-position: 100% 100%, 0 0, 0 0;
+}
+
+body.home-style-1 .section-light.leadership-section {
+  background-color: #f8f4ea;
+  background-image: var(--pt-ribbon-left), radial-gradient(ellipse 50% 60% at 0% 0%, rgba(217, 165, 58, .14), transparent 70%), linear-gradient(180deg, #fbf8f1, #f8f4ea);
+  background-size: auto 80%, 100% 100%, 100% 100%;
+  background-position: 0 50%, 0 0, 0 0;
+}
+
+body.home-style-1 .footer.section-light {
+  background: linear-gradient(180deg, #f8f4ea, #efe7d6);
+}
+
+/*---- dark backgrounds ----*/
+body.home-style-1 .businesses-section,
+body.home-style-1 .partner-section {
+  background-color: #0d3b2c;
+  background-image: var(--pt-dots), var(--pt-ribbon-left), radial-gradient(ellipse 50% 50% at 0% 50%, rgba(31, 107, 76, .28), transparent 70%), linear-gradient(180deg, #0d3b2c, #0d3b2c);
+  background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%;
+  background-position: 97% 8%, 0 50%, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+body.home-style-1 .values-section,
+body.home-style-1 .contact-section {
+  background-color: #0d3b2c;
+  background-image: var(--pt-dots), var(--pt-ribbon-bottom), radial-gradient(ellipse 50% 60% at 100% 100%, rgba(31, 107, 76, .28), transparent 70%), linear-gradient(180deg, #0d3b2c, #0d3b2c);
+  background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%;
+  background-position: 3% 10%, 100% 100%, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+/*---- wave edges: each section's top wave continues the colour of the section above ----*/
+body.home-style-1 .businesses-section::before,
+body.home-style-1 .values-section::before,
+body.home-style-1 .partner-section::before,
+body.home-style-1 .contact-section::before,
+body.home-style-1 .about-section::before,
+body.home-style-1 .leadership-section::before,
+body.home-style-1 .faq-section::before,
+body.home-style-1 .footer::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: clamp(36px, 6vw, 92px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.home-style-1 .businesses-section::before,
+body.home-style-1 .values-section::before,
+body.home-style-1 .partner-section::before,
+body.home-style-1 .contact-section::before {
+  background-image: url("../images/patterns/wave-style1-cream-top.svg");
+}
+
+body.home-style-1 .about-section.section-light::before,
+body.home-style-1 .leadership-section.section-light::before,
+body.home-style-1 .faq-section.section-light::before,
+body.home-style-1 .footer.section-light::before {
+  background-image: url("../images/patterns/wave-style1-dark-top.svg");
+}
+
+body.home-style-1 .hero-section.section-light::before {
+  content: none;
+}
+
+/*---- dark sections: light headings and copy ----*/
+body.home-style-1 .businesses-section .section-heading h2,
+body.home-style-1 .values-section .section-heading h2,
+body.home-style-1 .partner-section h2,
+body.home-style-1 .contact-section h2 {
+  color: #f8f4ea;
+}
+
+body.home-style-1 .businesses-section .section-heading p,
+body.home-style-1 .values-section .section-heading p,
+body.home-style-1 .partner-section .partner-heading p,
+body.home-style-1 .contact-section > .container p:not(.form-text) {
+  color: rgba(248, 244, 234, .72);
+}
+
+/*---- light hero ----*/
+body.home-style-1 .hero-section.section-light h1 {
+  color: #0d3b2c;
+  -webkit-text-fill-color: #0d3b2c;
+}
+
+body.home-style-1 .hero-section.section-light h1 em {
+  background: linear-gradient(135deg, #d9a53a, #d9a53a 60%, #a9741d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.home-style-1 .hero-section.section-light .hero-copy,
+body.home-style-1 .hero-section.section-light p {
+  color: rgba(13, 59, 44, .78);
+}
+
+body.home-style-1 .hero-section.section-light .eyebrow {
+  color: #d9a53a;
+}
+
+body.home-style-1 .hero-section.section-light .hero-features,
+body.home-style-1 .hero-section.section-light .hero-features small,
+body.home-style-1 .hero-section.section-light .hero-features strong {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .hero-section.section-light .hero-features {
+  border-color: rgba(217, 165, 58, .3);
+}
+
+body.home-style-1 .hero-section.section-light .hero-features i,
+body.home-style-1 .hero-section.section-light .hero-features b {
+  color: #d9a53a;
+}
+
+body.home-style-1 .hero-section.section-light .btn-outline-brand {
+  border-color: #d9a53a;
+  color: #a9741d;
+}
+
+/*stars become small warm-gold specks on cream*/
+body.home-style-1 .hero-section.section-light .hero-stars .star,
+body.home-style-1 .hero-section.section-light .hero-stars .star-gold {
+  background: #d9a53a;
+  box-shadow: none;
+}
+
+body.home-style-1 .hero-section.section-light .hero-stars .sparkle {
+  background: #d9a53a;
+  filter: none;
+}
+
+body.home-style-1 .hero-section.section-light .hero-stars .shooting-star {
+  background: linear-gradient(90deg, rgba(217, 165, 58, .9), rgba(217, 165, 58, 0));
+}
+
+/*---- light leadership: white cards ----*/
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  background: #fff !important;
+  border: 1px solid rgba(217, 165, 58, .3) !important;
+  box-shadow: 0 4px 10px rgba(60, 40, 10, .06), 0 18px 36px rgba(60, 40, 10, .12);
+  backdrop-filter: none;
+}
+
+body.home-style-1 .leadership-section.section-light .person h3 {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .leadership-section.section-light .person p,
+body.home-style-1 .leadership-section.section-light .person span,
+body.home-style-1 .leadership-section.section-light .person small {
+  color: rgba(13, 59, 44, .72);
+}
+
+body.home-style-1 .leadership-section.section-light .section-heading h2 {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .leadership-section.section-light .section-heading p {
+  color: rgba(13, 59, 44, .72);
+}
+
+body.home-style-1 .leadership-section.section-light .lead-net {
+  opacity: .55;
+}
+
+/*---- light footer ----*/
+body.home-style-1 .footer.section-light,
+body.home-style-1 .footer.section-light .footer-copy,
+body.home-style-1 .footer.section-light a:not(.navbar-brand) {
+  color: rgba(13, 59, 44, .78);
+}
+
+body.home-style-1 .footer.section-light h6 {
+  color: #d9a53a;
+}
+
+body.home-style-1 .footer.section-light a:not(.navbar-brand):hover {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .footer.section-light .footer-bottom {
+  border-color: rgba(217, 165, 58, .3);
+  color: rgba(13, 59, 44, .7);
+}
+
+body.home-style-1 .footer.section-light .footer-social a {
+  border-color: rgba(217, 165, 58, .5);
+  color: #d9a53a;
+}
+
+/* Businesses (now dark): keep the white brand cards by scoping the light card styles to the card row only */
+body.home-style-1 .businesses-section .cards-light {
+  background: none !important;
+  color: inherit;
+}
+
+body.home-style-1 .businesses-section .cards-light::before {
+  content: none !important;
+}
+
+/* Home style 1: the About orbit sits in its own dark "space" circle so it stands out on the cream section */
+body.home-style-1 .about-section .approach-orbit::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: -6%;
+  width: auto;
+  height: auto;
+  left: -6%;
+  top: -6%;
+  transform: none;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #17583f 0%, #0d3b2c 45%, #072619 100%);
+  box-shadow:
+    0 0 0 1px rgba(217, 165, 58, .55),
+    0 0 0 8px rgba(217, 165, 58, .08),
+    0 30px 60px rgba(13, 59, 44, .30),
+    inset 0 0 70px rgba(0, 0, 0, .45);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-galaxy {
+  inset: -6%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media (max-width: 575px) {
+  body.home-style-1 .about-section .approach-orbit::before,
+  body.home-style-1 .about-section .approach-orbit .ao-galaxy { inset: -4%; left: -4%; top: -4%; }
+}
+
+/* Home style 1: the orbit's dark backdrop is an uneven, slowly morphing blob instead of a circle */
+body.home-style-1 .about-section .approach-orbit::before,
+body.home-style-1 .about-section .approach-orbit .ao-galaxy {
+  border-radius: 62% 38% 54% 46% / 44% 58% 42% 56%;
+  animation: ao-blob 16s ease-in-out infinite alternate;
+}
+
+body.home-style-1 .about-section .approach-orbit::before {
+  inset: -4% -4% -7% -11%;
+  left: -11%;
+  top: -4%;
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-galaxy {
+  inset: -4% -4% -7% -11%;
+}
+
+@keyframes ao-blob {
+  0%   { border-radius: 62% 38% 54% 46% / 44% 58% 42% 56%; }
+  33%  { border-radius: 44% 56% 38% 62% / 58% 40% 60% 42%; }
+  66%  { border-radius: 56% 44% 64% 36% / 40% 62% 38% 60%; }
+  100% { border-radius: 40% 60% 46% 54% / 62% 44% 56% 38%; }
+}
+
+@media (max-width: 575px) {
+  body.home-style-1 .about-section .approach-orbit::before,
+  body.home-style-1 .about-section .approach-orbit .ao-galaxy { inset: -3% -5% -4% -4%; left: -4%; top: -3%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-style-1 .about-section .approach-orbit::before,
+  body.home-style-1 .about-section .approach-orbit .ao-galaxy { animation: none; }
+}
+
+/* Home style 1: keep the orbit blob inside its own column so it never overlaps the About text */
+body.home-style-1 .about-section .approach-orbit {
+  --r: 222px;
+  max-width: 560px;
+}
+
+body.home-style-1 .about-section .approach-orbit::before,
+body.home-style-1 .about-section .approach-orbit .ao-galaxy {
+  inset: -3% -2% -5% -2%;
+  left: -2%;
+  top: -3%;
+}
+
+body.home-style-1 .about-section .row > [class*="col-"]:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 991px) {
+  body.home-style-1 .about-section .approach-orbit { --r: 200px; max-width: 500px; }
+}
+
+@media (max-width: 575px) {
+  body.home-style-1 .about-section .approach-orbit { --r: 135px; }
+}
+
+/* Our Businesses cards: stronger shadow. The cut corner clips a normal box-shadow,
+   so the shadow sits on the card's column and follows the card shape. */
+.businesses-section .col-lg-3 {
+  filter:
+    drop-shadow(0 0 1px rgba(200, 150, 80, .6))
+    drop-shadow(0 8px 14px rgba(40, 28, 6, .16))
+    drop-shadow(0 26px 40px rgba(40, 28, 6, .26));
+}
+
+.businesses-section .col-lg-3:hover {
+  filter:
+    drop-shadow(0 0 1px rgba(200, 150, 80, .85))
+    drop-shadow(0 12px 20px rgba(40, 28, 6, .2))
+    drop-shadow(0 36px 54px rgba(40, 28, 6, .32));
+}
+
+/* Style 1: cards sit on dark green, so add a soft gold halo to the deep shadow */
+body.home-style-1 .businesses-section .col-lg-3 {
+  filter:
+    drop-shadow(0 0 1px rgba(217, 165, 58, .7))
+    drop-shadow(0 0 18px rgba(217, 165, 58, .22))
+    drop-shadow(0 24px 36px rgba(0, 0, 0, .5));
+}
+
+body.home-style-1 .businesses-section .col-lg-3:hover {
+  filter:
+    drop-shadow(0 0 1px rgba(217, 165, 58, .9))
+    drop-shadow(0 0 28px rgba(217, 165, 58, .35))
+    drop-shadow(0 32px 48px rgba(0, 0, 0, .55));
+}
+
+/*=========================================================
+   HOME STYLE 1 ONLY: Leadership cards in a theme-green gradient
+=========================================================*/
+
+/*---- Leadership: theme-green gradient ----*/
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(217, 165, 58, .16), transparent 70%),
+    linear-gradient(160deg, #1f6b4c 0%, #17583f 45%, #0d3b2c 100%) !important;
+  border: 1px solid rgba(217, 165, 58, .45) !important;
+  box-shadow: 0 6px 14px rgba(13, 59, 44, .18), 0 22px 40px rgba(13, 59, 44, .28) !important;
+  backdrop-filter: none;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person:hover {
+  border-color: rgba(217, 165, 58, .8) !important;
+  box-shadow: 0 10px 20px rgba(13, 59, 44, .22), 0 30px 54px rgba(13, 59, 44, .34), 0 0 22px rgba(217, 165, 58, .2) !important;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .role {
+  color: #d9a53a !important;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .bio,
+body.home-style-1 .leadership-section.section-light .leadership-grid .person p:not(.role) {
+  color: rgba(248, 244, 234, .82) !important;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .portrait {
+  border-color: rgba(217, 165, 58, .75) !important;
+}
+
+/* Home style 1: leadership cards like a luxury business card — deep green with flowing gold waves on the right */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  background:
+    url("../images/patterns/card-gold-wave.svg") right center / 50% 100% no-repeat,
+    url("../images/patterns/card-gold-corner.svg") left bottom / 34% 40% no-repeat,
+    radial-gradient(ellipse 90% 70% at 30% 20%, rgba(31, 107, 76, .45), transparent 70%),
+    linear-gradient(160deg, #17583f 0%, #0d3b2c 50%, #072619 100%) !important;
+  border: 1px solid rgba(217, 165, 58, .5) !important;
+  overflow: hidden;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .portrait,
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3,
+body.home-style-1 .leadership-section.section-light .leadership-grid .person p {
+  position: relative;
+  z-index: 1;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3 {
+  color: #d9a53a !important;
+  -webkit-text-fill-color: #d9a53a;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .role {
+  color: rgba(248, 244, 234, .85) !important;
+}
+
+/* Home style 1 leadership: reference-matched deep teal-green, smaller gold pattern,
+   and only the hovered card grows (the others keep their size) */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  background:
+    url("../images/patterns/card-gold-wave.svg") right center / 34% 100% no-repeat,
+    url("../images/patterns/card-gold-corner.svg") left bottom / 22% 26% no-repeat,
+    radial-gradient(ellipse 90% 70% at 35% 20%, rgba(31, 107, 76, .55), transparent 70%),
+    linear-gradient(160deg, #17583f 0%, #0d3b2c 50%, #072619 100%) !important;
+  border-color: rgba(217, 165, 58, .5) !important;
+}
+
+body.home-style-1 .leadership-section .leadership-grid {
+  align-items: start;
+}
+
+body.home-style-1 .leadership-section .leadership-grid .person {
+  height: auto;
+  min-height: 245px;
+}
+
+/* Home style 1: slimmer gold pattern on leadership cards */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  background:
+    url("../images/patterns/card-gold-wave.svg") right center / 24% 100% no-repeat,
+    url("../images/patterns/card-gold-corner.svg") left bottom / 16% 20% no-repeat,
+    radial-gradient(ellipse 90% 70% at 35% 20%, rgba(31, 107, 76, .55), transparent 70%),
+    linear-gradient(160deg, #17583f 0%, #0d3b2c 50%, #072619 100%) !important;
+}
+
+/*=========================================================
+   HOME STYLE 1 PALETTE: deep green #0d3b2c, cream #f8f4ea, gold #d9a53a
+   Re-points the shared tokens so nav, buttons, accents and cards
+   follow the Style 1 palette (Default style is unchanged)
+=========================================================*/
+
+body.home-style-1 {
+  --champagne: #d9a53a;
+  --rich-gold: #a9741d;
+  --gold: #d9a53a;
+  --lav: #f8f4ea;
+  --mint: #d9a53a;
+  --teal2: #0d3b2c;
+  --ink: #0d3b2c;
+  --navy: #0d3b2c;
+  --cream: #f8f4ea;
+  --cream-2: #f8f4ea;
+  --lux-bg: #0d3b2c;
+  --lux-bg2: #0d3b2c;
+  --lux-gold: #d9a53a;
+  --lux-gold-hi: #d9a53a;
+  --lux-gold-lo: #a9741d;
+  --lux-border: rgba(217, 165, 58, .28);
+  --lux-text: #f8f4ea;
+  --lux-muted: rgba(248, 244, 234, .72);
+  --lux-glow: 0 0 28px rgba(217, 165, 58, .22);
+  --lux-gold-grad: linear-gradient(135deg, #f2cd6a 0%, #d9a53a 45%, #a9741d 100%);
+  --glow-gold: rgba(217, 165, 58, .08);
+  --pl-bg: #0d3b2c;
+  --pl-accent: #d9a53a;
+}
+
+body.home-style-1 .section-light {
+  --lux-text: #0d3b2c;
+  --lux-muted: rgba(13, 59, 44);
+  --lux-gold: #d9a53a;
+  --lux-gold-hi: #a9741d;
+  --lux-border: rgba(217, 165, 58, .28);
+  --wave-hi: #d9a53a;
+  background-color: #f8f4ea;
+}
+
+body.home-style-1 h1 em,
+body.home-style-1 h2 em,
+body.home-style-1 em,
+body.home-style-1 .section-light h2 em,
+body.home-style-1 .section-light.has-wave em {
+  background: linear-gradient(135deg, #f2cd6a, #d9a53a 50%, #a9741d);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+body.home-style-1 .renew-topbar {
+  background: #072619;
+}
+
+body.home-style-1 .section-light .section-heading h2::after {
+  background: linear-gradient(90deg, transparent, #d9a53a, transparent);
+}
+
+body.home-style-1 .section-light .has-wave em,
+body.home-style-1 .section-light .value-card span,
+body.home-style-1 .section-light .partner-cards .partner-card .partner-brand i,
+body.home-style-1 .section-light .partner-cards .partner-card a:hover,
+body.home-style-1 .contact-section.section-light .reach-list > div > i {
+  color: #d9a53a !important;
+}
+
+body.home-style-1 .section-light .partner-cards .partner-card a {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .section-light .form-select:focus,
+body.home-style-1 .section-light .btn-outline-brand {
+  border-color: #d9a53a;
+}
+
+body.home-style-1 .form-select option,
+body.home-style-1 .partner-enquiry-modal {
+  background: #0d3b2c !important;
+}
+
+body.home-style-1 .hero-stars .star-gold {
+  color: #d9a53a;
+}
+
+body.home-style-1 .btn-brand,
+body.home-style-1 .btn-dark-brand {
+  color: #0d3b2c;
+  box-shadow: 0 8px 26px rgba(217, 165, 58, .28);
+}
+
+body.home-style-1 .btn-brand:hover,
+body.home-style-1 .btn-dark-brand:hover {
+  background: linear-gradient(135deg, #f7dc8e 0%, #e2b24c 50%, #b8842a 100%);
+  color: #0d3b2c;
+  box-shadow: 0 10px 34px rgba(217, 165, 58, .45);
+}
+
+/* Home style 1: Why Choose Us cards use the FAQ accordion item background
+   (solid white, gold hairline border, 8px corners, deep shadow; serif title from the help card) */
+body.home-style-1 .values-section .value-card {
+  padding: 30px;
+  border: 1px solid rgba(217, 165, 58, .28) !important;
+  border-radius: 8px;
+  background: #ffffff !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(217, 165, 58, .12) !important;
+  backdrop-filter: none;
+  color: #0d3b2c;
+}
+
+body.home-style-1 .values-section .value-card:hover {
+  border-color: rgba(217, 165, 58, .6) !important;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .5), 0 0 34px rgba(217, 165, 58, .18), inset 0 1px 0 rgba(217, 165, 58, .2) !important;
+}
+
+body.home-style-1 .values-section .value-card h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -.01em;
+  margin: 8px 0 10px;
+  color: #0d3b2c !important;
+  -webkit-text-fill-color: #0d3b2c;
+}
+
+body.home-style-1 .values-section .value-card p {
+  color: rgba(13, 59, 44, .72) !important;
+}
+
+body.home-style-1 .values-section .value-card span {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.home-style-1 .values-section .value-card span,
+body.home-style-1 .values-section .value-card span i {
+  color: #d9a53a !important;
+}
+
+/* Home style 1: Partner with us cards use the Our Businesses card background
+   (white fading into a soft wash of each brand's logo colour) */
+body.home-style-1 .partner-section .partner-p { --acc: #1fae8c; }
+body.home-style-1 .partner-section .partner-z { --acc: #c0509a; }
+body.home-style-1 .partner-section .partner-r { --acc: #d9a14a; }
+
+body.home-style-1 .partner-section .partner-card {
+  --frame: color-mix(in srgb, var(--acc) 35%, #fff);
+  --rule: var(--acc);
+  --badge-bg: color-mix(in srgb, var(--acc) 12%, #fff);
+  --badge-fg: var(--acc);
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 35%, color-mix(in srgb, var(--acc) 14%, #fff) 100%) !important;
+  border: 1px solid rgba(217, 165, 58, .45) !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .25), 0 26px 48px rgba(0, 0, 0, .35) !important;
+  backdrop-filter: none;
+  color: #0d3b2c;
+}
+
+body.home-style-1 .partner-section .partner-card:hover {
+  border-color: #d9a53a !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .3), 0 34px 60px rgba(0, 0, 0, .4), 0 0 30px rgba(217, 165, 58, .3) !important;
+}
+
+body.home-style-1 .partner-section .partner-card h3,
+body.home-style-1 .partner-section .partner-card .partner-brand {
+  color: #0d3b2c !important;
+  -webkit-text-fill-color: #0d3b2c;
+}
+
+body.home-style-1 .partner-section .partner-card p {
+  color: rgba(13, 59, 44, .74) !important;
+}
+
+body.home-style-1 .partner-section .partner-card a {
+  background: var(--acc);
+  color: #fff;
+}
+
+body.home-style-1 .partner-section .partner-card a:hover {
+  background: var(--acc);
+  color: #fff;
+  filter: brightness(.85);
+}
+
+/* Home style 1: no sun at the orbit centre — just the logo and name
+   (drops the gold fill, glow, corona rays and swirl ring) */
+body.home-style-1 .approach-orbit .ao-center {
+  background: none;
+  box-shadow: none;
+}
+
+body.home-style-1 .approach-orbit .ao-center::before,
+body.home-style-1 .approach-orbit .ao-center::after {
+  content: none;
+  animation: none;
+}
+
+body.home-style-1 .approach-orbit .ao-center img {
+  filter: none;
+}
+
+body.home-style-1 .approach-orbit .ao-center strong,
+body.home-style-1 .approach-orbit .ao-center small {
+  color: #f8f4ea;
+  text-shadow: none;
+}
+
+/* Home style 1: each green section gets its own gradient effect.
+   Every variant settles back to #0d3b2c along the bottom edge so the
+   wave into the next cream section stays seamless. */
+
+/* Our Businesses: spotlight falling from the top centre */
+body.home-style-1 .businesses-section {
+  background-color: #0d3b2c;
+  /* background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-left),
+    radial-gradient(ellipse 60% 70% at 50% 0%, rgba(38, 140, 104, .55), transparent 70%),
+    radial-gradient(ellipse 30% 30% at 50% 0%, rgba(217, 165, 58, .14), transparent 70%),
+    linear-gradient(180deg, #17583f 0%, #0d3b2c 75%); */
+  background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 97% 8%, 0 50%, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+/* Why Choose Us: light sweep from the top-left corner with a deep right side */
+body.home-style-1 .values-section {
+  background-color: #0d3b2c;
+  /* background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-bottom),
+    radial-gradient(ellipse 75% 85% at 0% 0%, rgba(36, 128, 94, .55), rgba(26, 94, 73, .2) 45%, transparent 75%),
+    radial-gradient(ellipse 40% 50% at 100% 30%, rgba(5, 30, 22, .55), transparent 70%),
+    linear-gradient(180deg, #0d3b2c, #0d3b2c); */
+  background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 3% 10%, 100% 100%, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+/* Partner with us: aurora — soft emerald and gold glows drifting across the top */
+body.home-style-1 .partner-section {
+  background-color: #0d3b2c;
+  /* background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-left),
+    radial-gradient(ellipse 35% 45% at 18% 25%, rgba(46, 160, 116, .45), transparent 70%),
+    radial-gradient(ellipse 30% 40% at 62% 15%, rgba(217, 165, 58, .16), transparent 70%),
+    radial-gradient(ellipse 35% 45% at 90% 35%, rgba(31, 107, 76, .5), transparent 70%),
+    linear-gradient(180deg, #0d3b2c, #0d3b2c); */
+  background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 97% 8%, 0 50%, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+/* Contact: centred glow behind the content, darker towards the top corners */
+body.home-style-1 .contact-section {
+  background-color: #0d3b2c;
+  /* background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-bottom),
+    radial-gradient(ellipse 55% 50% at 50% 40%, rgba(34, 124, 92, .5), transparent 72%),
+    radial-gradient(ellipse 35% 55% at 0% 0%, rgba(4, 24, 18, .45), transparent 70%),
+    radial-gradient(ellipse 35% 55% at 100% 0%, rgba(4, 24, 18, .45), transparent 70%),
+    linear-gradient(180deg, #0d3b2c, #0d3b2c); */
+  background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 3% 10%, 100% 100%, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+/* Home style 1: About orbit backdrop is the brand "R" leaf mark itself —
+   emerald bowl swoosh, satin gold ribbon, emerald leg leaf and a small veined leaf,
+   with a deep green core behind the centre logo (now assets/images/patterns/orbit-mark-facets.svg) orbit-mark-crest.svg, orbit-mark-network.svg, orbit-mark-bands.svg*/
+body.home-style-1 .about-section .approach-orbit::before {
+  inset: -4%;
+  left: -4%;
+  top: -4%;
+  border-radius: 0;
+  animation: none;
+  background: url("../images/patterns/orbit-mark-bands.svg") center / contain no-repeat;
+  box-shadow: none;
+  filter: drop-shadow(0 18px 30px rgba(5, 36, 25, .28));
+}
+
+/* the starfield belonged to the dark space backdrop */
+body.home-style-1 .about-section .approach-orbit .ao-galaxy {
+  display: none;
+}
+
+/* Home style 1: widen the backdrop box so the whole leaf shape shows around the orbit rings,
+   and make the orbit's own centre a cream #f8f4ea disc (so it lines up exactly) */
+body.home-style-1 .about-section .approach-orbit::before {
+  inset: -4% -10%;
+  left: -10%;
+  top: -4%;
+  background-size: contain;
+  background-position: center;
+}
+
+body.home-style-1 .approach-orbit .ao-center {
+  background: #f8f4ea;
+  box-shadow:
+    0 0 0 2px rgba(217, 165, 58, .85),
+    0 0 0 8px rgba(217, 165, 58, .12),
+    0 14px 30px rgba(5, 36, 25, .35);
+}
+
+/* Home style 1: orbit highlighted against the green leaf —
+   bright champagne-gold rings with a glow and a thin dark edge for separation,
+   brightest main path, dashed outer ring, glowing moons, gold-rimmed planets
+   (no glow and no crossing ring on the planets) */
+body.home-style-1 .about-section .approach-orbit .ao-ring {
+  border: 2px solid #f2cd6a;
+  box-shadow:
+    0 0 0 1px rgba(5, 36, 25, .35),
+    0 0 8px rgba(255, 225, 150, .85),
+    0 0 22px rgba(240, 190, 80, .55),
+    inset 0 0 8px rgba(255, 225, 150, .5);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-ring-1 {
+  border-width: 3px;
+  border-color: #f7dc8e;
+  box-shadow:
+    0 0 0 1px rgba(5, 36, 25, .4),
+    0 0 10px rgba(255, 231, 168, .95),
+    0 0 30px rgba(240, 190, 80, .7),
+    inset 0 0 10px rgba(255, 231, 168, .55);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-ring-4 {
+  border: 1.5px dashed rgba(255, 231, 168, .9);
+  box-shadow: 0 0 14px rgba(240, 190, 80, .45);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-ring-2::before,
+body.home-style-1 .about-section .approach-orbit .ao-ring-3::before,
+body.home-style-1 .about-section .approach-orbit .ao-ring-4::before {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #f7dc8e 45%, #d9a53a);
+  box-shadow: 0 0 6px #fff3cf, 0 0 16px rgba(255, 210, 110, .95);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile {
+  box-shadow:
+    0 0 0 2px #f2cd6a,
+    0 12px 24px rgba(5, 36, 25, .45),
+    inset -10px -12px 22px rgba(0, 0, 0, .45),
+    inset 6px 6px 14px rgba(255, 255, 255, .15);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile::before,
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile::after {
+  content: none;
+}
+
+/* centre disc: brighter gold ring with a slow glow pulse */
+body.home-style-1 .approach-orbit .ao-center {
+  box-shadow:
+    0 0 0 2.5px #f2cd6a,
+    0 0 0 9px rgba(242, 205, 106, .18),
+    0 0 34px rgba(255, 210, 110, .45),
+    0 14px 30px rgba(5, 36, 25, .4);
+  animation: ao-center-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes ao-center-glow {
+  from { filter: drop-shadow(0 0 0 rgba(255, 215, 120, 0)); }
+  to   { filter: drop-shadow(0 0 14px rgba(255, 215, 120, .55)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-style-1 .approach-orbit .ao-center { animation: none; }
+}
+
+/* Home style 1: rings sit under every planet (planets come later in the markup),
+   so no ring line crosses a planet on the back-left or right; back-half planets
+   still pass behind the centre disc (z-index 1) */
+body.home-style-1 .about-section .approach-orbit .ao-ring {
+  z-index: 0;
+}
+
+/* Home style 1: text on the cream centre disc in the theme's deep green */
+body.home-style-1 .approach-orbit .ao-center strong {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .approach-orbit .ao-center small {
+  color: rgba(13, 59, 44, .75);
+}
+
+/* Home style 1: luxury dark green sections (matches the reference design) —
+   near-black forest base #062a1f, darker side edges, a bright emerald glow and a warm
+   gold glow in one corner. Glows fade out before the bottom edge, and the side shading
+   matches wave-style1-dark-top.svg, so the wave into the next section stays seamless. */
+body.home-style-1 .businesses-section,
+body.home-style-1 .values-section,
+body.home-style-1 .partner-section,
+body.home-style-1 .contact-section {
+  --s1-emerald: rgba(28, 120, 84, .55);
+  --s1-gold: rgba(217, 165, 58, .18);
+  --s1-edges: linear-gradient(90deg, rgba(2, 20, 13, .75) 0%, transparent 28%, transparent 72%, rgba(2, 20, 13, .75) 100%);
+  background-color: #062a1f;
+  background-repeat: no-repeat;
+}
+
+body.home-style-1 .businesses-section {
+  background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-left),
+    radial-gradient(ellipse 55% 65% at 50% 0%, var(--s1-emerald), transparent 70%),
+    radial-gradient(ellipse 30% 45% at 100% 0%, var(--s1-gold), transparent 70%),
+    var(--s1-edges),
+    linear-gradient(#062a1f, #062a1f);
+  background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 97% 8%, 0 50%, 0 0, 0 0, 0 0, 0 0;
+}
+
+body.home-style-1 .values-section {
+  background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-bottom),
+    radial-gradient(ellipse 50% 60% at 22% 20%, var(--s1-emerald), transparent 70%),
+    radial-gradient(ellipse 30% 45% at 100% 10%, var(--s1-gold), transparent 70%),
+    var(--s1-edges),
+    linear-gradient(#062a1f, #062a1f);
+  background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 3% 10%, 100% 100%, 0 0, 0 0, 0 0, 0 0;
+}
+
+body.home-style-1 .partner-section {
+  background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-left),
+    radial-gradient(ellipse 50% 60% at 62% 28%, var(--s1-emerald), transparent 70%),
+    radial-gradient(ellipse 30% 45% at 0% 10%, var(--s1-gold), transparent 70%),
+    var(--s1-edges),
+    linear-gradient(#062a1f, #062a1f);
+  background-size: 116px 148px, auto 90%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 97% 8%, 0 50%, 0 0, 0 0, 0 0, 0 0;
+}
+
+body.home-style-1 .contact-section {
+  background-image:
+    var(--pt-dots),
+    var(--pt-ribbon-bottom),
+    radial-gradient(ellipse 50% 60% at 40% 30%, var(--s1-emerald), transparent 70%),
+    radial-gradient(ellipse 30% 45% at 100% 15%, var(--s1-gold), transparent 70%),
+    var(--s1-edges),
+    linear-gradient(#062a1f, #062a1f);
+  background-size: 116px 148px, min(1200px, 100%) auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 3% 10%, 100% 100%, 0 0, 0 0, 0 0, 0 0;
+}
+
+/*=========================================================
+   HOME STYLE 1: PREMIUM FINISH
+   dark stats panel, refined eyebrows, button shine, glass nav,
+   FAQ gold accent, gold text selection
+=========================================================*/
+
+/*---- stats strip: dark forest panel with gold hairline (as in the reference) ----*/
+body.home-style-1 .hero-section.section-light .hero-features {
+  margin-top: 28px;
+  padding: 26px 30px;
+  border: 1px solid rgba(217, 165, 58, .45);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 60% 120% at 20% 0%, rgba(28, 120, 84, .45), transparent 70%),
+    linear-gradient(90deg, #04201a 0%, #062a1f 50%, #04201a 100%);
+  box-shadow:
+    0 20px 44px rgba(6, 42, 31, .28),
+    inset 0 1px 0 rgba(242, 205, 106, .25);
+}
+
+body.home-style-1 .hero-section.section-light .hero-features > div {
+  border-left-color: rgba(217, 165, 58, .3);
+}
+
+body.home-style-1 .hero-section.section-light .hero-features small {
+  color: rgba(248, 244, 234, .72);
+}
+
+body.home-style-1 .hero-section.section-light .hero-features strong,
+body.home-style-1 .hero-section.section-light .hero-features .hf-text strong {
+  color: #f8f4ea;
+}
+
+body.home-style-1 .hero-section.section-light .hero-features i,
+body.home-style-1 .hero-section.section-light .hero-features b {
+  color: #f2cd6a;
+  filter: drop-shadow(0 0 8px rgba(242, 205, 106, .35));
+}
+
+/*---- eyebrow labels: spaced uppercase in deep gold ----*/
+body.home-style-1 .eyebrow,
+body.home-style-1 .hero-section .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-weight: 700;
+}
+
+body.home-style-1 .section-light .eyebrow,
+body.home-style-1 .hero-section.section-light .eyebrow {
+  color: #a9741d;
+}
+
+/*---- metallic buttons: light sweep on hover ----*/
+body.home-style-1 .btn-brand,
+body.home-style-1 .btn-dark-brand {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 8px 26px rgba(217, 165, 58, .3), inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+body.home-style-1 .btn-brand::before,
+body.home-style-1 .btn-dark-brand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+  transform: skewX(-20deg);
+  transition: left .6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.home-style-1 .btn-brand:hover::before,
+body.home-style-1 .btn-dark-brand:hover::before {
+  left: 125%;
+}
+
+/*---- navbar: ivory glass with a gold hairline ----*/
+body.home-style-1 .renew-nav {
+  /* background: rgba(248, 244, 234, .92); */
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  /* border-bottom: 1px solid rgba(217, 165, 58, .35); */
+  border-bottom: 1px solid rgb(181, 128, 36);
+}
+
+/*---- FAQ: open question gets a gold accent bar ----*/
+body.home-style-1 .faq-section .accordion-item {
+  border-color: rgba(217, 165, 58, .3) !important;
+  box-shadow: 0 6px 18px rgba(6, 42, 31, .06) !important;
+}
+
+body.home-style-1 .faq-section .accordion-button {
+  color: #0d3b2c !important;
+}
+
+body.home-style-1 .faq-section .accordion-button:not(.collapsed) {
+  color: #0d3b2c !important;
+  background: rgba(217, 165, 58, .08) !important;
+  box-shadow: inset 3px 0 0 #d9a53a !important;
+}
+
+body.home-style-1 .faq-section .accordion-button::after {
+  filter: invert(62%) sepia(58%) saturate(560%) hue-rotate(5deg) brightness(95%);
+}
+
+/*---- gold text selection ----*/
+body.home-style-1 ::selection {
+  background: #f2cd6a;
+  color: #062a1f;
+}
+
+/* Home style 1: footer link columns (2–4) — bold deep green links, 13px bold headings */
+body.home-style-1 .footer > .container > .row:first-child > div:not(:first-child) a:not(.navbar-brand) {
+  font-weight: 900;
+  color: #0d3b2c;
+}
+
+body.home-style-1 .footer > .container > .row:first-child > div:not(:first-child) a:not(.navbar-brand):hover {
+  color: #a9741d;
+}
+
+body.home-style-1 .footer > .container > .row:first-child > div:not(:first-child) h6 {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Home style 1: footer description and bottom bar in theme green */
+body.home-style-1 .footer.section-light .footer-copy {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .footer.section-light .footer-bottom,
+body.home-style-1 .footer.section-light .footer-bottom span,
+body.home-style-1 .footer.section-light .footer-bottom a {
+  color: #0d3b2c;
+}
+
+body.home-style-1 .footer.section-light .footer-bottom a:hover {
+  color: #a9741d;
+}
+
+/* Home style 1: footer bottom divider in metallic gold */
+body.home-style-1 .footer.section-light .footer-bottom {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, #a9741d 0%, #f2cd6a 25%, #d9a53a 50%, #f7dc8e 75%, #a9741d 100%) 1;
+}
+
+/* Home style 1: larger reading sizes for paragraphs, list items and the main nav
+   (compact card text with its own more specific size is left as is) */
+body.home-style-1 p {
+  font-size: 15px !important;
+}
+
+body.home-style-1 li,
+body.home-style-1 .standard-list li {
+  font-size: 15px;
+}
+
+body.home-style-1 .nav-link {
+  font-size: 14px;
+}
+
+/*=========================================================
+   HOME STYLE 1: WHY CHOOSE US CARDS (reference design)
+   ivory card with gold border + glow, dark green corner wedge,
+   gold-ringed icon badge, faint 01–04 number, serif title,
+   gold line-art, "Learn More" row with a round gold arrow
+=========================================================*/
+body.home-style-1 .values-section .row {
+  counter-reset: vc;
+}
+
+body.home-style-1 .values-section .row > [class*="col-"] {
+  display: flex;
+}
+
+body.home-style-1 .values-section .value-card {
+  counter-increment: vc;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 30px 28px 26px;
+  border: 1.5px solid #d9a53a !important;
+  border-radius: 14px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23d9a53a' stroke-opacity='.35'%3E%3Cpath d='M200 30C140 75 115 140 50 200'/%3E%3Cpath d='M200 52C148 92 126 150 74 200'/%3E%3Cpath d='M200 74C156 108 137 160 98 200'/%3E%3Cpath d='M200 96C164 124 148 170 122 200'/%3E%3Cpath d='M200 118C172 140 160 180 146 200'/%3E%3C/svg%3E") right bottom / 170px 170px no-repeat,
+    linear-gradient(160deg, #fffdf8 0%, #f6efe1 100%) !important;
+  box-shadow:
+    0 0 0 1px rgba(242, 205, 106, .25),
+    0 0 26px rgba(242, 205, 106, .28),
+    0 24px 44px rgba(0, 0, 0, .35) !important;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+body.home-style-1 .values-section .value-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(242, 205, 106, .45),
+    0 0 36px rgba(242, 205, 106, .4),
+    0 30px 56px rgba(0, 0, 0, .42) !important;
+}
+
+/* dark green corner wedge with a gold edge */
+body.home-style-1 .values-section .value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 132px;
+  height: 132px;
+  z-index: -1;
+  background: linear-gradient(135deg, #0d3b2c 0%, #17583f 45%, #f2cd6a 45%, #d9a53a 47.5%, transparent 47.5%);
+  pointer-events: none;
+}
+
+/* faint card number, top right */
+body.home-style-1 .values-section .value-card::after {
+  content: counter(vc, decimal-leading-zero);
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  z-index: -1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(13, 59, 44, .08);
+  pointer-events: none;
+}
+
+/* icon badge: dark green circle with a thick gold ring */
+body.home-style-1 .values-section .value-card span {
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  margin: 0 0 22px;
+  align-self: flex-start;
+  border-radius: 50%;
+  font-size: 36px;
+  background: radial-gradient(circle at 35% 30%, #17583f, #0d3b2c 60%, #062a1f) !important;
+  border: 4px solid #d9a53a !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(247, 220, 142, .55),
+    0 8px 18px rgba(0, 0, 0, .3),
+    0 0 18px rgba(242, 205, 106, .45) !important;
+  filter: none;
+}
+
+body.home-style-1 .values-section .value-card span,
+body.home-style-1 .values-section .value-card span i {
+  color: #f2cd6a !important;
+}
+
+body.home-style-1 .values-section .value-card h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  margin: 0 0 12px;
+  color: #0d3b2c !important;
+  -webkit-text-fill-color: #0d3b2c;
+}
+
+body.home-style-1 .values-section .value-card p {
+  color: rgba(13, 59, 44, .75) !important;
+  margin-bottom: 22px;
+}
+
+/* Learn More row: short gold accent line, bold label, round gold arrow */
+body.home-style-1 .values-section .vc-more {
+  position: relative;
+  margin-top: auto;
+  padding-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0d3b2c;
+}
+
+body.home-style-1 .values-section .vc-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(90deg, #d9a53a 0 40%, rgba(13, 59, 44, .12) 40% 100%);
+}
+
+body.home-style-1 .values-section .vc-more span {
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  border: 0 !important;
+  font-size: 16px;
+  background: linear-gradient(135deg, #f2cd6a 0%, #d9a53a 45%, #a9741d 100%) !important;
+  box-shadow: 0 6px 14px rgba(169, 116, 29, .35) !important;
+  transition: transform .25s ease;
+}
+
+body.home-style-1 .values-section .vc-more span,
+body.home-style-1 .values-section .vc-more span i {
+  color: #0d3b2c !important;
+}
+
+body.home-style-1 .values-section .vc-more:hover span {
+  transform: translateX(4px);
+}
+
+/* section heading: last word in gold italic on its own line */
+body.home-style-1 .values-section .section-heading h2 em {
+  font-style: italic;
+}
+
+/*=========================================================
+   HOME STYLE 1: LEADERSHIP CARDS (reference design)
+   ivory card + gold border, green header with gold wave
+   (person-header.svg), large gold-ringed portrait that zooms
+   on hover, serif name with gold underline, bio opens on hover
+=========================================================*/
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  min-height: 0;
+  padding: 0 0 20px;
+  border: 1.5px solid rgba(217, 165, 58, .75) !important;
+  border-radius: 14px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23d9a53a' stroke-opacity='.3'%3E%3Cpath d='M200 30C140 75 115 140 50 200'/%3E%3Cpath d='M200 52C148 92 126 150 74 200'/%3E%3Cpath d='M200 74C156 108 137 160 98 200'/%3E%3Cpath d='M200 96C164 124 148 170 122 200'/%3E%3C/svg%3E") right bottom / 150px 150px no-repeat,
+    linear-gradient(180deg, #fffdf8 0%, #f6efe1 100%) !important;
+  box-shadow:
+    0 0 0 1px rgba(242, 205, 106, .2),
+    0 14px 30px rgba(6, 42, 31, .14),
+    0 0 22px rgba(242, 205, 106, .18) !important;
+}
+
+/* green header with a gold wave */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: -1;
+  background: url("../images/patterns/person-header.svg") center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+/* large portrait with a gold ring; the photo zooms on hover */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .portrait {
+  width: 136px;
+  height: 136px;
+  margin: 22px auto 22px;
+  background: #ffffff;
+  border: 5px solid #d9a53a !important;
+  box-shadow:
+    0 0 0 2px rgba(247, 220, 142, .7),
+    0 10px 22px rgba(6, 42, 31, .3);
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .portrait img {
+  transition: transform .6s ease;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person:hover .portrait img {
+  transform: scale(1.14);
+}
+
+/* name with a short gold underline */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3 {
+  margin: 0 20px 10px;
+  padding-bottom: 12px;
+  position: relative;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0d3b2c !important;
+  -webkit-text-fill-color: #0d3b2c;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34px;
+  height: 2px;
+  background: linear-gradient(90deg, #f2cd6a, #d9a53a);
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .role {
+  min-height: 0;
+  margin: 0 20px 18px;
+  font-size: 14px !important;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.6;
+  color: rgba(13, 59, 44, .72) !important;
+}
+
+/* Home style 1: cards share a minimum height but only the hovered card expands (no row stretch) */
+body.home-style-1 .leadership-section .leadership-grid {
+  align-items: start;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  height: auto;
+  min-height: 372px;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3 {
+  font-size: 18px;
+}
+
+/* Home style 1: previous hover — the bio opens under the role (dark text on the ivory card) */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .bio {
+  margin: 0 20px;
+  text-align: left;
+  font-size: 13px !important;
+  color: rgba(13, 59, 44, .75) !important;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person:hover .bio {
+  margin-top: 0;
+}
+
+/* Home style 1: bio text in dark green on the ivory card
+   (p.bio outranks the older cream rule for .person p:not(.role)) */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person p.bio {
+  color: rgba(13, 59, 44, .78) !important;
+}
+
+/* Home style 1: leadership text centred, as in the previous version */
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  text-align: center;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .role,
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .bio {
+  text-align: center;
+}
+
+/*=========================================================
+   HOME STYLE 1: OUR BUSINESSES CARDS (reference design)
+   rounded card with gold border, brand-colour metallic corner
+   fold top-right, white logo tile, pill chips, gold accent line
+   above the link, round light-gold arrow. Fonts and sizes unchanged.
+=========================================================*/
+body.home-style-1 .businesses-section .cards-light .business-card,
+body.home-style-1 .businesses-section .cards-light .business-card:hover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  clip-path: none;
+  border: 1.5px solid #d9a53a !important;
+  border-radius: 14px !important;
+  background: linear-gradient(180deg, #fffdf8 0%, #ffffff 30%, color-mix(in srgb, var(--acc) 12%, #fff) 100%) !important;
+}
+
+/* no bottom accent bar in this design */
+body.home-style-1 .businesses-section .cards-light .business-card::before {
+  display: none;
+}
+
+/* brand-colour metallic corner fold with a gold edge */
+body.home-style-1 .businesses-section .cards-light .business-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 124px;
+  z-index: 0;
+  background: linear-gradient(218deg,
+    color-mix(in srgb, var(--acc) 55%, #000) 0%,
+    var(--acc) 18%,
+    color-mix(in srgb, var(--acc) 50%, #fff) 30%,
+    var(--acc) 40%,
+    #f7dc8e 41%,
+    #d9a53a 44%,
+    #a9741d 46%,
+    transparent 46.5%);
+  pointer-events: none;
+}
+
+body.home-style-1 .businesses-section .cards-light .business-card .biz-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* white logo tile with a soft brand-colour border */
+body.home-style-1 .businesses-section .cards-light .business-card .biz-logo {
+  background: #ffffff;
+  border: 1.5px solid color-mix(in srgb, var(--acc) 45%, #fff);
+  border-radius: 12px;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--acc) 22%, transparent);
+}
+
+/* pill chips */
+body.home-style-1 .businesses-section .cards-light .business-card .chips span {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--acc) 10%, #fff);
+}
+
+/* footer link: short gold accent line over a light rule, round light-gold arrow */
+body.home-style-1 .businesses-section .cards-light .business-card .text-link {
+  position: relative;
+  align-items: center;
+  border-top: 1px solid rgba(13, 59, 44, .12);
+}
+
+body.home-style-1 .businesses-section .cards-light .business-card .text-link::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, #f2cd6a, #d9a53a);
+}
+
+body.home-style-1 .businesses-section .cards-light .business-card .text-link i {
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  color: #0d3b2c;
+  background: radial-gradient(circle at 35% 30%, #fff8e1, #f7e3a8 70%, #ecd08a);
+  box-shadow: 0 4px 10px rgba(169, 116, 29, .25);
+  transition: transform .25s ease;
+}
+
+body.home-style-1 .businesses-section .cards-light .business-card .text-link:hover i {
+  transform: translateX(3px);
+}
+
+/*=========================================================
+   HOME STYLE 1: WHY CHOOSE US + LEADERSHIP CARDS USE THE DEFAULT
+   THEME'S FONT FAMILY, FONT SIZES AND CARD SIZES
+   (Style 1 colours, borders, corner wedge, badge ring, header art kept)
+=========================================================*/
+
+/*---- Why Choose Us (default: padding 22px 20px, title 14.5px, text 12px, icon 30px) ----*/
+body.home-style-1 .values-section .value-card {
+  padding: 22px 20px;
+}
+
+body.home-style-1 .values-section .value-card h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin: 0 0 6px;
+}
+
+body.home-style-1 .values-section .value-card p {
+  font-size: 12px !important;
+}
+
+body.home-style-1 .values-section .value-card span:not(.vc-more span) {
+  width: 64px;
+  height: 64px;
+  margin: 0 0 16px;
+  font-size: 30px;
+}
+
+/*---- Leadership (default: padding 20px 16px, name 15px, role 10px, bio 12px, portrait 110px) ----*/
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  padding: 20px 16px;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .portrait {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 18px;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin: 0 0 8px;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .role {
+  min-height: 34px;
+  margin: 0 0 13px;
+  font-size: 10px !important;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1.5;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person .bio {
+  margin: 0 auto;
+  font-size: 12px !important;
+  line-height: 1.7;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person:hover .bio {
+  margin-top: 10px;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  min-height: 0;
+}
+
+/* Home style 1: Why Choose Us and leadership cards on white (gold line-art kept) */
+body.home-style-1 .values-section .value-card {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23d9a53a' stroke-opacity='.35'%3E%3Cpath d='M200 30C140 75 115 140 50 200'/%3E%3Cpath d='M200 52C148 92 126 150 74 200'/%3E%3Cpath d='M200 74C156 108 137 160 98 200'/%3E%3Cpath d='M200 96C164 124 148 170 122 200'/%3E%3Cpath d='M200 118C172 140 160 180 146 200'/%3E%3C/svg%3E") right bottom / 170px 170px no-repeat,
+    #ffffff !important;
+}
+
+body.home-style-1 .leadership-section.section-light .leadership-grid .person {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23d9a53a' stroke-opacity='.3'%3E%3Cpath d='M200 30C140 75 115 140 50 200'/%3E%3Cpath d='M200 52C148 92 126 150 74 200'/%3E%3Cpath d='M200 74C156 108 137 160 98 200'/%3E%3Cpath d='M200 96C164 124 148 170 122 200'/%3E%3C/svg%3E") right bottom / 150px 150px no-repeat,
+    #ffffff !important;
+}
+
+/* Home style 1: orbit circles as ivory discs with a thick polished gold rim (reference design)
+   — the gold rim is the border painted with a metallic gradient behind the ivory face */
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile,
+body.home-style-1 .approach-orbit .ao-center {
+  border: 6px solid transparent !important;
+  background:
+    radial-gradient(circle at 38% 30%, #ffffff 0%, #fbf6ea 55%, #efe3c6 100%) padding-box,
+    conic-gradient(from 200deg, #a9741d, #f7dc8e, #d9a53a, #fff1c2, #b8842a, #f2cd6a, #a9741d) border-box !important;
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile {
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, .9),
+    inset 0 -6px 12px rgba(169, 116, 29, .18),
+    0 0 0 1px rgba(122, 82, 14, .35),
+    0 10px 22px rgba(6, 42, 31, .35),
+    0 0 18px rgba(242, 205, 106, .35) !important;
+}
+
+body.home-style-1 .approach-orbit .ao-center {
+  border-width: 8px !important;
+  box-shadow:
+    inset 0 3px 10px rgba(255, 255, 255, .9),
+    inset 0 -10px 20px rgba(169, 116, 29, .18),
+    0 0 0 1px rgba(122, 82, 14, .35),
+    0 14px 30px rgba(6, 42, 31, .35),
+    0 0 30px rgba(242, 205, 106, .45);
+}
+
+/* brand names in dark green on the ivory discs */
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile strong,
+body.home-style-1 .about-section .approach-orbit .ao-logo:nth-child(4) .ao-tile strong {
+  color: #0d3b2c;
+  text-shadow: none;
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile img {
+  filter: none;
+}
+
+/* Home style 1: fewer orbit rings, as in the reference — only the main path (ring 1) and the
+   outer ring (ring 4) remain, both as thick polished gold tubes */
+body.home-style-1 .about-section .approach-orbit .ao-ring-2,
+body.home-style-1 .about-section .approach-orbit .ao-ring-3 {
+  display: none;
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-ring-1,
+body.home-style-1 .about-section .approach-orbit .ao-ring-4 {
+  border: 5px solid #e2b24c;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 241, 194, .95),
+    0 0 0 1px rgba(122, 82, 14, .55),
+    0 0 16px rgba(242, 205, 106, .65),
+    inset 0 0 10px rgba(255, 231, 168, .5);
+}
+
+body.home-style-1 .about-section .approach-orbit .ao-ring-4 {
+  border-width: 4px;
+  border-style: solid;
+}
+
+/* moon on the outer ring as a polished gold bead */
+body.home-style-1 .about-section .approach-orbit .ao-ring-4::before {
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  background: radial-gradient(circle at 35% 30%, #fffbe8, #f2cd6a 45%, #a9741d);
+  box-shadow: 0 0 10px rgba(255, 215, 120, .9), 0 3px 6px rgba(6, 42, 31, .35);
+}
+
+/* Home style 1: larger brand logos inside the orbit planets (planet size unchanged) */
+body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile img {
+  max-width: 72%;
+  max-height: 60px;
+}
+
+@media (max-width: 991px) {
+  body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile img { max-height: 42px; }
+}
+
+@media (max-width: 575px) {
+  body.home-style-1 .about-section .approach-orbit .ao-logo .ao-tile img { max-height: 32px; }
+}
+
+/* Home style 1: larger Renew logo in the centre disc */
+body.home-style-1 .approach-orbit .ao-center img {
+  width: 46%;
+  margin-bottom: 8px;
+}
+
+/* Home style 1: larger Bands backdrop around the orbit */
+body.home-style-1 .about-section .approach-orbit::before {
+  inset: -14% -18%;
+  left: -18%;
+  top: -14%;
+}
+
+@media (max-width: 575px) {
+  body.home-style-1 .about-section .approach-orbit::before {
+    inset: -8% -8%;
+    left: -8%;
+    top: -8%;
+  }
+}
+
+/* Home style 1: keep the Bands backdrop inside the orbit column so it no longer runs under
+   the About text on the left or touches the page edge on the right */
+body.home-style-1 .about-section .approach-orbit::before {
+  inset: -12% -4%;
+  left: -4%;
+  top: -12%;
+}
+
+body.home-style-1 .about-section .approach-orbit {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Home style 1: larger Bands backdrop — grows up, down and to the right only;
+   the left edge stays where it was, clear of the About text */
+@media (min-width: 576px) {
+  body.home-style-1 .about-section .approach-orbit::before {
+    top: -20%;
+    bottom: -20%;
+    left: -4%;
+    right: -16%;
+    background-position: left center;
+  }
+}
+
+/* Home style 1: touch screens (phones/tablets) have no hover, so the leader bio is always shown
+   and the hover grow/blur is switched off; mouse users keep the hover reveal */
+@media (hover: none), (max-width: 767px) {
+  body.home-style-1 .leadership-section.section-light .leadership-grid .person .bio {
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    margin-top: 10px;
+  }
+
+  body.home-style-1 .leadership-section .leadership-grid:hover .person:not(:hover),
+  body.home-style-1 .leadership-section .leadership-grid .person:hover {
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  body.home-style-1 .leadership-section.section-light .leadership-grid .person:hover .portrait img {
+    transform: none;
+  }
 }

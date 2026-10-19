@@ -212,15 +212,6 @@ $(function () {
       $(this).css('transform', '');
     });
 
-    $('.parallax-section').on('mousemove', function (e) {
-      const rect = this.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - .5) * 10;
-      const y = ((e.clientY - rect.top) / rect.height - .5) * 10;
-      $(this).css({ '--parallax-x': `${x.toFixed(2)}px`, '--parallax-y': `${y.toFixed(2)}px` });
-    }).on('mouseleave', function () {
-      $(this).css({ '--parallax-x': '0px', '--parallax-y': '0px' });
-    });
-
     $(document).on('mousemove', function(e){
       $('.cursor-glow').css({left:e.clientX, top:e.clientY});
     });
@@ -283,68 +274,6 @@ $(function () {
     submitRenewEnquiry(this, 'partner', '#partnerFormMessage');
   });
 });
-
-// Hero: full-width animated network (connect links) behind the content
-(function () {
-  const hero = document.querySelector('.hero-section');
-  if (!hero) return;
-  const NS = 'http://www.w3.org/2000/svg', W = 1440, H = 760;
-  let seed = 7;
-  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const nodes = [];
-  const cols = 9, rows = 5;
-  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
-    nodes.push({ x: (c + .15 + rnd() * .7) * W / cols, y: (r + .15 + rnd() * .7) * H / rows });
-  }
-  const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('class', 'hero-net');
-  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-  svg.setAttribute('aria-hidden', 'true');
-  const lines = document.createElementNS(NS, 'g'), dots = document.createElementNS(NS, 'g');
-  lines.setAttribute('class', 'net-lines'); dots.setAttribute('class', 'net-nodes');
-  const seen = {};
-  nodes.forEach(function (a, i) {
-    nodes.map(function (b, j) { return { j: j, d: Math.hypot(a.x - b.x, a.y - b.y) }; })
-      .filter(function (o) { return o.j !== i && o.d < 260; })
-      .sort(function (p, q) { return p.d - q.d; }).slice(0, 2)
-      .forEach(function (o) {
-        const k = Math.min(i, o.j) + '-' + Math.max(i, o.j);
-        if (seen[k]) return; seen[k] = 1;
-        const p = document.createElementNS(NS, 'path');
-        p.setAttribute('d', 'M' + a.x.toFixed(0) + ' ' + a.y.toFixed(0) + ' L' + nodes[o.j].x.toFixed(0) + ' ' + nodes[o.j].y.toFixed(0));
-        lines.appendChild(p);
-      });
-    const c = document.createElementNS(NS, 'circle');
-    c.setAttribute('cx', a.x.toFixed(0)); c.setAttribute('cy', a.y.toFixed(0)); c.setAttribute('r', (2 + rnd() * 1.6).toFixed(1));
-    c.style.animationDelay = (-rnd() * 2.6).toFixed(2) + 's';
-    dots.appendChild(c);
-  });
-  svg.appendChild(lines); svg.appendChild(dots);
-  hero.insertBefore(svg, hero.firstChild);
-})();
-
-// Hero image: follows the pointer with a soft 3D tilt
-(function () {
-  const hero = document.querySelector('.hero-section');
-  const stage = document.querySelector('.hero-visual .hv-stage');
-  if (!hero || !stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let raf = 0;
-  hero.addEventListener('mousemove', function (e) {
-    const r = hero.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-    cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(function () {
-      stage.style.setProperty('--tx', (x * 26).toFixed(1) + 'px');
-      stage.style.setProperty('--ty', (y * 18).toFixed(1) + 'px');
-      stage.style.setProperty('--ry', (x * 14).toFixed(1) + 'deg');
-      stage.style.setProperty('--rx', (-y * 10).toFixed(1) + 'deg');
-    });
-  });
-  hero.addEventListener('mouseleave', function () {
-    ['--tx', '--ty', '--ry', '--rx'].forEach(function (p) { stage.style.removeProperty(p); });
-  });
-})();
 
 // Leadership: connect-link network behind the cards
 (function () {
@@ -411,13 +340,56 @@ $(function () {
   else { window.addEventListener('load', function () { setTimeout(done, 300); }); }
 })();
 
-// Hero connect links: zoom towards the pointer while hovering the hero
+// Hero: twinkling starfield with a few gold sparkles and an occasional shooting star
 (function () {
   const hero = document.querySelector('.hero-section');
   if (!hero) return;
+  const sky = document.createElement('div');
+  sky.className = 'hero-stars';
+  sky.setAttribute('aria-hidden', 'true');
+  const small = window.innerWidth < 768 ? 30 : 65;
+  const r = function (a, b) { return a + Math.random() * (b - a); };
+  for (let i = 0; i < small; i++) {
+    const s = document.createElement('i');
+    s.className = 'star' + (Math.random() < .25 ? ' star-gold' : '');
+    const size = r(2, 4.5).toFixed(1) + 'px';
+    s.style.cssText = 'left:' + r(0, 100).toFixed(2) + '%;top:' + r(0, 100).toFixed(2) + '%;width:' + size + ';height:' + size +
+      ';--d:' + r(.9, 2.6).toFixed(2) + 's;--t:' + (-r(0, 3)).toFixed(2) + 's;--o:' + r(.35, 1).toFixed(2);
+    sky.appendChild(s);
+  }
+  for (let i = 0; i < 7; i++) {
+    const s = document.createElement('i');
+    s.className = 'sparkle';
+    s.style.cssText = 'left:' + r(2, 98).toFixed(2) + '%;top:' + r(3, 80).toFixed(2) + '%;--s:' + r(16, 30).toFixed(0) + 'px' +
+      ';--d:' + r(1.6, 3.2).toFixed(2) + 's;--t:' + (-r(0, 3)).toFixed(2) + 's';
+    sky.appendChild(s);
+  }
+  for (let i = 0; i < 2; i++) {
+    const s = document.createElement('i');
+    s.className = 'shooting-star';
+    s.style.cssText = 'left:' + r(20, 90).toFixed(0) + '%;top:' + r(2, 35).toFixed(0) + '%;--t:' + (i * 2.5 + r(.5, 2)).toFixed(1) + 's';
+    sky.appendChild(s);
+  }
+  hero.insertBefore(sky, hero.firstChild);
+})();
+
+// Hero banner image: drifts gently with the pointer while hovering the hero
+(function () {
+  const hero = document.querySelector('.hero-section');
+  const img = hero && hero.querySelector('.hero-visual .hv-img');
+  if (!img || window.matchMedia('(hover: none), (prefers-reduced-motion: reduce)').matches) return;
+  let raf = 0;
   hero.addEventListener('mousemove', function (e) {
     const r = hero.getBoundingClientRect();
-    hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-    hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function () {
+      img.style.setProperty('--hx', (x * -18).toFixed(1) + 'px');
+      img.style.setProperty('--hy', (y * -12).toFixed(1) + 'px');
+    });
+  });
+  hero.addEventListener('mouseleave', function () {
+    img.style.removeProperty('--hx');
+    img.style.removeProperty('--hy');
   });
 })();

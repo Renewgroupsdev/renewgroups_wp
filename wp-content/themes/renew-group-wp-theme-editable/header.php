@@ -11,8 +11,8 @@
 <?php if (renew_mod('loader_show', '1') === '1'):
   $renew_loader_id = get_theme_mod('renew_loader_logo') ?: get_theme_mod('renew_logo');
   $renew_loader_logo = $renew_loader_id ? wp_get_attachment_image_url($renew_loader_id, 'full') : renew_asset('images/renew-group-logo.png');
-  $renew_loader_bg = sanitize_hex_color(renew_mod('loader_bg', '#021412')) ?: '#021412';
-  $renew_loader_ac = sanitize_hex_color(renew_mod('loader_accent', '#dbb678')) ?: '#dbb678';
+  $renew_loader_bg = sanitize_hex_color(renew_mod('loader_bg', '#001E18')) ?: '#001E18';
+  $renew_loader_ac = sanitize_hex_color(renew_mod('loader_accent', '#DCAA64')) ?: '#DCAA64';
   $renew_loader_ms = max(1, min(30, (int) renew_mod('loader_timeout', '8'))) * 1000; ?>
 <div id="pageLoader" class="page-loader" role="status" aria-label="Loading" style="--pl-bg: <?php echo esc_attr($renew_loader_bg); ?>; --pl-accent: <?php echo esc_attr($renew_loader_ac); ?>">
   <div class="pl-box">

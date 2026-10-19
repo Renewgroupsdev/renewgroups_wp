@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 190" preserveAspectRatio="none">
+  <!-- Leadership card header: forest-green panel with a wavy bottom edge and a metallic gold wave band -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d3b2c"/>
+      <stop offset=".45" stop-color="#1f6b4c"/>
+      <stop offset="1" stop-color="#062a1f"/>
+    </linearGradient>
+    <linearGradient id="au" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a9741d"/>
+      <stop offset=".3" stop-color="#f2cd6a"/>
+      <stop offset=".55" stop-color="#d9a53a"/>
+      <stop offset=".8" stop-color="#f7dc8e"/>
+      <stop offset="1" stop-color="#a9741d"/>
+    </linearGradient>
+    <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".14"/>
+      <stop offset=".6" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#au)" d="M0 150C50 176 100 150 150 134C200 118 250 156 300 136V160C250 182 200 142 150 156C100 170 50 192 0 172Z"/>
+  <path fill="url(#g)" d="M0 0H300V136C250 156 200 118 150 134C100 150 50 176 0 150Z"/>
+  <path fill="url(#sh)" d="M0 0H300V70C200 50 100 60 0 80Z"/>
+  <path fill="none" stroke="#f7dc8e" stroke-opacity=".5" stroke-width="1" vector-effect="non-scaling-stroke" d="M0 30C80 10 160 60 300 20"/>
+</svg>

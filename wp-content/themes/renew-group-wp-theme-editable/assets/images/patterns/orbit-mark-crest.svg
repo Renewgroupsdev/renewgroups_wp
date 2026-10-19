@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
+  <defs>
+    <linearGradient id="em" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d3b2c"/><stop offset=".45" stop-color="#17583f"/><stop offset="1" stop-color="#04201a"/></linearGradient>
+    <linearGradient id="au" x1="0" y1="0" x2="1" y2=".4"><stop offset="0" stop-color="#a9741d"/><stop offset=".25" stop-color="#f2cd6a"/><stop offset=".5" stop-color="#d9a53a"/><stop offset=".75" stop-color="#f7dc8e"/><stop offset="1" stop-color="#a9741d"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#1c7854" stop-opacity=".55"/><stop offset="1" stop-color="#1c7854" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <!-- chamfered crest plate with pinstripes, double gold frame and diamond studs -->
+  <defs><pattern id="pin" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="14" stroke="#f2cd6a" stroke-opacity=".07" stroke-width="2"/></pattern></defs>
+  <path fill="url(#em)" d="M120 30H880L980 130V510L880 610H120L20 510V130Z"/>
+  <path fill="url(#glow)" d="M120 30H880L980 130V510L880 610H120L20 510V130Z"/>
+  <path fill="url(#pin)" d="M120 30H880L980 130V510L880 610H120L20 510V130Z"/>
+  <path fill="url(#sheen)" d="M120 30H880L980 130V250H20V130Z"/>
+  <path fill="none" stroke="url(#au)" stroke-width="3" d="M120 30H880L980 130V510L880 610H120L20 510V130Z"/>
+  <path fill="none" stroke="url(#au)" stroke-width="1.2" stroke-opacity=".75" d="M132 50H868L960 142V498L868 590H132L40 498V142Z"/>
+  <g fill="url(#au)">
+    <path d="M500 18l12 12-12 12-12-12z"/><path d="M500 598l12 12-12 12-12-12z"/>
+    <path d="M8 320l12-12 12 12-12 12z"/><path d="M968 320l12-12 12 12-12 12z"/>
+  </g>
+</svg>

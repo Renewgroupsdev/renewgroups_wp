@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
+  <defs>
+    <linearGradient id="em" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d3b2c"/><stop offset=".45" stop-color="#17583f"/><stop offset="1" stop-color="#04201a"/></linearGradient>
+    <linearGradient id="au" x1="0" y1="0" x2="1" y2=".4"><stop offset="0" stop-color="#a9741d"/><stop offset=".25" stop-color="#f2cd6a"/><stop offset=".5" stop-color="#d9a53a"/><stop offset=".75" stop-color="#f7dc8e"/><stop offset="1" stop-color="#a9741d"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#1c7854" stop-opacity=".55"/><stop offset="1" stop-color="#1c7854" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <clipPath id="leaf"><path d="M10 70C250 10 600 10 820 110C980 185 1000 420 990 615C800 640 450 640 230 540C90 475 30 300 10 70Z"/></clipPath>
+  <path fill="url(#em)" d="M10 70C250 10 600 10 820 110C980 185 1000 420 990 615C800 640 450 640 230 540C90 475 30 300 10 70Z"/>
+  <g clip-path="url(#leaf)">
+    <rect width="1000" height="640" fill="url(#glow)"/>
+    <path fill="url(#sheen)" d="M10 70C250 10 600 10 820 110C980 185 1000 420 990 615C900 260 520 110 10 70Z"/>
+    <g fill="none" stroke="#f2cd6a" stroke-opacity=".35" stroke-width="1.4">
+      <path d="M70 140L210 95L380 70L560 72L720 120L850 200L930 330L950 470L890 580L720 600L520 590L330 545L190 470L95 330L70 140"/>
+      <path d="M210 95L330 545M380 70L190 470M560 72L720 600M720 120L520 590M850 200L890 580M95 330L930 330"/>
+    </g>
+    <g fill="#f2cd6a">
+      <circle cx="70" cy="140" r="5"/><circle cx="210" cy="95" r="4"/><circle cx="380" cy="70" r="6"/><circle cx="560" cy="72" r="4"/>
+      <circle cx="720" cy="120" r="6"/><circle cx="850" cy="200" r="4"/><circle cx="930" cy="330" r="6"/><circle cx="950" cy="470" r="4"/>
+      <circle cx="890" cy="580" r="5"/><circle cx="720" cy="600" r="4"/><circle cx="520" cy="590" r="6"/><circle cx="330" cy="545" r="4"/>
+      <circle cx="190" cy="470" r="6"/><circle cx="95" cy="330" r="4"/>
+    </g>
+  </g>
+  <path fill="none" stroke="url(#au)" stroke-width="2.5" d="M10 70C250 10 600 10 820 110C980 185 1000 420 990 615C800 640 450 640 230 540C90 475 30 300 10 70Z"/>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a5418"/>
+      <stop offset=".22" stop-color="#e9c77f"/>
+      <stop offset=".45" stop-color="#a87a2c"/>
+      <stop offset=".7" stop-color="#f6dfa4"/>
+      <stop offset="1" stop-color="#8f6522"/>
+    </linearGradient>
+    <linearGradient id="gold2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3d995"/>
+      <stop offset=".5" stop-color="#b58631"/>
+      <stop offset="1" stop-color="#ecd08c"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12302a"/>
+      <stop offset="1" stop-color="#06120e"/>
+    </linearGradient>
+    <linearGradient id="soft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a3d35" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#0c241e" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- soft lighter-green wave for depth -->
+  <path d="M96 0 C72 62 136 112 100 178 C78 218 110 246 92 260 L200 260 L200 0 Z" fill="url(#soft)"/>
+  <!-- main gold band (wide) -->
+  <path d="M128 0 C102 62 168 112 128 176 C104 216 138 246 120 260 L200 260 L200 0 Z" fill="url(#gold)"/>
+  <!-- dark wave cutting into the gold -->
+  <path d="M158 0 C134 60 194 110 156 172 C134 212 166 242 151 260 L200 260 L200 0 Z" fill="url(#deep)"/>
+  <!-- gold sliver on the edge -->
+  <path d="M180 0 C164 52 204 102 178 162 C162 204 190 238 178 260 L200 260 L200 0 Z" fill="url(#gold2)"/>
+  <!-- fine gold lines following the curve -->
+  <g fill="none" stroke="#e9c77f" stroke-width=".6" opacity=".8">
+    <path d="M162 0 C138 60 198 110 160 172 C138 212 170 242 155 260"/>
+    <path d="M165 0 C141 60 201 110 163 172 C141 212 173 242 158 260"/>
+    <path d="M168 0 C144 60 204 110 166 172 C144 212 176 242 161 260"/>
+    <path d="M171 0 C147 60 207 110 169 172 C147 212 179 242 164 260"/>
+    <path d="M174 0 C150 60 210 110 172 172 C150 212 182 242 167 260"/>
+  </g>
+</svg>

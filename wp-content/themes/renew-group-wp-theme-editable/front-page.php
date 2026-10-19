@@ -14,7 +14,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
 ?>
 <main id="primary" class="site-main">
 
-  <header id="home" class="hero-section parallax-section">
+  <header id="home" class="hero-section<?php echo renew_section_light('hero'); ?>">
     <div class="container position-relative">
       <div class="row align-items-center hero-row py-5">
         <div class="col-lg-6 pt-5" data-aos="fade-right" data-aos-duration="900">
@@ -38,36 +38,9 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           </div>
         </div>
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
-          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/rgc_homepage-full.webp'); ?>
+          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/rgc_homepage-transparent.webp'); ?>
           <div class="hero-visual" style="--hv-img: url('<?php echo esc_url($hero_img); ?>')">
-            <span class="hv-glow" aria-hidden="true"></span>
-            <svg class="hv-net" viewBox="0 0 700 400" preserveAspectRatio="none" aria-hidden="true">
-              <g class="net-lines">
-                <path d="M30 60 L120 30 L210 80 L300 40 L380 90"/>
-                <path d="M120 30 L140 130 L210 80"/>
-                <path d="M300 40 L330 140 L380 90"/>
-                <path d="M20 250 L110 300 L200 260 L260 340"/>
-                <path d="M110 300 L90 380"/>
-                <path d="M440 50 L520 20 L600 70 L680 30"/>
-                <path d="M520 20 L540 120 L600 70"/>
-                <path d="M600 70 L660 160 L610 240 L690 300"/>
-                <path d="M440 330 L520 370 L610 240"/>
-                <path d="M380 90 L440 50"/>
-              </g>
-              <g class="net-nodes">
-                <circle cx="30" cy="60" r="3"/><circle cx="120" cy="30" r="3.5"/><circle cx="210" cy="80" r="3"/><circle cx="300" cy="40" r="3.5"/><circle cx="380" cy="90" r="3"/>
-                <circle cx="140" cy="130" r="3"/><circle cx="330" cy="140" r="3"/><circle cx="20" cy="250" r="3"/><circle cx="110" cy="300" r="3.5"/><circle cx="200" cy="260" r="3"/>
-                <circle cx="260" cy="340" r="3"/><circle cx="440" cy="50" r="3"/><circle cx="520" cy="20" r="3.5"/><circle cx="600" cy="70" r="3.5"/><circle cx="680" cy="30" r="3"/>
-                <circle cx="660" cy="160" r="3"/><circle cx="610" cy="240" r="3.5"/><circle cx="690" cy="300" r="3"/><circle cx="520" cy="370" r="3"/><circle cx="440" cy="330" r="3"/>
-              </g>
-            </svg>
-            <span class="hv-ring" aria-hidden="true"></span><span class="hv-ring hv-ring-2" aria-hidden="true"></span>
-            <b class="hv-spark" style="--x:14%;--y:22%;--s:16px;--d:2.8s;--t:-.4s" aria-hidden="true"></b><b class="hv-spark" style="--x:84%;--y:14%;--s:20px;--d:3.4s;--t:-1.6s" aria-hidden="true"></b><b class="hv-spark" style="--x:92%;--y:58%;--s:14px;--d:2.4s;--t:-.9s" aria-hidden="true"></b><b class="hv-spark" style="--x:72%;--y:92%;--s:18px;--d:3.1s;--t:-2.1s" aria-hidden="true"></b><b class="hv-spark" style="--x:8%;--y:68%;--s:14px;--d:2.9s;--t:-1.2s" aria-hidden="true"></b><b class="hv-spark" style="--x:46%;--y:4%;--s:12px;--d:3.2s;--t:-.2s" aria-hidden="true"></b>
-            <div class="hv-stage">
-              <img class="hv-img" src="<?php echo esc_url($hero_img); ?>" width="1600" height="893" decoding="async" fetchpriority="high" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
-              <span class="hv-shine" aria-hidden="true"></span>
-
-            </div>
+            <img class="hv-img" src="<?php echo esc_url($hero_img); ?>" width="1600" height="893" decoding="async" fetchpriority="high" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
           </div>
           <!-- <p class="hero-tagline">DIFFERENT EXPERTISES.<br>A STRONGER TOMORROW.</p> -->
         </div>
@@ -93,7 +66,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </header>
 
-  <section id="businesses" class="section-pad businesses-section section-light parallax-section">
+  <section id="businesses" class="section-pad businesses-section<?php echo renew_section_light('businesses'); ?>">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
         <div class="eyebrow"><span></span>
@@ -102,7 +75,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         </h2>
         <p><?php echo esc_html(renew_mod('business_intro')); ?></p>
       </div>
-      <div class="row g-4 mt-4">
+      <div class="row g-4 mt-4<?php echo renew_home_style() === '1' ? ' section-light cards-light' : ''; ?>">
         <?php
         $business_classes = array('card-teal', 'card-purple', 'card-violet', 'card-mars');
         $business_icons = array('heart-pulse', 'cpu', 'magic', 'buildings');
@@ -114,7 +87,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               </div>
               <div class="biz-body">
                 <?php $biz_logo_keys = array('orbit_renewplus_logo', 'orbit_zelora_logo', 'orbit_rivan_logo', 'orbit_mars_logo');
-                $biz_logo_defaults = array('renew-plus-hair-skin-mark.png', 'zelora-logo.png', 'rivan-institute-mark.png', 'mars-builders-mark.png');
+                $biz_logo_defaults = array('renew-plus-hair-skin-mark.png', 'zelora-logo.png', 'rivan-institute-mark.png', 'mars-builders-mark-clean.png');
                 $biz_logo = renew_mod($biz_logo_keys[$i - 1]) ? wp_get_attachment_image_url(renew_mod($biz_logo_keys[$i - 1]), 'full') : renew_asset('images/' . $biz_logo_defaults[$i - 1]); ?>
                 <div class="biz-head">
                   <div class="biz-logo"><img src="<?php echo esc_url($biz_logo); ?>" alt="<?php echo esc_attr(renew_mod("biz{$i}_name")); ?> logo"></div>
@@ -137,7 +110,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="about" class="section-pad about-section parallax-section">
+  <section id="about" class="section-pad about-section<?php echo renew_section_light('about'); ?>">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6" data-aos="fade-right">
@@ -154,15 +127,17 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         </div>
         <div class="col-lg-6" data-aos="fade-left">
           <div class="approach-orbit" aria-hidden="false">
-            <span class="ao-galaxy" aria-hidden="true"><i class="ag-stars"></i><i class="ag-stars ag-stars-2"></i><b class="ag-star" style="--x:10%;--y:30%;--s:14px;--d:2.6s;--t:-.4s"></b><b class="ag-star" style="--x:86%;--y:18%;--s:18px;--d:3.4s;--t:-1.6s"></b><b class="ag-star" style="--x:94%;--y:62%;--s:12px;--d:2.2s;--t:-.9s"></b><b class="ag-star" style="--x:70%;--y:94%;--s:16px;--d:3s;--t:-2.1s"></b><b class="ag-star" style="--x:22%;--y:88%;--s:12px;--d:2.8s;--t:-1.2s"></b><b class="ag-star" style="--x:46%;--y:4%;--s:13px;--d:3.2s;--t:-.2s"></b><b class="ag-star" style="--x:3%;--y:58%;--s:10px;--d:2.4s;--t:-1.9s"></b></span>
+            <span class="ao-galaxy" aria-hidden="true"><i class="ag-band"></i><i class="ag-dust"></i><i class="ag-stars"></i><i class="ag-stars ag-stars-2"></i><b class="ag-star" style="--x:10%;--y:30%;--s:14px;--d:2.6s;--t:-.4s"></b><b class="ag-star" style="--x:86%;--y:18%;--s:18px;--d:3.4s;--t:-1.6s"></b><b class="ag-star" style="--x:94%;--y:62%;--s:12px;--d:2.2s;--t:-.9s"></b><b class="ag-star" style="--x:70%;--y:94%;--s:16px;--d:3s;--t:-2.1s"></b><b class="ag-star" style="--x:22%;--y:88%;--s:12px;--d:2.8s;--t:-1.2s"></b><b class="ag-star" style="--x:46%;--y:4%;--s:13px;--d:3.2s;--t:-.2s"></b><b class="ag-star" style="--x:3%;--y:58%;--s:10px;--d:2.4s;--t:-1.9s"></b></span>
             <span class="ao-ring ao-ring-1"></span>
             <span class="ao-ring ao-ring-2"></span>
+            <span class="ao-ring ao-ring-3"></span>
+            <span class="ao-ring ao-ring-4"></span>
             <div class="ao-center"><img src="<?php echo esc_url((renew_mod('orbit_group_logo') ? wp_get_attachment_image_url(renew_mod('orbit_group_logo'), 'full') : renew_asset('images/renew-group-logo.png'))); ?>" alt="Renew Group logo"><strong>RENEW</strong><small>GROUP</small></div>
             <div class="ao-spin">
               <div class="ao-logo" style="--a:0deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_renewplus_logo') ? wp_get_attachment_image_url(renew_mod('orbit_renewplus_logo'), 'full') : renew_asset('images/renew-plus-hair-skin-mark.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_1', 'RENEW PLUS')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_1', 'RENEW PLUS')); ?></strong></div></div>
               <div class="ao-logo" style="--a:90deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_zelora_logo') ? wp_get_attachment_image_url(renew_mod('orbit_zelora_logo'), 'full') : renew_asset('images/zelora-logo.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_2', 'ZELORA')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_2', 'ZELORA')); ?></strong></div></div>
               <div class="ao-logo" style="--a:180deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_rivan_logo') ? wp_get_attachment_image_url(renew_mod('orbit_rivan_logo'), 'full') : renew_asset('images/rivan-institute-mark.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_3', 'RIVAN')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_3', 'RIVAN')); ?></strong></div></div>
-              <div class="ao-logo" style="--a:270deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_mars_logo') ? wp_get_attachment_image_url(renew_mod('orbit_mars_logo'), 'full') : renew_asset('images/mars-builders-mark.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_4', 'THE NEW MARS')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_4', 'THE NEW MARS')); ?></strong></div></div>
+              <div class="ao-logo" style="--a:270deg"><div class="ao-tile"><img src="<?php echo esc_url((renew_mod('orbit_mars_logo') ? wp_get_attachment_image_url(renew_mod('orbit_mars_logo'), 'full') : renew_asset('images/mars-builders-mark-clean.png'))); ?>" alt="<?php echo esc_attr(renew_mod('orbit_title_4', 'THE NEW MARS')); ?> logo"><strong><?php echo esc_html(renew_mod('orbit_title_4', 'THE NEW MARS')); ?></strong></div></div>
             </div>
           </div>
         </div>
@@ -170,12 +145,18 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="values" class="section-pad values-section section-light parallax-section">
+  <section id="values" class="section-pad values-section<?php echo renew_section_light('values'); ?>">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
         <div class="eyebrow"><span></span> <?php echo esc_html(renew_mod('values_eyebrow')); ?>
         </div>
-        <h2><?php echo esc_html($values_title); ?></h2>
+        <h2><?php
+          $values_title_html = esc_html($values_title);
+          if (renew_home_style() === '1') {
+            // Style 1: last word on its own line in gold italic, e.g. "What holds the group <em>together</em>"
+            $values_title_html = preg_replace('/\s+(\S+)$/u', '<br><em>$1</em>', $values_title_html);
+          }
+          echo $values_title_html; ?></h2>
         <p><?php echo esc_html(renew_mod('values_intro')); ?></p>
       </div>
       <div class="row g-4 mt-4">
@@ -185,13 +166,16 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
             <div class="value-card"><span><i class="bi bi-<?php echo esc_attr($vi[$i - 1]); ?>"></i></span>
               <h4><?php echo esc_html(renew_mod("value{$i}_title")); ?></h4>
               <p><?php echo esc_html(renew_mod("value{$i}_text")); ?></p>
+              <!-- <?php if (renew_home_style() === '1'): ?>
+                <a class="vc-more" href="#contact">Learn More <span><i class="bi bi-arrow-right"></i></span></a>
+              <?php endif; ?> -->
             </div>
           </div><?php endfor; ?>
       </div>
     </div>
   </section>
 
-  <section id="team" class="section-pad leadership-section parallax-section">
+  <section id="team" class="section-pad leadership-section<?php echo renew_section_light('team'); ?>">
     <div class="container">
       <div class="section-heading text-center" data-aos="fade-up">
         <div class="eyebrow justify-content-center"><span></span> <?php echo esc_html(renew_mod('team_eyebrow')); ?>
@@ -219,7 +203,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="partner" class="section-pad partner-section section-light parallax-section">
+  <section id="partner" class="section-pad partner-section<?php echo renew_section_light('partner'); ?>">
     <div class="container">
       <div class="row g-5 align-items-center partner-row">
       <div class="col-lg-4" data-aos="fade-right">
@@ -268,7 +252,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="faq" class="section-pad faq-section parallax-section">
+  <section id="faq" class="section-pad faq-section<?php echo renew_section_light('faq'); ?>">
     <div class="container">
       <div class="section-heading faq-heading" data-aos="fade-up">
         <div class="eyebrow justify-content-center"><span></span> <?php echo esc_html(renew_mod('faq_eyebrow')); ?>
@@ -302,7 +286,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
     </div>
   </section>
 
-  <section id="contact" class="contact-section section-light parallax-section">
+  <section id="contact" class="contact-section<?php echo renew_section_light('contact'); ?>">
     <div class="container">
       <div class="row g-4 align-items-stretch">
         <div class="col-lg-5" data-aos="fade-right">

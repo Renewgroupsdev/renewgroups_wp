@@ -1,5 +1,5 @@
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer<?php echo renew_section_light('footer'); ?>">
   <div class="container">
     <div class="row g-4">
       <div class="col-md-5">

@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('RENEW_THEME_VERSION', '1.0.104');
+define('RENEW_THEME_VERSION', '1.0.220');
 
 function renew_asset($path = '') {
     return trailingslashit(get_template_directory_uri()) . 'assets/' . ltrim($path, '/');
@@ -45,7 +45,10 @@ function renew_enqueue_assets() {
     wp_enqueue_style('renew-swiper', renew_asset('css/swiper-bundle.min.css'), array(), '11');
     wp_enqueue_style('renew-fonts', renew_asset('css/fonts.css'), array(), RENEW_THEME_VERSION);
     // Default: style-rgc.css. Alternates: style-teal.css, style-orange.css, style.css (Customizer > Theme Style).
-    wp_enqueue_style('renew-design', renew_asset('css/style-rgc.css'), array('renew-bootstrap', 'renew-fonts'), RENEW_THEME_VERSION);
+    // Serve the minified build only while it is newer than the source, so unbuilt edits are never hidden.
+    $design_css = get_template_directory() . '/assets/css/style-rgc';
+    $design_min = !(defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) && file_exists($design_css . '.min.css') && filemtime($design_css . '.min.css') >= filemtime($design_css . '.css');
+    wp_enqueue_style('renew-design', renew_asset($design_min ? 'css/style-rgc.min.css' : 'css/style-rgc.css'), array('renew-bootstrap', 'renew-fonts'), RENEW_THEME_VERSION);
     // wp_enqueue_style('renew-theme', get_stylesheet_uri(), array('renew-design'), RENEW_THEME_VERSION);
 
     // Local JavaScript libraries.
@@ -64,8 +67,33 @@ function renew_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'renew_enqueue_assets');
 
+/**
+ * Home style: 'default' (dark hero, light Businesses / Why Us / Partner / Contact)
+ * or '1' (inverted: light hero, About, Team, FAQ, footer).
+ * Set in Appearance -> Customize -> Home Style; preview with ?home_style=default or ?home_style=1
+ */
+function renew_home_style() {
+    if (isset($_GET['home_style'])) {
+        $requested = sanitize_key(wp_unslash($_GET['home_style']));
+        if (in_array($requested, array('default', '1'), true)) {
+            return $requested;
+        }
+    }
+    return get_theme_mod('renew_home_style', 'default') === '1' ? '1' : 'default';
+}
+
+function renew_section_light($section) {
+    $light = renew_home_style() === '1'
+        ? array('hero', 'about', 'team', 'faq', 'footer')
+        : array('businesses', 'values', 'partner', 'contact');
+    return in_array($section, $light, true) ? ' section-light' : '';
+}
+
 function renew_body_classes($classes) {
     $classes[] = 'renew-group-theme';
+    if (renew_home_style() === '1') {
+        $classes[] = 'home-style-1';
+    }
     return $classes;
 }
 add_filter('body_class', 'renew_body_classes');
@@ -356,8 +384,8 @@ function renew_homepage_defaults() {
         'footer_col4_title' => 'Contact',
         'loader_show' => '1',
         'loader_text' => 'Loading',
-        'loader_bg' => '#021412',
-        'loader_accent' => '#dbb678',
+        'loader_bg' => '#001E18',
+        'loader_accent' => '#DCAA64',
         'loader_timeout' => '8',
         'topbar_show' => '1',
         'topbar_social' => '1',
@@ -878,6 +906,32 @@ function renew_topbar_customizer($wp_customize) {
     }
 }
 add_action('customize_register', 'renew_topbar_customizer');
+
+/**
+ * Home style
+ * Appearance -> Customize -> Home Style
+ */
+function renew_home_style_customizer($wp_customize) {
+    $wp_customize->add_section('renew_home_style', array(
+        'title'       => __('Home Style', 'renew-group'),
+        'description' => __('Default: dark hero with light Businesses, Why Us, Partner and Contact. Style 1: the inverse. Preview any time with ?home_style=default or ?home_style=1', 'renew-group'),
+        'priority'    => 22,
+    ));
+    $wp_customize->add_setting('renew_home_style', array(
+        'default'           => 'default',
+        'sanitize_callback' => function ($v) { return $v === '1' ? '1' : 'default'; },
+    ));
+    $wp_customize->add_control('renew_home_style', array(
+        'label'   => __('Homepage style', 'renew-group'),
+        'section' => 'renew_home_style',
+        'type'    => 'radio',
+        'choices' => array(
+            'default' => __('Default', 'renew-group'),
+            '1'       => __('Style 1 (inverted sections)', 'renew-group'),
+        ),
+    ));
+}
+add_action('customize_register', 'renew_home_style_customizer');
 
 /**
  * Page loader

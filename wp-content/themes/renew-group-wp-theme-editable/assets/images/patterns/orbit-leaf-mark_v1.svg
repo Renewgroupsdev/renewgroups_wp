@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
+  <defs>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a3d2b"/>
+      <stop offset=".35" stop-color="#17734e"/>
+      <stop offset=".55" stop-color="#14684b"/>
+      <stop offset=".8" stop-color="#0c4a34"/>
+      <stop offset="1" stop-color="#05261a"/>
+    </linearGradient>
+    <radialGradient id="depth" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#0e3b2e" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#0e3b2e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".18"/>
+      <stop offset=".6" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2=".45">
+      <stop offset="0" stop-color="#7a5418"/>
+      <stop offset=".3" stop-color="#c9a04e"/>
+      <stop offset=".5" stop-color="#fff1c7"/>
+      <stop offset=".68" stop-color="#d9b260"/>
+      <stop offset="1" stop-color="#8a6420"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0c4a2d"/>
+      <stop offset=".55" stop-color="#2e9a5c"/>
+      <stop offset="1" stop-color="#4fbf7a"/>
+    </linearGradient>
+    <clipPath id="shape">
+      <path id="outline" d="M10 70C250 10 600 10 820 110C980 185 1000 420 990 615C800 640 450 640 230 540C90 475 30 300 10 70Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- uneven leaf backdrop: pointed tips top-left and bottom-right, fuller upper-right like the R bowl -->
+  <use href="#outline" fill="url(#emerald)"/>
+  <g clip-path="url(#shape)">
+    <ellipse cx="500" cy="320" rx="430" ry="250" fill="url(#depth)"/>
+    <path fill="url(#gloss)" d="M10 70C250 10 600 10 820 110C980 185 1000 420 990 615C900 260 520 110 10 70Z"/>
+    <!-- satin gold ribbon sweeping through the lower-left -->
+    <path fill="url(#gold)" opacity=".9" d="M40 240C90 420 250 545 540 592C330 540 130 430 40 240Z"/>
+    <!-- faint midrib from tip to tip -->
+    <path fill="none" stroke="#dcffe8" stroke-opacity=".18" stroke-width="3" stroke-linecap="round" d="M10 70C380 170 700 330 990 615"/>
+  </g>
+  <use href="#outline" fill="none" stroke="#ca9418" stroke-opacity=".9" stroke-width="2.5"/>
+
+  <!-- small leaf with vein, as in the logo -->
+  <path fill="url(#leaf)" stroke="#ca9418" stroke-opacity=".7" stroke-width="1.5" d="M8 636C0 560 50 505 140 488C150 560 105 615 8 636Z"/>
+  <path fill="none" stroke="#dcffe8" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round" d="M18 626C50 580 90 535 136 494"/>
+</svg>
