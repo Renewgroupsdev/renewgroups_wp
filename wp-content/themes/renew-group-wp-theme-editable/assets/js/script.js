@@ -85,10 +85,17 @@ $(function () {
     const partner = $(event.relatedTarget).data('partner');
     const $modal = $(this);
     $modal.find('[name="partner_brand"]').val(partner || '');
-    $modal.find('[name="business"]').val($(event.relatedTarget).data('business') || 'Partner Enquiry');
+    // Enquiry type lists only the selected option.
+    const business = $(event.relatedTarget).data('business') || 'Partner Enquiry';
+    $modal.find('[name="business"]').empty().append(new Option(business, business, true, true));
     $modal.find('.modal-title').text(`Partner with ${partner}`);
     $modal.find('.partner-enquiry-intro').text(`Share your interest in partnering with ${partner}.`);
     $modal.find('#partnerFormMessage').text('');
+    // Match the popup background to the clicked card's brand icon background.
+    const icon = $(event.relatedTarget).closest('.partner-card').find('.partner-brand i')[0];
+    const tint = icon ? getComputedStyle(icon).backgroundColor : '';
+    const solid = tint && tint !== 'transparent' && tint !== 'rgba(0, 0, 0, 0)';
+    $modal.find('.partner-enquiry-modal')[0].style.setProperty('--partner-accent', solid ? tint : '');
   });
 
   // Mobile menu: close when clicking/tapping outside it, or pressing Escape
@@ -316,16 +323,34 @@ $(function () {
 
 // Leadership cards: appear one by one when the section scrolls into view
 (function () {
-  const grid = document.querySelector('.leadership-grid');
-  if (!grid) return;
-  const cards = grid.querySelectorAll('.person');
-  cards.forEach(function (c, i) { c.style.setProperty('--n', i); });
+  // Founders row and the rest each have their own grid; number cards across both.
+  const grids = document.querySelectorAll('.leadership-grid');
+  if (!grids.length) return;
+  document.querySelectorAll('.leadership-grid .person').forEach(function (c, i) { c.style.setProperty('--n', i); });
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  grid.classList.add('stagger');
-  const io = new IntersectionObserver(function (en) {
-    if (en[0].isIntersecting) { grid.classList.add('in'); io.disconnect(); }
-  }, { threshold: 0.15 });
-  io.observe(grid);
+  grids.forEach(function (grid) {
+    grid.classList.add('stagger');
+    const io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { grid.classList.add('in'); io.disconnect(); }
+    }, { threshold: 0.15 });
+    io.observe(grid);
+  });
+})();
+
+// Leadership cards: on touch / small screens a tap opens or closes the bio (one open at a time)
+(function () {
+  const touch = window.matchMedia('(hover: none), (max-width: 767px)');
+  const cards = document.querySelectorAll('.leadership-grid:not(.leadership-founders) .person');
+  cards.forEach(function (card) {
+    card.setAttribute('aria-expanded', 'false');
+    card.addEventListener('click', function () {
+      if (!touch.matches) return;
+      const open = !card.classList.contains('is-open');
+      cards.forEach(function (c) { c.classList.remove('is-open'); c.setAttribute('aria-expanded', 'false'); });
+      card.classList.toggle('is-open', open);
+      card.setAttribute('aria-expanded', String(open));
+    });
+  });
 })();
 
 // Page loader: hide once every file and image has loaded

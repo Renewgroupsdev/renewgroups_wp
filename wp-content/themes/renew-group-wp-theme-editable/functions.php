@@ -667,9 +667,31 @@ function renew_homepage_customizer($wp_customize) {
         ),
     );
 
+    // Extra leader slots (6 and up), revealed by the "Add leader" button.
+    for ($i = 6; $i <= renew_team_max(); $i++) {
+        $fields['team'][] = array("team{$i}_image", "Leader {$i} photo", '', 'image');
+        $fields['team'][] = array("team{$i}_name", "Leader {$i} name", '', 'text');
+        $fields['team'][] = array("team{$i}_role", "Leader {$i} role", '', 'text');
+        $fields['team'][] = array("team{$i}_bio", "Leader {$i} bio", '', 'textarea');
+    }
+
+    // Display order for every leader, placed right after that leader's bio.
+    $team_fields = array();
+    foreach ($fields['team'] as $field) {
+        $team_fields[] = $field;
+        if (preg_match('/^team(\d+)_bio$/', $field[0], $m)) {
+            $team_fields[] = array("team{$m[1]}_order", "Leader {$m[1]} display order", '', 'number');
+        }
+    }
+    $fields['team'] = $team_fields;
+
     foreach ($fields as $section => $controls) {
         foreach ($controls as $field) {
             $key=$field[0]; $label=$field[1]; $default=$field[2]; $type=$field[3];
+            // Leader fields only show for leaders within the current count.
+            $active = preg_match('/^team(\d+)_/', $key, $m)
+                ? function () use ($m) { return (int) $m[1] <= renew_team_count(); }
+                : null;
             // $sanitize = ($type === 'textarea') ? 'sanitize_textarea_field' : (($type === 'image') ? 'absint' : 'sanitize_text_field');
             $sanitize = ($type === 'textarea')
                 ? 'sanitize_textarea_field'
@@ -677,7 +699,9 @@ function renew_homepage_customizer($wp_customize) {
                     ? 'absint'
                     : (($type === 'url')
                         ? 'esc_url_raw'
-                        : 'sanitize_text_field'));
+                        : (($type === 'number')
+                            ? 'absint'
+                            : 'sanitize_text_field')));
             $wp_customize->add_setting('renew_'.$key, array(
                 'default'=>$default,
                 'sanitize_callback'=>$sanitize,
@@ -688,18 +712,100 @@ function renew_homepage_customizer($wp_customize) {
                     'label'=>__($label,'renew-group'),
                     'section'=>'renew_home_'.$section,
                     'mime_type'=>'image',
+                    'active_callback'=>$active,
                 )));
             } else {
                 $wp_customize->add_control('renew_'.$key, array(
                     'label'=>__($label,'renew-group'),
                     'section'=>'renew_home_'.$section,
                     'type'=>$type,
+                    'description'=>($type === 'number') ? __('Lower numbers show first. Leave blank to keep the slot order.', 'renew-group') : '',
+                    'input_attrs'=>($type === 'number') ? array('min' => 1, 'step' => 1) : array(),
+                    'active_callback'=>$active,
                 ));
             }
         }
     }
+
+    // Leadership: Add / Remove leader buttons, stored as the leader count.
+    $wp_customize->add_setting('renew_team_count', array(
+        'default'           => 5,
+        'sanitize_callback' => 'renew_sanitize_team_count',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control(new Renew_Team_Count_Control($wp_customize, 'renew_team_count', array(
+        'label'    => __('Leaders', 'renew-group'),
+        'section'  => 'renew_home_team',
+        'priority' => 100,
+    )));
 }
 add_action('customize_register', 'renew_homepage_customizer');
+
+/**
+ * Leadership cards: how many to show (1 to renew_team_max()).
+ */
+function renew_team_max() {
+    return 12;
+}
+
+function renew_sanitize_team_count($value) {
+    return max(1, min(renew_team_max(), absint($value)));
+}
+
+function renew_team_count() {
+    return renew_sanitize_team_count(get_theme_mod('renew_team_count', 5));
+}
+
+/**
+ * Customizer control: shows the leader count with Add / Remove buttons.
+ */
+function renew_register_team_count_control() {
+    class Renew_Team_Count_Control extends WP_Customize_Control {
+        public $type = 'renew_team_count';
+
+        public function render_content() {
+            ?>
+            <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+            <p class="description renew-team-count-text"></p>
+            <p>
+              <button type="button" class="button button-primary renew-team-add"><?php esc_html_e('+ Add leader', 'renew-group'); ?></button>
+              <button type="button" class="button renew-team-remove"><?php esc_html_e('Remove last leader', 'renew-group'); ?></button>
+            </p>
+            <?php
+        }
+    }
+}
+add_action('customize_register', 'renew_register_team_count_control', 1);
+
+function renew_team_count_controls_script() {
+    $script = <<<'JS'
+wp.customize.control('renew_team_count', function (control) {
+  var max = %d;
+  var box = control.container;
+  var update = function () {
+    var n = parseInt(control.setting.get(), 10) || 1;
+    box.find('.renew-team-count-text').text(n + ' of ' + max + ' leaders shown on the homepage.');
+    box.find('.renew-team-add').prop('disabled', n >= max);
+    box.find('.renew-team-remove').prop('disabled', n <= 1);
+    // Show the fields for leaders 1..n right away (the preview refresh confirms it).
+    wp.customize.control.each(function (c) {
+      var m = c.id.match(/^renew_team(\d+)_/);
+      if (m) { c.active.set(parseInt(m[1], 10) <= n); }
+    });
+  };
+  box.on('click', '.renew-team-add', function () {
+    control.setting.set(Math.min(max, (parseInt(control.setting.get(), 10) || 1) + 1));
+  });
+  box.on('click', '.renew-team-remove', function () {
+    control.setting.set(Math.max(1, (parseInt(control.setting.get(), 10) || 1) - 1));
+  });
+  control.setting.bind(update);
+  update();
+});
+JS;
+    wp_add_inline_script('customize-controls', sprintf($script, renew_team_max()));
+}
+add_action('customize_controls_enqueue_scripts', 'renew_team_count_controls_script');
 /**
  * Renew Group Branding
  *

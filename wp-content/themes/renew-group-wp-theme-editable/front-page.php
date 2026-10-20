@@ -38,7 +38,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
           </div>
         </div>
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
-          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/rgc_homepage-transparent.webp'); ?>
+          <?php $hero_img = renew_mod('hero_image') ? wp_get_attachment_image_url(renew_mod('hero_image'), 'full') : renew_asset('images/banner_v4.png'); ?>
           <div class="hero-visual" style="--hv-img: url('<?php echo esc_url($hero_img); ?>')">
             <img class="hv-img" src="<?php echo esc_url($hero_img); ?>" width="1600" height="893" decoding="async" fetchpriority="high" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
           </div>
@@ -183,8 +183,30 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
         <h2><?php echo esc_html($team_title); ?></h2>
         <p><?php echo esc_html(renew_mod('team_intro')); ?></p>
       </div>
-      <div class="leadership-grid mt-5">
-        <?php for ($i = 1; $i <= 5; $i++):
+      <?php
+        // Leaders sort by their "display order" setting (blank = slot number, ties keep slot order).
+        $team_order = array();
+        for ($i = 1; $i <= renew_team_count(); $i++) {
+          $team_order[$i] = (int) renew_mod("team{$i}_order") ?: $i;
+        }
+        uksort($team_order, function ($a, $b) use ($team_order) {
+          return array($team_order[$a], $a) <=> array($team_order[$b], $b);
+        });
+        // Founders (role mentions "Founder") sit in the first row, everyone else in a second grid.
+        $team_rows = array('founders' => array(), 'others' => array());
+        foreach (array_keys($team_order) as $i) {
+          $team_rows[stripos(renew_mod("team{$i}_role"), 'founder') !== false ? 'founders' : 'others'][] = $i;
+        }
+        $first_row = true;
+        foreach ($team_rows as $row_name => $members):
+          if (!$members) { continue; }
+          // Grid columns follow the card count: up to 5 per row, rows balanced (e.g. 6 = 3 + 3, 7 = 4 + 3).
+          $count = count($members);
+          $cols = (int) ceil($count / ceil($count / 5));
+          $cols_md = min($count, 3);
+      ?>
+      <div class="leadership-grid leadership-<?php echo $row_name; ?> <?php echo $first_row ? 'mt-5' : 'mt-4'; ?>" style="--cols: <?php echo $cols; ?>; --cols-md: <?php echo $cols_md; ?>;">
+        <?php foreach ($members as $i):
           $vacant = $i > 2;
           $team_img = renew_mod("team{$i}_image");
           $portrait_class = $team_img ? '' : ($vacant ? 'empty' : 'ph'); ?>
@@ -195,11 +217,12 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <?php endif; ?>
             </div>
             <h3><?php echo esc_html(renew_mod("team{$i}_name")); ?></h3>
-            <p class="role"><?php echo implode('<br>', array_map('esc_html', array_map('trim', preg_split('/\s*[|&]\s*/', renew_mod("team{$i}_role"))))); ?></p>
+            <p class="role"><?php echo implode('<br>', array_map('esc_html', array_map('trim', preg_split('/\s*\|\s*/', renew_mod("team{$i}_role"))))); ?></p>
             <p class="bio"><?php echo esc_html(renew_mod("team{$i}_bio")); ?></p>
           </article>
-        <?php endfor; ?>
+        <?php endforeach; ?>
       </div>
+      <?php $first_row = false; endforeach; ?>
     </div>
   </section>
 
@@ -240,7 +263,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <?php if ($is_modal): ?>
                   data-bs-toggle="modal"
                   data-partner="<?php echo esc_attr(renew_mod("partner{$i}_brand")); ?>"
-                  data-business="<?php echo esc_attr(array('Renew Plus Hair And Skin Care', 'Zelora Infotech', 'Rivan Institute of Aesthetic Science')[$i - 1]); ?>"
+                  data-business="<?php echo esc_attr(array('Renew Plus Hair And Skin Care', 'Zelora Infotech Private Limited', 'Rivan Institute of Aesthetic Science')[$i - 1]); ?>"
               <?php endif; ?>><?php echo esc_html(renew_mod("partner{$i}_button")); ?>
                 <i class="bi bi-arrow-up-right"></i></a>
             </div>
@@ -297,7 +320,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
             <div class="reach-list">
               <?php $contact_items = array(
                 array('heart-pulse', 'Renew Plus Hair And Skin Care', 'Hair transplant & skin care', 'contact_email1'),
-                array('cpu', 'Zelora Infotech', 'ERP, mobile apps & AI integration', 'contact_email2'),
+                array('cpu', 'Zelora Infotech Private Limited', 'ERP, mobile apps & AI integration', 'contact_email2'),
                 array('magic', 'Rivan Institute of Aesthetic Science', 'Beauty & cosmetology training', 'contact_email3'),
                 array('buildings', 'The New Mars Properties', 'Construction & land promotion', 'contact_email4'),
               );
@@ -325,7 +348,7 @@ $faq_title = renew_mod('faq_title', 'Frequently asked questions');
               <div class="col-md-6"><label>Which business?</label><select class="form-select" name="business" required>
                   <option>Renew Plus Hair And Skin Care</option>
                   <option>The New Mars Properties</option>
-                  <option>Zelora Infotech</option>
+                  <option>Zelora Infotech Private Limited</option>
                   <option>Rivan Institute of Aesthetic Science</option>
                   <option>Group Partnership</option>
                 </select></div>
